@@ -1,10 +1,30 @@
 .profile__name {
     margin: 0;
-    font-family: Inter;
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 22px;
     line-height: 56px;
     /* or 255% */
     text-align: center;
+}
+
+@media screen and (min-width: 620px) {
+    .profile__name {
+        width: 50%;
+        grid-area: title;
+        text-align: start;
+        margin-block: 0;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .profile__name {
+        width: 100%;
+        grid-area: title;
+        text-align: start;
+        min-width: 410px;
+        font-size: 42px;
+        line-height: 56px;
+    }
 }

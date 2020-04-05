@@ -7,3 +7,15 @@
     line-height: 17px;
     text-align: center;
 }
+
+@media screen and (min-width: 620px) {
+    .profile__title {
+        width: 50%;
+        grid-area: subtitle;
+        text-align: start;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .profile__title {}
+}

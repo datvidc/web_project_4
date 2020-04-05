@@ -6,3 +6,14 @@
     text-align: center;
     margin: auto;
 }
+
+@media screen and (min-width: 620px) {
+    .profile__avatar-wrap {
+        margin: 0;
+        grid-area: avatar;
+    }
+}
+
+@media screen and (min-width: 620px) {
+    .profile__avatar-wrap {}
+}

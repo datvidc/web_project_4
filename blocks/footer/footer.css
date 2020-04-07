@@ -1,1 +1,14 @@
 @import url(./__text/footer__text.css);
+.footer {
+    max-width: 882px;
+    margin-left: 19px;
+    margin-right: 19px;
+}
+
+@media screen and (min-width: 882px) {
+    .footer {
+        max-width: 882px;
+        margin-left: 0px;
+        margin-right: 19px;
+    }
+}

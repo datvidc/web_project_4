@@ -1,0 +1,12 @@
+.elements__heart {
+    position: absolute;
+    right: 18.24px;
+    top: 31px;
+    height: 18.13px;
+    width: 20.76px;
+}
+
+.elements__heart:hover {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}

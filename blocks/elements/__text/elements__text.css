@@ -12,8 +12,3 @@
     top: -10px;
     z-index: -1;
 }
-
-.elements__text img {
-    position: relative;
-    left: 120px;
-}

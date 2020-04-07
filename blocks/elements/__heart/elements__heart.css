@@ -4,9 +4,17 @@
     top: 31px;
     height: 18.13px;
     width: 20.76px;
+    pointer-events: auto;
+    z-index: 100;
 }
 
 .elements__heart:hover {
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    background-color: red;
+}
+
+.elements__text:hover .elements__heart {
     border: 1px solid #000000;
     box-sizing: border-box;
 }

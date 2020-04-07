@@ -8,6 +8,15 @@
     align-self: center;
 }
 
+.profile__add:hover {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-sizing: border-box;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: 0.6;
+    /* or filter */
+}
+
 @media screen and (min-width: 620px) {
     .profile__add {
         grid-area: add;

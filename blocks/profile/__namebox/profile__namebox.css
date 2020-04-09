@@ -1,6 +1,6 @@
-    .profile__namebox {
-      grid-area: title;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+.profile__namebox {
+  grid-area: title;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

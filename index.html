@@ -15,8 +15,8 @@
       <img src="./images/plus.svg" alt="Close this popup" class="popup__close">
       <h3 class="popup__heading">Edit profile</h3>
       <form class="popup__edit-form">
-        <input type="text" value="Awesome Name" class="popup__edit" id="profileName" name="ProfileName">
-        <input type="text" value="Awesome Title" class="popup__edit" id="ProfileTitle" name="profileTitle">
+        <input type="text" value="Awesome Name" class="popup__edit" id="popup__name" name="ProfileName">
+        <input type="text" value="Awesome Title" class="popup__edit" id="popup__title" name="profileTitle">
       </form>
       <button class="popup__save"> Save</button>
     </div>
@@ -34,7 +34,11 @@
         <img src="./images/image.png" alt="J. Cousteau- with his iconic red hat" class="profile__avatar">
       </div>
       <div class="profile__text">
-        <p class="profile__name">Jacques Cousteau&nbsp;&nbsp;<img class="profile__edit" src="./images/Edit.svg" alt="Edit Name and title"></p>
+        <div class="profile__namebox">
+          <p class="profile__name">Jacques Cousteau&nbsp;&nbsp;</p>
+          <img class="profile__edit" src="./images/Edit.svg" alt="Edit Name and title">
+
+        </div>
 
         <p class="profile__title">Explorer</p>
       </div>
@@ -74,6 +78,7 @@
   <footer class="footer ">
     <p class="footer__text ">© 2020 Around The U.S.</p>
   </footer>
+  <script src="js.js"></script>
 </body>
 
 </html>

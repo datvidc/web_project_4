@@ -1,0 +1,5 @@
+    .profile__namebox {
+      grid-area: title;
+      display: flex;
+      justify-content: center;
+    }

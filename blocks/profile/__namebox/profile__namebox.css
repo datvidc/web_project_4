@@ -1,6 +1,7 @@
 .profile__namebox {
   grid-area: title;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
+  width: 100%;
 }

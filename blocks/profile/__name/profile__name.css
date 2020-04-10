@@ -21,7 +21,6 @@
 
 @media screen and (min-width: 1024px) {
   .profile__name {
-    width: 100%;
     grid-area: title;
     text-align: start;
     min-width: 410px;

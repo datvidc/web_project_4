@@ -5,3 +5,9 @@
   justify-content: center;
   width: 100%;
 }
+
+@media screen and (min-width: 620px) {
+  .profile__namebox {
+    justify-content: start;
+  }
+}

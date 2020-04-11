@@ -1,12 +1,12 @@
 /* variables: */
 const edit = document.querySelector(".profile__edit");
-let modal = document.querySelector(".popup");
+const modal = document.querySelector(".popup");
 const popClose = document.querySelector(".popup__close");
-let profileName = document.querySelector(".profile__name");
-let profileTitle = document.querySelector(".profile__title");
-let popupTitle = document.querySelector(".popup__title");
-let popupName = document.querySelector(".popup__name");
-let hearts = document.querySelectorAll(".elements__heart");
+const profileName = document.querySelector(".profile__name");
+const profileTitle = document.querySelector(".profile__title");
+const popupTitle = document.querySelector(".popup__title");
+const popupName = document.querySelector(".popup__name");
+const hearts = document.querySelectorAll(".elements__heart");
 
 
 

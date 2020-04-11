@@ -4,9 +4,8 @@
 @import url(./__close/popup__close.css);
 @import url(./__heading/popup__heading.css);
 @import url(./__save/popup__save.css);
+@import url(./_visible/popup_invisible.css);
 .popup {
-  /* visibility: hidden; */
-  display: none;
   height: 550vh;
   width: 100vw;
   max-width: 882px;

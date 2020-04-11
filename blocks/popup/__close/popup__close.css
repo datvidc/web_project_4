@@ -1,12 +1,15 @@
 .popup__close {
-  color: rgb(255, 255, 255);
-  height: 40.7px;
-  width: 40.7px;
-  transform: rotate(45deg);
-  position: relative;
   top: -50px;
-  left: 260px;
-  overflow: hidden;
+  left: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  background-image: url(../../../images/plus.svg);
+  transform: rotate(45deg);
 }
 
 .popup__close:hover {
@@ -16,8 +19,8 @@
 
 @media screen and (min-width: 620px) {
   .popup__close {
-    width: auto;
-    left: 220px;
-    top: -30px;
+    position: relative;
+    top: -40px;
+    left: 400px;
   }
 }

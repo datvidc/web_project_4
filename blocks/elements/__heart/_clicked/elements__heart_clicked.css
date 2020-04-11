@@ -1,5 +1,4 @@
 .elements__heart_clicked {
   background-color: rgba(235, 51, 43, 0.6) !important;
-  color: white !important;
   /* I know important is bad form- but I tried so much...it seems I am importing this class before the actual class so it overwrites it ? or smth. */
 }

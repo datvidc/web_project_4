@@ -25,39 +25,58 @@
       <div class="profile__text">
         <div class="profile__namebox">
           <p class="profile__name">Jacques Cousteau</p>
-          <img class="profile__edit" src="./images/Edit.svg" alt="Edit Name and title">
-
+          <button class="profile__edit"></button>
         </div>
 
         <p class="profile__title">Explorer</p>
       </div>
-      <img class="profile__add" src="./images/plus.svg" alt="click to add">
+      <button class="profile__add"> </button>
+
     </section>
     <section class="elements">
       <ul class="elements__list">
         <li class="elements__element">
           <img class="elements__image" src="./images/Lake-louise.png" alt="Idylic picture of Lake Louise">
-          <p class="elements__text"> Lake Louise <img class="elements__heart" src="./images/heart.svg" alt="Like this picture"></p>
+          <div class="elements__photo-bottom">
+            <p class="elements__text"> Lake Louise </p>
+            <button class="elements__heart">  </button>
+          </div>
         </li>
         <li class="elements__element">
           <img src="./images/yosemite.png" alt="YoseMite Valley from a birds eye perspective- hovering over a lake" class="elements__image">
-          <p class="elements__text "> Yosemite Valley <img class="elements__heart" src="./images/heart.svg" alt="Like this picture"></p>
+          <div class="elements__photo-bottom">
+            <p class="elements__text "> Yosemite Valley </p>
+            <button class="elements__heart">  </button>
+          </div>
         </li>
         <li class="elements__element">
           <img src="./images/pankaj-patel-SCgrYErvpbE-unsplash.png" alt="Moody harbour picture - looking out on the sail boats" class="elements__image">
-          <p class="elements__text "> Islands Brygge <img class="elements__heart" src="./images/heart.svg" alt="Like this picture"> </p>
+          <div class="elements__photo-bottom">
+            <p class="elements__text "> Islands Brygge </p>
+            <button class="elements__heart">  </button>
+          </div>
         </li>
         <li class="elements__element">
           <img src="./images/dan-magatti-HHu2gyoW0B0-unsplash (1).png" alt="Rooftops of Copenhagen- moody- rainy - old but classic" class="elements__image">
-          <p class="elements__text "> Copenhagen <img class="elements__heart" src="./images/heart.svg" alt="Like this picture"> </p>
+          <div class="elements__photo-bottom">
+            <p class="elements__text "> Copenhagen </p>
+            <button class="elements__heart">  </button>
+          </div>
         </li>
         <li class="elements__element">
           <img src="./images/ava-coploff-gwdvXz80J2I-unsplash (1).png" alt="Largest European pedestrian shopping street, and one of the oldest- Strøget shot from birds eye view" class="elements__image">
-          <p class="elements__text "> Strøget <img class="elements__heart" src="./images/heart.svg" alt="Like this picture"> </p>
+          <div class="elements__photo-bottom">
+            <p class="elements__text "> Strøget</p>
+            <button class="elements__heart">  </button>
+          </div>
         </li>
         <li class="elements__element">
           <img src="./images/latemar.png" alt="Beautiful mountain ridge at Latemar" class="elements__image">
-          <p class="elements__text "> latemar <img class="elements__heart" src=" ./images/heart.svg " alt="Like this picture "></p>
+          <div class="elements__photo-bottom">
+            <p class="elements__text "> latemar </p>
+            <button class="elements__heart">  </button>
+          </div>
+
 
         </li>
 
@@ -74,8 +93,9 @@
       <form class="popup__edit-form">
         <input type="text" value="Awesome Name" class="popup__edit popup__name" name="ProfileName">
         <input type="text" value="Awesome Title" class="popup__edit popup__title" name="profileTitle">
+        <button type="submit" class="popup__save"> Save</button>
       </form>
-      <button class="popup__save"> Save</button>
+
     </div>
   </div>
   <script src="js.js"></script>

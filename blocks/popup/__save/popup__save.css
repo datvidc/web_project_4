@@ -1,8 +1,5 @@
 .popup__save {
   font-size: 100%;
-  font-family: inherit;
-  border: 0;
-  padding: 0;
   background-color: black;
   color: white;
   padding: 13.66px 124px 18.49px 125px;
@@ -10,6 +7,13 @@
   margin-right: auto;
   margin-bottom: 36.51px;
   text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  max-width: 358px;
+  width: 100%;
 }
 
 .popup__save:hover {

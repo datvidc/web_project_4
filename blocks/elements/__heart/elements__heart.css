@@ -1,20 +1,19 @@
+@import url(./_clicked/elements__heart_clicked.css);
 .elements__heart {
-    position: absolute;
-    right: 18.24px;
-    top: 31px;
-    height: 18.13px;
-    width: 20.76px;
-    pointer-events: auto;
-    z-index: 100;
+  background-image: url(../../../images/heart.svg);
+  overflow: show;
+  height: 18.13px;
+  width: 20.76px;
+  color: black;
+  background-color: white;
+  border: none;
+  align-self: center;
+  margin: 32px 17.24px 29.87px 10px;
 }
 
 .elements__heart:hover {
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    background-color: red;
-}
-
-.elements__text:hover .elements__heart {
-    border: 1px solid #000000;
-    box-sizing: border-box;
+  /* border: 1px solid #000000; */
+  background-image: url(../../../images/heart.svg);
+  background-color: rgba(251, 99, 76, 0.6);
+  color: white;
 }

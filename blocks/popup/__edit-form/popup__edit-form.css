@@ -1,6 +1,4 @@
 .popup__edit-form {
-  margin-left: auto;
-  margin-right: auto;
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -9,5 +7,8 @@
 }
 
 @media screen and (min-width: 620px) {
-  width: 358px;
+  .popup__edit-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

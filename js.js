@@ -6,19 +6,39 @@ let profileName = document.querySelector(".profile__name");
 let profileTitle = document.querySelector(".profile__title");
 let popupTitle = document.querySelector(".popup__title");
 let popupName = document.querySelector(".popup__name");
-const savebutton = document.querySelector(".popup__save");
+let hearts = document.querySelectorAll(".elements__heart");
+
+
 
 /* Eventlisteners */
 edit.addEventListener("click", popupEdit);
 popClose.addEventListener("click", popupEdit);
-savebutton.addEventListener("click", saveText);
+modal.addEventListener("submit", saveText);
+
+for (const heart of hearts) {
+  console.log(heart);
+  heart.addEventListener("click", heartfelt);
+}
+
+
 
 /* functions */
 
-function saveText() {
+
+
+function heartfelt(event) {
+  /* when heart button is pressed toggle class for style */
+  console.log(event);
+  event.target.classList.toggle("elements__heart_clicked");
+  return;
+}
+
+function saveText(e) {
+  e.preventDefault();
+  popupEdit();
   profileTitle.innerHTML = popupTitle.value;
   profileName.textContent = popupName.value;
-  popupEdit();
+
   return;
 }
 

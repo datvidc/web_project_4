@@ -19,7 +19,7 @@
 
 @media screen and (min-width: 620px) {
   .popup__close {
-    position: relative;
+    position: inherit;
     top: -40px;
     left: 400px;
   }

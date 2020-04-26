@@ -1,3 +1,43 @@
+/* starting cards */
+const initialCards = [{
+    name: "Lake Louise",
+    link: "./images/Lake-louise.png",
+    alt: "Idylic picture of Lake Louise"
+  },
+  {
+    name: "Yosemite Valley",
+    link: "./images/yosemite.png",
+    alt: "YoseMite Valley from a birds eye perspective- hovering over a lake"
+  },
+  {
+    name: "Islands Brygge",
+    link: "./images/pankaj-patel-SCgrYErvpbE-unsplash.png",
+    alt: "Moody harbour picture - looking out on the sail boats"
+  },
+  {
+    name: "Latemar",
+    link: "./images/latemar.png",
+    alt: "Latemar nature pic- nature Picture"
+  },
+  {
+    name: "Strøget",
+    link: "./images/ava-coploff-gwdvXz80J2I-unsplash (1).png",
+    alt: "Largest European pedestrian shopping street, and one of the oldest- Strøget shot from birds eye view"
+  },
+  {
+    name: "Copenhagen",
+    link: "./images/dan-magatti-HHu2gyoW0B0-unsplash (1).png",
+    alt: "Rooftops of Copenhagen- moody- rainy - old but classic"
+  }
+];
+
+initialCards.forEach((card) => {
+  addElem(card.link, card.name, card.alt);
+
+});
+
+
+
 /* variables: */
 const edit = document.querySelector(".profile__edit");
 const modal = document.querySelector(".popup");
@@ -23,7 +63,17 @@ for (const heart of hearts) {
 
 
 /* functions */
+function addElem(imgUrl, placeName, altText) {
+  const cloneElem = document.querySelector("#element__elem").content;
+  const elementList = document.querySelector(".elements__list");
 
+  const elem2Add = cloneElem.cloneNode(true);
+  elem2Add.querySelector(".elements__image").src = imgUrl;
+  elem2Add.querySelector(".elements__image").alt = altText;
+  elem2Add.querySelector(".elements__text").textContent = placeName;
+
+  elementList.append(elem2Add);
+}
 
 
 function heartfelt(event) {
@@ -33,8 +83,8 @@ function heartfelt(event) {
   return;
 }
 
-function saveText(e) {
-  e.preventDefault();
+function saveText(event) {
+  event.preventDefault();
   popupEdit();
   profileTitle.innerHTML = popupTitle.value;
   profileName.textContent = popupName.value;
@@ -43,7 +93,6 @@ function saveText(e) {
 }
 
 function popupEdit() {
-
   if (modal.classList.contains("popup_invisible")) {
     modal.classList.toggle("popup_invisible");
     popupTitle.value = profileTitle.innerText;

@@ -4,6 +4,10 @@ TODO:
 part 1:
 Updating the design with the new design brief.
 
+# Hearts changing
+# TrashCan
+
+
 
 1. Six Initial Cards
 

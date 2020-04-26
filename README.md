@@ -1,25 +1,36 @@
-Project 5:
+# Project 5: Around The U.S.
 
-TODO:
-part 1:
-Updating the design with the new design brief.
+    Fea/part1
 
-# Hearts changing
-# TrashCan
+    #Done
+    Hearts changing
+    4. The "Like" Button
+    1. Six Initial Cards
+
+
+    TODO:
+    part 1:
+    # TrashCan
+    
+    Updating the design with the new design brief.
 
 
 
-1. Six Initial Cards
+
+
+
+
+
+
+
 
 2. Form for Adding a Card
 
-
 3. Adding a Card
 
-4. The "Like" Button
+
 
 5. Deleting a Card
-
 
 6. Opening the Picture Popup
 

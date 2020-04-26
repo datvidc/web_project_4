@@ -1,3 +1,29 @@
+Project 5:
+
+TODO:
+part 1:
+Updating the design with the new design brief.
+
+
+1. Six Initial Cards
+
+2. Form for Adding a Card
+
+
+3. Adding a Card
+
+4. The "Like" Button
+
+5. Deleting a Card
+
+
+6. Opening the Picture Popup
+
+7. Smooth Popup Opening and Closing
+
+
+
+
 # Project 4: Around The U.S.
 
 Link to live site: https://datvidc.github.io/web_project_4/
@@ -13,7 +39,7 @@ Link to live site: https://datvidc.github.io/web_project_4/
 
 **Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
 
 Have fun with JavaScript!
 

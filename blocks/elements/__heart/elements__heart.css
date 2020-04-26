@@ -12,8 +12,6 @@
 }
 
 .elements__heart:hover {
-  /* border: 1px solid #000000; */
-  background-image: url(../../../images/heart.svg);
-  background-color: rgba(251, 99, 76, 0.6);
-  color: white;
+  opacity: 0.3;
+  cursor: pointer;
 }

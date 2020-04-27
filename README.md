@@ -1,40 +1,30 @@
 # Project 5: Around The U.S.
 
+
+
+branch: fea/part2:
+
+todo:
+
+2. Form for Adding a Card
+3. Adding a Card
+
+
+6. Opening the Picture Popup
+
+7. Smooth Popup Opening and Closing
+
+
+Structure:
     Fea/part1
 
     #Done
     Hearts changing
     4. The "Like" Button
     1. Six Initial Cards
+    TrashCan
+      5. Deleting a Card
 
-
-    TODO:
-    part 1:
-    # TrashCan
-    
-    Updating the design with the new design brief.
-
-
-
-
-
-
-
-
-
-
-
-2. Form for Adding a Card
-
-3. Adding a Card
-
-
-
-5. Deleting a Card
-
-6. Opening the Picture Popup
-
-7. Smooth Popup Opening and Closing
 
 
 

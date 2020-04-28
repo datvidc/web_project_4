@@ -1,7 +1,6 @@
 @import url(./_clicked/elements__heart_clicked.css);
 .elements__heart {
   background-image: url(../../../images/heart.svg);
-  overflow: show;
   height: 18.13px;
   width: 20.76px;
   color: black;

@@ -41,7 +41,7 @@ initialCards.forEach((card) => {
 
 /* variables: */
 const edit = document.querySelector(".profile__edit");
-const modal = document.querySelector(".popup");
+const modal = document.querySelector(".popup__changetext");
 const popClose = document.querySelector(".popup__close");
 const profileName = document.querySelector(".profile__name");
 const profileTitle = document.querySelector(".profile__title");
@@ -49,14 +49,16 @@ const popupTitle = document.querySelector(".popup__title");
 const popupName = document.querySelector(".popup__name");
 const hearts = document.querySelectorAll(".elements__heart");
 const trashCan = document.querySelectorAll(".elements__trash");
-
+const addcardbtn = document.querySelector("popup__addcard");
+const addcardplace = document.querySelector("popup__place");
+const addcardurl = document.querySelector("popup__url");
 
 
 /* Eventlisteners */
 edit.addEventListener("click", popupEdit);
 popClose.addEventListener("click", popupEdit);
 modal.addEventListener("submit", saveText);
-
+addcardbtn.addEventListener("submit", addcard);
 
 for (const heart of hearts) {
   /*  console.log(heart); */
@@ -80,6 +82,10 @@ function addElem(imgUrl, placeName, altText) {
   elem2Add.querySelector(".elements__text").textContent = placeName;
 
   elementList.append(elem2Add);
+}
+
+function addcard(event) {
+  if (addcard.)
 }
 
 function trashIt(event) {

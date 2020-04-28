@@ -5,6 +5,8 @@
 @import url(./__heading/popup__heading.css);
 @import url(./__save/popup__save.css);
 @import url(./_visible/popup_invisible.css);
+@import url(./__addcard/popup__addcard.css);
+@import url(./__changetext/popup__changetext.css);
 .popup {
   height: 550vh;
   width: 100vw;

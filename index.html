@@ -43,6 +43,7 @@
   <footer class="footer ">
     <p class="footer__copyright ">© 2020 Around The U.S.</p>
   </footer>
+
   <div class="popup popup_invisible popup__changetext">
     <div class="popup__container">
       <button type="submit" class="popup__close"> </button>
@@ -53,22 +54,20 @@
         <button type="submit" class="popup__save"> Save</button>
       </form>
     </div>
+  </div>
+  <div class="popup_invisible popup popup__addcard">
+    <div class="popup__container popup__container_addcard">
+      <button type="submit" class="popup__close popup__close_addcard"> </button>
+      <h3 class="popup__heading">New place</h3>
+      <form class="popup__edit-form">
+        <input type="text" value="Title" class="popup__edit popup__place" name="placename">
+        <input type="text" value="Image link" class="popup__edit popup__url" name="popupurl">
+        <button type="submit" class="popup__save popup__save_addcard"> Create</button>
+      </form>
+    </div>
+  </div>
 
-    <div class="popup popup_invisible popup__addcard">
-      <div class="popup__container">
-        <button type="submit" class="popup__close"> </button>
-        <h3 class="popup__heading">New place</h3>
-        <form class="popup__edit-form">
-          <input type="text" value="Title" class="popup__edit popup__place" name="placename">
-          <input type="text" value="Awesome Title" class="popup__edit popup__url" name="popupurl">
-          <button type="submit" class="popup__save"> Save</button>
-        </form>
-
-
-
-      </div>
-
-      <template id="element__elem">
+  <template id="element__elem">
     <li class="elements__element">
       <button class="elements__trash"></button>
       <img class="elements__image" src="" alt="">
@@ -78,7 +77,7 @@
       </div>
     </li>
   </template>
-      <script src="js.js"></script>
+  <script src="js.js"></script>
 </body>
 
 </html>

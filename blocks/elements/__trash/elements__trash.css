@@ -1,7 +1,7 @@
 .elements__trash {
-  background-image: url(../../../images/trash.svg);
+  background-image: url(../../../images/trashcan.svg);
   padding: 0;
-  background-color: rgba(F, F, F, 0.30);
+  background-color: rgba(255, 255, 255, 0.0);
   border: none;
   width: 18px;
   height: 20px;

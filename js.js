@@ -1,4 +1,7 @@
+/* STARTUP CODE */
+
 /* starting cards */
+
 const initialCards = [{
     name: "Lake Louise",
     link: "./images/Lake-louise.png",
@@ -31,6 +34,7 @@ const initialCards = [{
   }
 ];
 
+/* Setting up the first 6 cards - although array can be longer */
 initialCards.forEach((card) => {
   addElem(card.link, card.name, card.alt);
 
@@ -38,7 +42,7 @@ initialCards.forEach((card) => {
 });
 
 
-
+/* GENERAL STUFF */
 /* variables: */
 const edit = document.querySelector(".profile__edit");
 const modal = document.querySelector(".popup__changetext");
@@ -49,16 +53,27 @@ const popupTitle = document.querySelector(".popup__title");
 const popupName = document.querySelector(".popup__name");
 const hearts = document.querySelectorAll(".elements__heart");
 const trashCan = document.querySelectorAll(".elements__trash");
-const addcardbtn = document.querySelector("popup__addcard");
-const addcardplace = document.querySelector("popup__place");
-const addcardurl = document.querySelector("popup__url");
+const addcardbtn = document.querySelector(".popup__addcard");
+const addcardplace = document.querySelector(".popup__place");
+const addcardurl = document.querySelector(".popup__url");
+const btnaddcard = document.querySelector(".profile__add");
+const closeaddcard = document.querySelector(".popup__close_addcard");
+const saveaddcard = document.querySelector(".popup__addcard");
+const popupurl = document.querySelector(".popup__url");
+const placename = document.querySelector(".popup__place");
+
 
 
 /* Eventlisteners */
+/* edit name- 1button- 2close 3submit on wholeform */
 edit.addEventListener("click", popupEdit);
 popClose.addEventListener("click", popupEdit);
 modal.addEventListener("submit", saveText);
-addcardbtn.addEventListener("submit", addcard);
+
+/* add card- 1button- 2close 3submit on wholeform */
+btnaddcard.addEventListener("click", addcardtoggle);
+closeaddcard.addEventListener("click", addcardtoggle);
+saveaddcard.addEventListener("submit", addcard);
 
 for (const heart of hearts) {
   /*  console.log(heart); */
@@ -67,7 +82,6 @@ for (const heart of hearts) {
 
 for (const trash of trashCan) {
   trash.addEventListener("click", trashIt);
-
 }
 
 
@@ -84,8 +98,23 @@ function addElem(imgUrl, placeName, altText) {
   elementList.append(elem2Add);
 }
 
-function addcard(event) {
-  if (addcard.)
+function addcard() {
+  event.preventDefault();
+  addcardtoggle();
+  console.log("Addcard fired");
+  /*const cardurl = popupurl.innerText;
+   const cardtitle = placename.innerText;
+   const alt = "image of " + cardtitle;
+   console.log(cardurl);
+   console.log(cardtitle);
+   console.log(alt);
+   /* addElem(cardurl, cardtitle, alt); */
+  return;
+}
+
+function addcardtoggle() {
+  addcardbtn.classList.toggle("popup_invisible");
+
 }
 
 function trashIt(event) {

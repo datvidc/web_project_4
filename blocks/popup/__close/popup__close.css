@@ -1,3 +1,4 @@
+@import url(./_addcard/popup__close_addcard.css);
 .popup__close {
   top: -50px;
   left: 250px;

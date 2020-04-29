@@ -37,8 +37,6 @@ const initialCards = [{
 /* Setting up the first 6 cards - although array can be longer */
 initialCards.forEach((card) => {
   addElem(card.link, card.name, card.alt);
-
-
 });
 
 
@@ -61,6 +59,8 @@ const closeaddcard = document.querySelector(".popup__close_addcard");
 const saveaddcard = document.querySelector(".popup__addcard");
 const popupurl = document.querySelector(".popup__url");
 const placename = document.querySelector(".popup__place");
+const pics = document.querySelectorAll(".elements__image");
+
 
 
 
@@ -75,6 +75,13 @@ modal.addEventListener("submit", saveText);
 btnaddcard.addEventListener("click", addcardtoggle);
 closeaddcard.addEventListener("click", addcardtoggle);
 saveaddcard.addEventListener("submit", addcard);
+
+for (pic of pics) {
+  pic.addEventListener("click", function(evt) {
+    console.log(evt.target.src);
+  })
+}
+
 
 /* functions */
 function addElem(imgUrl, placeName, altText) {

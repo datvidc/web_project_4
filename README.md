@@ -1,18 +1,7 @@
 # Project 5: Around The U.S.
-
-
-
-branch: fea/part2:
-
-todo:
-
-2. Form for Adding a Card
-3. Adding a Card
-
-
 6. Opening the Picture Popup
-
 7. Smooth Popup Opening and Closing
+
 
 
 Structure:
@@ -25,6 +14,14 @@ Structure:
     TrashCan
       5. Deleting a Card
 
+branch: fea/part2:
+
+
+    todo:
+
+    done:
+    2. Form for Adding a Card
+    3. Adding a Card
 
 
 

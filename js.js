@@ -65,6 +65,7 @@ const placename = document.querySelector(".popup__place");
 
 
 /* Eventlisteners */
+
 /* edit name- 1button- 2close 3submit on wholeform */
 edit.addEventListener("click", popupEdit);
 popClose.addEventListener("click", popupEdit);
@@ -74,16 +75,6 @@ modal.addEventListener("submit", saveText);
 btnaddcard.addEventListener("click", addcardtoggle);
 closeaddcard.addEventListener("click", addcardtoggle);
 saveaddcard.addEventListener("submit", addcard);
-
-for (const heart of hearts) {
-  /*  console.log(heart); */
-  heart.addEventListener("click", heartfelt);
-}
-
-for (const trash of trashCan) {
-  trash.addEventListener("click", trashIt);
-}
-
 
 /* functions */
 function addElem(imgUrl, placeName, altText) {
@@ -96,19 +87,29 @@ function addElem(imgUrl, placeName, altText) {
   elem2Add.querySelector(".elements__text").textContent = placeName;
 
   elementList.append(elem2Add);
+  /* add heart listeners */
+  const hearts = document.querySelectorAll(".elements__heart");
+  for (const heart of hearts) {
+    /*  console.log(heart); */
+    heart.addEventListener("click", heartfelt);
+  }
+  /* add trash listeners */
+  const trashCan = document.querySelectorAll(".elements__trash");
+  for (const trash of trashCan) {
+    trash.addEventListener("click", trashIt);
+  }
+
 }
 
 function addcard() {
   event.preventDefault();
   addcardtoggle();
   console.log("Addcard fired");
-  /*const cardurl = popupurl.innerText;
-   const cardtitle = placename.innerText;
-   const alt = "image of " + cardtitle;
-   console.log(cardurl);
-   console.log(cardtitle);
-   console.log(alt);
-   /* addElem(cardurl, cardtitle, alt); */
+  const cardurl = popupurl.value;
+  const cardtitle = placename.value;
+  const alt = "image of " + cardtitle;
+  addElem(cardurl, cardtitle, alt);
+  addFormClear()
   return;
 }
 
@@ -151,4 +152,10 @@ function popupEdit() {
 
     return;
   }
+}
+
+// Clear form after submit
+function addFormClear() {
+  popupurl.value = "Image link";
+  placename.value = "Title";
 }

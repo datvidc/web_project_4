@@ -1,7 +1,10 @@
 # Project 5: Around The U.S.
-6. Opening the Picture Popup
-7. Smooth Popup Opening and Closing
 
+
+
+7. Smooth Popup Opening and Closing
+Last time I used transition: all .3s;
+    transition: all .5s .2s;
 
 
 Structure:
@@ -23,7 +26,13 @@ branch: fea/part2:
     2. Form for Adding a Card
     3. Adding a Card
 
+      fea/part3
 
+      6. Opening the Picture Popup
+        create the popup
+        make the event listener for all pictures
+        get url on click
+        overwrite the url of the popup with the url from the click
 
 
 # Project 4: Around The U.S.

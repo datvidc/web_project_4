@@ -1,7 +1,33 @@
-/* STARTUP CODE */
+/* ###############################################################
+                variables:
+############################################################### */
+const edit = document.querySelector(".profile__edit");
+const modal = document.querySelector(".popup__changetext");
+const popClose = document.querySelector(".popup__close");
+const profileName = document.querySelector(".profile__name");
+const profileTitle = document.querySelector(".profile__title");
+const popupTitle = document.querySelector(".popup__title");
+const popupName = document.querySelector(".popup__name");
+const hearts = document.querySelectorAll(".elements__heart");
+const trashCan = document.querySelectorAll(".elements__trash");
+const addcardbtn = document.querySelector(".popup__addcard");
+const addcardplace = document.querySelector(".popup__place");
+const addcardurl = document.querySelector(".popup__url");
+const btnaddcard = document.querySelector(".profile__add");
+const closeaddcard = document.querySelector(".popup__close_addcard");
+const saveaddcard = document.querySelector(".popup__addcard");
+const popupurl = document.querySelector(".popup__url");
+const placename = document.querySelector(".popup__place");
+const pics = document.querySelectorAll(".elements__image");
+const imgpop = document.querySelector(".popup__img");
+const pictpop = document.querySelector(".popup__image");
+const closeimg = document.querySelector(".popup__closeimg");
+
+/* ############################################################
+STARTUP CODE
+############################################################### */
 
 /* starting cards */
-
 const initialCards = [{
     name: "Lake Louise",
     link: "./images/Lake-louise.png",
@@ -34,37 +60,10 @@ const initialCards = [{
   }
 ];
 
-/* Setting up the first 6 cards - although array can be longer */
-initialCards.forEach((card) => {
-  addElem(card.link, card.name, card.alt);
-});
+/* ###################################################################################
+                    Eventlisteners
+################################################################################ */
 
-
-/* GENERAL STUFF */
-/* variables: */
-const edit = document.querySelector(".profile__edit");
-const modal = document.querySelector(".popup__changetext");
-const popClose = document.querySelector(".popup__close");
-const profileName = document.querySelector(".profile__name");
-const profileTitle = document.querySelector(".profile__title");
-const popupTitle = document.querySelector(".popup__title");
-const popupName = document.querySelector(".popup__name");
-const hearts = document.querySelectorAll(".elements__heart");
-const trashCan = document.querySelectorAll(".elements__trash");
-const addcardbtn = document.querySelector(".popup__addcard");
-const addcardplace = document.querySelector(".popup__place");
-const addcardurl = document.querySelector(".popup__url");
-const btnaddcard = document.querySelector(".profile__add");
-const closeaddcard = document.querySelector(".popup__close_addcard");
-const saveaddcard = document.querySelector(".popup__addcard");
-const popupurl = document.querySelector(".popup__url");
-const placename = document.querySelector(".popup__place");
-const pics = document.querySelectorAll(".elements__image");
-
-
-
-
-/* Eventlisteners */
 
 /* edit name- 1button- 2close 3submit on wholeform */
 edit.addEventListener("click", popupEdit);
@@ -76,36 +75,57 @@ btnaddcard.addEventListener("click", addcardtoggle);
 closeaddcard.addEventListener("click", addcardtoggle);
 saveaddcard.addEventListener("submit", addcard);
 
-for (pic of pics) {
-  pic.addEventListener("click", function(evt) {
-    console.log(evt.target.src);
-  })
+/* closebutton on imgpop */
+closeimg.addEventListener("click", imgpopup);
+
+/* ###################################################
+              functions
+####################################################### */
+
+/* toogles invisibility in image popup */
+function imgpopup() {
+  imgpop.classList.toggle("popup_invisible");
+}
+/* image popup controls image url */
+function imagepop(evt) {
+  imgpopup();
+  console.log(evt);
 }
 
+/* Setting up the first 6 cards - although array can be longer */
+initialCards.forEach((card) => {
+  addnewcard(card);
+});
 
-/* functions */
-function addElem(imgUrl, placeName, altText) {
-  const cloneElem = document.querySelector("#element__elem").content;
+function addnewcard(card) {
   const elementList = document.querySelector(".elements__list");
+  const cloneElem = document.querySelector(".element__elem").content.querySelector(".elements__element");
+  const cardclone = cloneElem.cloneNode(true);
 
-  const elem2Add = cloneElem.cloneNode(true);
-  elem2Add.querySelector(".elements__image").src = imgUrl;
-  elem2Add.querySelector(".elements__image").alt = altText;
-  elem2Add.querySelector(".elements__text").textContent = placeName;
+  /* All elements from the card */
+  cardclone.querySelector(".elements__text").textContent = card.name;
+  cardclone.querySelector(".elements__image").src = card.link;
+  cardclone.querySelector(".elements__image").alt = card.alt;
 
-  elementList.append(elem2Add);
-  /* add heart listeners */
-  const hearts = document.querySelectorAll(".elements__heart");
-  for (const heart of hearts) {
-    /*  console.log(heart); */
-    heart.addEventListener("click", heartfelt);
-  }
-  /* add trash listeners */
-  const trashCan = document.querySelectorAll(".elements__trash");
-  for (const trash of trashCan) {
-    trash.addEventListener("click", trashIt);
-  }
+  elementList.append(cardclone);
+  addcardlisteners(elementList.lastElementChild);
+}
 
+/* Setting up all event listeners for cards */
+function addcardlisteners(node) {
+  const elementspic = node.querySelector(".elements__image");
+  const cardheart = node.querySelector(".elements__heart");
+  const cardtrash = node.querySelector(".elements__trash");
+
+  cardtrash.addEventListener("click", trashIt);
+  cardheart.addEventListener("click", heartfelt);
+  elementspic.addEventListener("click", picpop);
+}
+
+/* Event for click on picture */
+function picpop(event) {
+  pictpop.src = event.target.src;
+  imgpopup();
 }
 
 function addcard() {
@@ -115,14 +135,17 @@ function addcard() {
   const cardurl = popupurl.value;
   const cardtitle = placename.value;
   const alt = "image of " + cardtitle;
-  addElem(cardurl, cardtitle, alt);
+  const card = [{}];
+  card.name = cardtitle;
+  card.link = cardurl;
+  card.alt = alt;
+  addnewcard(card);
   addFormClear()
   return;
 }
 
 function addcardtoggle() {
   addcardbtn.classList.toggle("popup_invisible");
-
 }
 
 function trashIt(event) {
@@ -134,7 +157,6 @@ function trashIt(event) {
 
 function heartfelt(event) {
   /* when heart button is pressed toggle class for style */
-  console.log(event);
   event.target.classList.toggle("elements__heart_clicked");
   return;
 }

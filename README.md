@@ -1,10 +1,24 @@
 # Project 5: Around The U.S.
 
+branch: fea/Part4
 
+# submit card on enter
 
-7. Smooth Popup Opening and Closing
+DONE:
+ - image modal close is hidden -
+- image modal - maybe more space
+ - image modal place name
+# 7. Smooth Popup Opening and Closing
 Last time I used transition: all .3s;
     transition: all .5s .2s;
+# Fix mobile view - 300px not 375 as last time:
+
+
+
+
+#
+
+
 
 
 Structure:

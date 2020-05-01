@@ -22,7 +22,7 @@ const pics = document.querySelectorAll(".elements__image");
 const imgpop = document.querySelector(".popup__img");
 const pictpop = document.querySelector(".popup__image");
 const closeimg = document.querySelector(".popup__closeimg");
-
+const imgtext = document.querySelector(".popup__imgtext");
 /* ############################################################
 STARTUP CODE
 ############################################################### */
@@ -78,6 +78,14 @@ saveaddcard.addEventListener("submit", addcard);
 /* closebutton on imgpop */
 closeimg.addEventListener("click", imgpopup);
 
+/* listen for enterkey on imagepopup enterKey is apparently no 13 (I used inspect, but google seems to agree
+  ? it works anyway.  */
+addcardbtn.addEventListener("keypress", function(evt) {
+  if (evt.keyCode === 13) {
+    addcard();
+  }
+})
+
 /* ###################################################
               functions
 ####################################################### */
@@ -125,6 +133,10 @@ function addcardlisteners(node) {
 /* Event for click on picture */
 function picpop(event) {
   pictpop.src = event.target.src;
+  pictpop.alt = event.target.alt;
+  const pictxt = event.target.nextElementSibling;
+  const text = pictxt.querySelector(".elements__text").textContent;
+  imgtext.textContent = text;
   imgpopup();
 }
 

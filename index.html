@@ -44,7 +44,7 @@
     <p class="footer__copyright ">© 2020 Around The U.S.</p>
   </footer>
 
-  <div class="popup_invisible popup popup__changetext">
+  <div class=" popup popup__changetext popup_invisible">
     <div class="popup__container">
       <button type="submit" class="popup__close"> </button>
       <h3 class="popup__heading">Edit profile</h3>
@@ -56,20 +56,20 @@
     </div>
   </div>
 
-  <div class="popup_invisible popup popup__addcard">
+  <div class=" popup popup__addcard popup_invisible">
     <div class="popup__container popup__container_addcard">
       <button type="submit" class="popup__close popup__close_addcard"> </button>
       <h3 class="popup__heading">New place</h3>
       <form class="popup__edit-form">
-        <input type="text" value="Title" class="popup__edit popup__place" name="placename">
-        <input type="text" value="Image link" class="popup__edit popup__url" name="popupurl">
+        <input type="text" placeholder="Title" class="popup__edit popup__place" name="placename" required>
+        <input type="text" placeholder="Image link" class="popup__edit popup__url" name="popupurl" required>
         <button type="submit" class="popup__save popup__save_addcard"> Create</button>
       </form>
     </div>
   </div>
 
-  <div class="popup_invisible popup popup__img">
-    <div class="popup__card">
+  <div class=" popup popup__img popup_invisible">
+    <div class="popup__card popup_image">
       <button type="submit" class="popup__close popup__closeimg"> </button>
       <img src="https://pictures.s3.yandex.net/frontend-developer/functions/dog-1.jpg" alt=" " class="popup__image">
       <p class="popup__imgtext">PlaceName </p>

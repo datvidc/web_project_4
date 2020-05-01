@@ -12,6 +12,7 @@
 @import url(./__image/popup__image.css);
 @import url(./__closeimg/popup__closeimg.css);
 @import url(./__card/popup__card.css);
+@import url(./_image/popup_image.css);
 .popup {
   height: 550vh;
   width: 100vw;
@@ -20,6 +21,7 @@
   position: absolute;
   z-index: 1000;
   top: 0px;
+  transition: all .3s;
 }
 
 @media screen and (min-width: 620px) {

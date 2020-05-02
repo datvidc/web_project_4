@@ -22,8 +22,11 @@
   .profile__name {
     grid-area: title;
     text-align: start;
-    min-width: 380px;
     font-size: 42px;
     line-height: 56px;
+    max-width: 400px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 }

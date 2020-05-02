@@ -20,3 +20,17 @@
   background: rgba(0, 0, 0, 0.8);
   border-radius: 2px;
 }
+
+@media screen and (max-width: 600px) {
+  .popup__save {
+    width: 220px;
+    box-sizing: border-box;
+    padding: 12px 48px 14px 48px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+  }
+}

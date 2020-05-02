@@ -1,7 +1,7 @@
 @import url(./_addcard/popup__close_addcard.css);
 .popup__close {
   top: -50px;
-  left: 250px;
+  left: 220px;
   background-repeat: no-repeat;
   background-size: cover;
   width: 40px;

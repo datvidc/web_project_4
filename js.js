@@ -176,7 +176,7 @@ function heartfelt(event) {
 function saveText(event) {
   event.preventDefault();
   popupEdit();
-  profileTitle.innerHTML = popupTitle.value;
+  profileTitle.textContent = popupTitle.value;
   profileName.textContent = popupName.value;
 
   return;

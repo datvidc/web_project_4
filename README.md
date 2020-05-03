@@ -10,20 +10,6 @@ change name and title
 like images
 delete images.
 
-TODO:
-move cardText to addNewCard function
-move addFormClear()  function code inside addNewCard function.
-inter.css clean up - kill all fonts not used in project. no need to import them.
-ALL @import URL('') rewrite with single quotes -
-handle long text on 320 layouts:
-  image text
-  profile__name.
-
-
-
-
-
-
 # Project 4: Around The U.S.
 
 

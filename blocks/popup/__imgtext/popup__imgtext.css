@@ -8,4 +8,8 @@
   line-height: 15px;
   text-align: start;
   margin-top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 250px;
+  text-overflow: ellipsis;
 }

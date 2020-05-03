@@ -75,7 +75,9 @@ modal.addEventListener("submit", function(event) {
 /* add card- 1button- 2close 3submit on wholeform */
 btnAddCard.addEventListener("click", addcardtoggle);
 closeAddCard.addEventListener("click", addcardtoggle);
-saveaddcard.addEventListener("submit", addCard);
+saveaddcard.addEventListener("submit", function(event) {
+  addCard(event);
+});
 
 /* closebutton on imgpop */
 closeimg.addEventListener("click", imgpopup);
@@ -85,14 +87,12 @@ closeimg.addEventListener("click", imgpopup);
               functions
 ####################################################### */
 
-/* toogles invisibility in image popup */
+/* toogles invisibility in image popup -  */
 function imgpopup() {
   imgpop.classList.toggle("popup_visible");
 }
-/* image popup controls image url */
-function imagepop(evt) {
-  imgpopup();
-}
+/* This one was unused, I have deleted. the top one is used.*/
+
 
 /* Setting up the first 6 cards - although array can be longer */
 initialCards.forEach((card) => {
@@ -110,19 +110,19 @@ function addNewCard(name, link, alt) {
   cardclone.querySelector(".elements__image").alt = alt;
 
   elementList.append(cardclone);
-  addcardlisteners(elementList.lastElementChild);
-}
 
-/* Setting up all event listeners for cards */
-function addcardlisteners(node) {
-  const elementspic = node.querySelector(".elements__image");
-  const cardheart = node.querySelector(".elements__heart");
-  const cardtrash = node.querySelector(".elements__trash");
+  /* Setting up all event listeners for cards */
+  const elementspic = cardclone.querySelector(".elements__image");
+  const cardheart = cardclone.querySelector(".elements__heart");
+  const cardtrash = cardclone.querySelector(".elements__trash");
 
   cardtrash.addEventListener("click", trashIt);
   cardheart.addEventListener("click", heartfelt);
   elementspic.addEventListener("click", picpop);
+
 }
+
+
 
 /* Event for click on picture */
 function picpop(event) {
@@ -141,7 +141,8 @@ function addCard() {
 
   const cardText = `Image of ${placename.value}`;
   addNewCard(placename.value, popupurl.value, cardText);
-  addFormClear()
+  // Clear form after submit
+  popEditForm.reset();
 
 }
 
@@ -181,9 +182,4 @@ function popupEdit() {
     popupTitle.value = profileTitle.innerText;
     popupName.value = profileName.innerText;
   }
-}
-
-// Clear form after submit
-function addFormClear() {
-  popEditForm.reset()
 }

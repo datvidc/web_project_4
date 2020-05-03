@@ -1,4 +1,5 @@
-.popup_invisible {
-  visibility: hidden;
-  display: none;
+.page .popup_visible {
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s ease-in-out;
 }

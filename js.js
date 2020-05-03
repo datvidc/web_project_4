@@ -8,17 +8,17 @@ const profileName = document.querySelector(".profile__name");
 const profileTitle = document.querySelector(".profile__title");
 const popupTitle = document.querySelector(".popup__title");
 const popupName = document.querySelector(".popup__name");
-const hearts = document.querySelectorAll(".elements__heart");
-const trashCan = document.querySelectorAll(".elements__trash");
-const addcardbtn = document.querySelector(".popup__addcard");
-const addcardplace = document.querySelector(".popup__place");
-const addcardurl = document.querySelector(".popup__url");
-const btnaddcard = document.querySelector(".profile__add");
-const closeaddcard = document.querySelector(".popup__close_addcard");
+
+
+const addCardBtn = document.querySelector(".popup__addcard");
+
+
+const btnAddCard = document.querySelector(".profile__add");
+const closeAddCard = document.querySelector(".popup__close_addcard");
 const saveaddcard = document.querySelector(".popup__addcard");
 const popupurl = document.querySelector(".popup__url");
 const placename = document.querySelector(".popup__place");
-const pics = document.querySelectorAll(".elements__image");
+const popEditForm = document.querySelector(".popup__edit-form_add");
 const imgpop = document.querySelector(".popup__img");
 const pictpop = document.querySelector(".popup__image");
 const closeimg = document.querySelector(".popup__closeimg");
@@ -40,7 +40,7 @@ const initialCards = [{
   },
   {
     name: "Islands Brygge",
-    link: "./images/pankaj-patel-SCgrYErvpbE-unsplash.png",
+    link: "./images/islandsBrygge.png",
     alt: "Moody harbour picture - looking out on the sail boats"
   },
   {
@@ -50,12 +50,12 @@ const initialCards = [{
   },
   {
     name: "Strøget",
-    link: "./images/ava-coploff-gwdvXz80J2I-unsplash (1).png",
+    link: "./images/stroeget.png",
     alt: "Largest European pedestrian shopping street, and one of the oldest- Strøget shot from birds eye view"
   },
   {
     name: "Copenhagen",
-    link: "./images/dan-magatti-HHu2gyoW0B0-unsplash (1).png",
+    link: "./images/Copenhagen.png",
     alt: "Rooftops of Copenhagen- moody- rainy - old but classic"
   }
 ];
@@ -71,20 +71,13 @@ popClose.addEventListener("click", popupEdit);
 modal.addEventListener("submit", saveText);
 
 /* add card- 1button- 2close 3submit on wholeform */
-btnaddcard.addEventListener("click", addcardtoggle);
-closeaddcard.addEventListener("click", addcardtoggle);
-saveaddcard.addEventListener("submit", addcard);
+btnAddCard.addEventListener("click", addcardtoggle);
+closeAddCard.addEventListener("click", addcardtoggle);
+saveaddcard.addEventListener("submit", addCard);
 
 /* closebutton on imgpop */
 closeimg.addEventListener("click", imgpopup);
 
-/* listen for enterkey on imagepopup enterKey is apparently no 13 (I used inspect, but google seems to agree
-  ? it works anyway.  */
-addcardbtn.addEventListener("keypress", function(evt) {
-  if (evt.keyCode === 13) {
-    addcard();
-  }
-})
 
 /* ###################################################
               functions
@@ -92,28 +85,27 @@ addcardbtn.addEventListener("keypress", function(evt) {
 
 /* toogles invisibility in image popup */
 function imgpopup() {
-  imgpop.classList.toggle("popup_invisible");
+  imgpop.classList.toggle("popup_visible");
 }
 /* image popup controls image url */
 function imagepop(evt) {
   imgpopup();
-  console.log(evt);
 }
 
 /* Setting up the first 6 cards - although array can be longer */
 initialCards.forEach((card) => {
-  addnewcard(card);
+  addNewCard(card.name, card.link, card.alt);
 });
 
-function addnewcard(card) {
+function addNewCard(name, link, alt) {
   const elementList = document.querySelector(".elements__list");
   const cloneElem = document.querySelector(".element__elem").content.querySelector(".elements__element");
   const cardclone = cloneElem.cloneNode(true);
 
   /* All elements from the card */
-  cardclone.querySelector(".elements__text").textContent = card.name;
-  cardclone.querySelector(".elements__image").src = card.link;
-  cardclone.querySelector(".elements__image").alt = card.alt;
+  cardclone.querySelector(".elements__text").textContent = name;
+  cardclone.querySelector(".elements__image").src = link;
+  cardclone.querySelector(".elements__image").alt = alt;
 
   elementList.append(cardclone);
   addcardlisteners(elementList.lastElementChild);
@@ -135,42 +127,35 @@ function picpop(event) {
   pictpop.src = event.target.src;
   pictpop.alt = event.target.alt;
   const pictxt = event.target.nextElementSibling;
-  const text = pictxt.querySelector(".elements__text").textContent;
-  imgtext.textContent = text;
+
+  imgtext.textContent = pictxt.querySelector(".elements__text").textContent;
   imgpopup();
 }
 
-function addcard() {
+function addCard() {
   event.preventDefault();
   addcardtoggle();
-  console.log("Addcard fired");
-  const cardurl = popupurl.value;
-  const cardtitle = placename.value;
-  const alt = "image of " + cardtitle;
-  const card = [{}];
-  card.name = cardtitle;
-  card.link = cardurl;
-  card.alt = alt;
-  addnewcard(card);
+
+  const cardText = `Image of ${placename.value}`;
+  addNewCard(placename.value, popupurl.value, cardText);
   addFormClear()
-  return;
+
 }
 
 function addcardtoggle() {
-  addcardbtn.classList.toggle("popup_invisible");
+  addCardBtn.classList.toggle("popup_visible");
 }
 
 function trashIt(event) {
   /* remove the node event target */
   event.target.parentElement.remove();
-  console.log("doing stuff a1");
-  return;
+
 }
 
 function heartfelt(event) {
   /* when heart button is pressed toggle class for style */
   event.target.classList.toggle("elements__heart_clicked");
-  return;
+
 }
 
 function saveText(event) {
@@ -179,24 +164,22 @@ function saveText(event) {
   profileTitle.textContent = popupTitle.value;
   profileName.textContent = popupName.value;
 
-  return;
+
 }
 
 function popupEdit() {
-  if (modal.classList.contains("popup_invisible")) {
-    modal.classList.toggle("popup_invisible");
+  if (modal.classList.contains("popup_visible")) {
+    modal.classList.toggle("popup_visible");
     popupTitle.value = profileTitle.innerText;
     popupName.value = profileName.innerText;
-    return;
-  } else {
-    modal.classList.toggle("popup_invisible");
 
-    return;
+  } else {
+    modal.classList.toggle("popup_visible");
+
   }
 }
 
 // Clear form after submit
 function addFormClear() {
-  popupurl.value = "Image link";
-  placename.value = "Title";
+  popEditForm.reset()
 }

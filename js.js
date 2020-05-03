@@ -68,7 +68,9 @@ const initialCards = [{
 /* edit name- 1button- 2close 3submit on wholeform */
 edit.addEventListener("click", popupEdit);
 popClose.addEventListener("click", popupEdit);
-modal.addEventListener("submit", saveText);
+modal.addEventListener("submit", function(event) {
+  saveText(event);
+});
 
 /* add card- 1button- 2close 3submit on wholeform */
 btnAddCard.addEventListener("click", addcardtoggle);
@@ -134,6 +136,7 @@ function picpop(event) {
 
 function addCard() {
   event.preventDefault();
+
   addcardtoggle();
 
   const cardText = `Image of ${placename.value}`;
@@ -165,17 +168,18 @@ function saveText(event) {
   profileName.textContent = popupName.value;
 
 
+
 }
 
 function popupEdit() {
   if (modal.classList.contains("popup_visible")) {
     modal.classList.toggle("popup_visible");
-    popupTitle.value = profileTitle.innerText;
-    popupName.value = profileName.innerText;
+
 
   } else {
     modal.classList.toggle("popup_visible");
-
+    popupTitle.value = profileTitle.innerText;
+    popupName.value = profileName.innerText;
   }
 }
 

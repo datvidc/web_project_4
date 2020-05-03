@@ -6,7 +6,6 @@
 @import url(./__save/popup__save.css);
 @import url(./_visible/popup_invisible.css);
 @import url(./__addcard/popup__addcard.css);
-@import url(./__changetext/popup__changetext.css);
 @import url(./__img/popup__img.css);
 @import url(./__imgtext/popup__imgtext.css);
 @import url(./__image/popup__image.css);
@@ -14,8 +13,8 @@
 @import url(./__card/popup__card.css);
 @import url(./_image/popup_image.css);
 .popup {
-  height: 550vh;
-  width: 100vw;
+  width: 100%;
+  height: 100%;
   max-width: 882px;
   background-color: rgba(0, 0, 0, 0.6);
   position: absolute;

@@ -1,4 +1,13 @@
 .profile__avatar {
-    height: auto;
-    border-radius: 50%;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  background-size: cover;
+}
+
+@media screen and (max-width: 620px) {
+  .profile__avatar {
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

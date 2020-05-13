@@ -49,8 +49,10 @@
       <button type="submit" class="popup__close"> </button>
       <h3 class="popup__heading">Edit profile</h3>
       <form class="popup__edit-form">
-        <input type="text" required placeholder="Awesome Name" class="popup__edit popup__name" name="ProfileName">
-        <input type="text" required placeholder="Awesome Title" class="popup__edit popup__title" name="profileTitle">
+        <input type="text" minlength="2" maxlength="40" required pattern="[A-Za-z -]{2,40}" placeholder="Name" class="popup__edit popup__name" name="ProfileName">
+        <span class="popup__error-input popup__name-error"></span>
+        <input type="text" minlength="2" maxlength="200" required placeholder="About" class="popup__edit popup__title" name="profileTitle">
+        <span class="popup__title-error"></span>
         <button type="submit" class="popup__save"> Save</button>
       </form>
     </div>
@@ -62,7 +64,9 @@
       <h3 class="popup__heading">New place</h3>
       <form class="popup__edit-form popup__edit-form_add">
         <input type="text" placeholder="Title" class="popup__edit popup__place" name="placename" required>
+        <span class="popup__error-input popup__name-error"></span>
         <input type="text" placeholder="Image link" class="popup__edit popup__url" name="popupurl" required>
+        <span class="popup__error-input popup__name-error"></span>
         <button type="submit" class="popup__save popup__save_addcard"> Create</button>
       </form>
     </div>
@@ -86,7 +90,9 @@
       </div>
     </li>
   </template>
-  <script src="js.js"></script>
+
+  <script src="./scripts/js.js"></script>
+  <script src="./scripts/validator.js"></script>
 </body>
 
 </html>

@@ -6,17 +6,34 @@ const checkInputValidation = (form, input, rest) => {
   }
 }
 
+const showErrorMessage = (form, input, { inputErrorClass, errorClass }) => {
+  const error = input.nextElementSibling;
+  input.classList.add(inputErrorClass);
+  error.textContent = input.validationMessage;
+  error.classList.add(errorClass);
+};
+
+const hideErrorMessage = (form, input, { inputErrorClass, errorClass }) => {
+  const error = input.nextElementSibling;
+  input.classList.remove(inputErrorClass);
+  error.classList.remove(errorClass);
+  error.textContent = "";
+};
+
+
 const toggleButtonState = (inputs, submitButton, { inactiveButtonClass }) => {
   const isValid = inputs.every((input) => input.validity.valid);
-
+  console.log(submitButton.classList);
   if (isValid) {
-    submitButton.classlist.remove(inactiveButtonClass);
+    submitButton.classList.remove(inactiveButtonClass);
+
   } else {
-    submitButton.classlist.add(inactiveButtonClass);
+    submitButton.classList.add(inactiveButtonClass);
+
   }
 }
 
-const enableValidation = ({ formSelector, inputSelector, submitButtonSelector...rest }) => {
+const enableValidation = ({ formSelector, inputSelector, submitButtonSelector, ...rest }) => {
   const forms = Array.from(document.querySelectorAll(formSelector));
 
   forms.forEach((form) => {
@@ -24,8 +41,8 @@ const enableValidation = ({ formSelector, inputSelector, submitButtonSelector...
       evt.preventDefault();
     })
     const inputs = Array.from(form.querySelectorAll(inputSelector));
-    const submitButton = form.querySelectorAll(submitButtonSelector);
-
+    const submitButton = form.querySelector(submitButtonSelector);
+    console.log(submitButton.classList);
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         checkInputValidation(form, input, rest);
@@ -40,7 +57,7 @@ enableValidation({
   formSelector: ".popup__edit-form",
   inputSelector: ".popup__edit",
   submitButtonSelector: ".popup__save",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__error-input",
-  errorClass: "popup__error_visible"
+  inactiveButtonClass: "popup__save_invalid",
+  inputErrorClass: "popup__edit_invalid",
+  errorClass: "popup__edit_error"
 });

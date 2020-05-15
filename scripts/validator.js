@@ -42,7 +42,7 @@ const enableValidation = ({ formSelector, inputSelector, submitButtonSelector, .
     })
     const inputs = Array.from(form.querySelectorAll(inputSelector));
     const submitButton = form.querySelector(submitButtonSelector);
-    console.log(submitButton.classList);
+
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         checkInputValidation(form, input, rest);

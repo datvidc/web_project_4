@@ -1,6 +1,7 @@
 Step: 1
 
     TODO:
+    change validator line 10 and 17 - but first need to talk to Alex about it.
 
     DONE:
     move js files to js folder

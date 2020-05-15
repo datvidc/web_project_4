@@ -2,14 +2,14 @@ const checkInputValidation = (form, input, rest) => {
   if (input.validity.valid) {
     hideErrorMessage(form, input, rest);
   } else {
-    showErrorMessage(form, input, rest);
+    showErrorMessage(form, input, input.validationMessage, rest);
   }
 }
 
-const showErrorMessage = (form, input, { inputErrorClass, errorClass }) => {
+const showErrorMessage = (form, input, errorMessage, { inputErrorClass, errorClass }) => {
   const error = input.nextElementSibling;
   input.classList.add(inputErrorClass);
-  error.textContent = input.validationMessage;
+  error.textContent = errorMessage;
   error.classList.add(errorClass);
 };
 
@@ -22,8 +22,7 @@ const hideErrorMessage = (form, input, { inputErrorClass, errorClass }) => {
 
 
 const toggleButtonState = (inputs, submitButton, { inactiveButtonClass }) => {
-  const isValid = inputs.every((input) => input.validity.valid);
-  console.log(submitButton.classList);
+  const isValid = inputs.some((input) => input.validity.valid);
   if (isValid) {
     submitButton.classList.remove(inactiveButtonClass);
 

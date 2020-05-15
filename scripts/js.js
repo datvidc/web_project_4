@@ -8,7 +8,8 @@ const profileName = document.querySelector(".profile__name");
 const profileTitle = document.querySelector(".profile__title");
 const popupTitle = document.querySelector(".popup__title");
 const popupName = document.querySelector(".popup__name");
-
+const popupModal = document.querySelectorAll(".popup");
+const popupcontainer = document.querySelectorAll(".popup__container");
 
 const addCardBtn = document.querySelector(".popup__addcard");
 
@@ -68,6 +69,7 @@ const initialCards = [{
 /* edit name- 1button- 2close 3submit on wholeform */
 edit.addEventListener("click", popupEdit);
 popClose.addEventListener("click", popupEdit);
+
 modal.addEventListener("submit", function(event) {
   saveText(event);
 });
@@ -90,8 +92,9 @@ closeimg.addEventListener("click", imgpopup);
 /* toogles invisibility in image popup -  */
 function imgpopup() {
   imgpop.classList.toggle("popup_visible");
+  escapePopup();
+  closeOnClick();
 }
-/* This one was unused, I have deleted. the top one is used.*/
 
 
 /* Setting up the first 6 cards - although array can be longer */
@@ -146,9 +149,6 @@ function addCard() {
 
 }
 
-function addcardtoggle() {
-  addCardBtn.classList.toggle("popup_visible");
-}
 
 function trashIt(event) {
   /* remove the node event target */
@@ -182,4 +182,61 @@ function popupEdit() {
     popupTitle.value = profileTitle.innerText;
     popupName.value = profileName.innerText;
   }
+}
+// kill popup with esc key
+window.addEventListener('keyup', (e) => {
+  if (e.keyCode == 27) {
+    togglePopup(popup);
+  }
+});
+
+
+const escapePopup = (e) => {
+  const pop = document.querySelector("popup_visible");
+  if (pop && e.code === "Escape") {
+    pop.classList.toggle("popup_visible");
+  }
+};
+
+
+
+function addcardtoggle() {
+  addCardBtn.classList.toggle("popup_visible");
+  if (addCardBtn.classList.contains("popup_visible")) {
+    addCardBtn.onkeydown = escapePopup;
+    addCardBtn.addEventListener("click", (evt) => {
+
+      console.log(evt.currentTarget.classList);
+      const myTarget = evt.currentTarget.classList;
+      if (myTarget.contains('popup__container')) {
+
+      } else {
+        addcardtoggle();
+      }
+      popEditForm.reset();
+    })
+
+  }
+
+}
+
+
+function closepopups(popup) {
+  popup.classList.toggle("popup_visible");
+
+  // Popup closes with Esc key
+  window.addEventListener('keyup', (e) => {
+    if (e.keyCode == 27) {
+      closepopups(popup);
+    }
+  });
+
+  // Popups close with overlay click
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup')) {
+      closepopups(evt.target);
+      evt.preventDefault();
+    }
+  });
+}
 }

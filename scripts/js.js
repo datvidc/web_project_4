@@ -92,8 +92,7 @@ closeimg.addEventListener("click", imgpopup);
 /* toogles invisibility in image popup -  */
 function imgpopup() {
   imgpop.classList.toggle("popup_visible");
-  escapePopup();
-  closeOnClick();
+  escAndClick(imgpop);
 }
 
 
@@ -153,7 +152,6 @@ function addCard() {
 function trashIt(event) {
   /* remove the node event target */
   event.target.parentElement.remove();
-
 }
 
 function heartfelt(event) {
@@ -176,67 +174,36 @@ function popupEdit() {
   if (modal.classList.contains("popup_visible")) {
     modal.classList.toggle("popup_visible");
 
-
   } else {
     modal.classList.toggle("popup_visible");
     popupTitle.value = profileTitle.innerText;
     popupName.value = profileName.innerText;
+    escAndClick(modal);
   }
 }
-// kill popup with esc key
-window.addEventListener('keyup', (e) => {
-  if (e.keyCode == 27) {
-    togglePopup(popup);
-  }
-});
 
+function escAndClick(pop) {
+  // Popups close with click outside box
+  pop.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains("popup")) {
+      pop.classList.remove("popup_visible");
 
-const escapePopup = (e) => {
-  const pop = document.querySelector("popup_visible");
-  if (pop && e.code === "Escape") {
-    pop.classList.toggle("popup_visible");
-  }
+    }
+  });
+
+  window.addEventListener("keyup", (evt) => {
+    if (evt.key === "Escape") {
+      pop.classList.remove("popup_visible");
+    }
+  });
 };
 
 
-
 function addcardtoggle() {
-  addCardBtn.classList.toggle("popup_visible");
   if (addCardBtn.classList.contains("popup_visible")) {
-    addCardBtn.onkeydown = escapePopup;
-    addCardBtn.addEventListener("click", (evt) => {
-
-      console.log(evt.currentTarget.classList);
-      const myTarget = evt.currentTarget.classList;
-      if (myTarget.contains('popup__container')) {
-
-      } else {
-        addcardtoggle();
-      }
-      popEditForm.reset();
-    })
-
+    addCardBtn.classList.toggle("popup_visible");
+  } else {
+    addCardBtn.classList.toggle("popup_visible");
+    escAndClick(addCardBtn);
   }
-
-}
-
-
-function closepopups(popup) {
-  popup.classList.toggle("popup_visible");
-
-  // Popup closes with Esc key
-  window.addEventListener('keyup', (e) => {
-    if (e.keyCode == 27) {
-      closepopups(popup);
-    }
-  });
-
-  // Popups close with overlay click
-  popup.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains('popup')) {
-      closepopups(evt.target);
-      evt.preventDefault();
-    }
-  });
-}
 }

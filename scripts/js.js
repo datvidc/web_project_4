@@ -1,8 +1,7 @@
 // Import modules:
-//import { Card } from "./Card.js";
-
 
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 /* ###############################################################
                 variables:
 ############################################################### */
@@ -64,6 +63,15 @@ const initialCards = [{
     alt: "Rooftops of Copenhagen- moody- rainy - old but classic"
   }
 ];
+//validation setting object
+const enableValidation = {
+  formSelector: ".popup__edit-form",
+  inputSelector: ".popup__edit",
+  submitButtonSelector: ".popup__save",
+  inactiveButtonClass: "popup__save_invalid",
+  inputErrorClass: "popup__edit_invalid",
+  errorClass: "popup__edit_error"
+};
 
 /* ###################################################################################
                     Eventlisteners
@@ -113,10 +121,7 @@ function addNewCard(name, link) {
 
 function addCard() {
   event.preventDefault();
-
   addcardtoggle();
-
-  const cardText = `Image of ${placename.value}`;
   addNewCard(placename.value, popupurl.value);
   // Clear form after submit
   popEditForm.reset();
@@ -167,3 +172,6 @@ function escAndClick(pop) {
     }
   });
 };
+
+new FormValidator(modal, enableValidation).enableValidation();
+new FormValidator(modal, enableValidation).enableValidation();

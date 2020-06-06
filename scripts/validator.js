@@ -50,13 +50,3 @@ const enableValidation = ({ formSelector, inputSelector, submitButtonSelector, .
     })
   })
 }
-
-
-enableValidation({
-  formSelector: ".popup__edit-form",
-  inputSelector: ".popup__edit",
-  submitButtonSelector: ".popup__save",
-  inactiveButtonClass: "popup__save_invalid",
-  inputErrorClass: "popup__edit_invalid",
-  errorClass: "popup__edit_error"
-});

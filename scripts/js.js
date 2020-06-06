@@ -117,7 +117,7 @@ function addCard() {
   addcardtoggle();
 
   const cardText = `Image of ${placename.value}`;
-  addNewCard(placename.value, popupurl.value, cardText);
+  addNewCard(placename.value, popupurl.value);
   // Clear form after submit
   popEditForm.reset();
 

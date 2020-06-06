@@ -1,3 +1,8 @@
+// Import modules:
+//import { Card } from "./Card.js";
+
+
+import Card from "./Card.js";
 /* ###############################################################
                 variables:
 ############################################################### */
@@ -21,7 +26,7 @@ const popupurl = document.querySelector(".popup__url");
 const placename = document.querySelector(".popup__place");
 const popEditForm = document.querySelector(".popup__edit-form_add");
 const imgpop = document.querySelector(".popup__img");
-const pictpop = document.querySelector(".popup__image");
+
 const closeimg = document.querySelector(".popup__closeimg");
 const imgtext = document.querySelector(".popup__imgtext");
 /* ############################################################
@@ -97,9 +102,14 @@ function imgpopup() {
 
 
 /* Setting up the first 6 cards - although array can be longer */
+
 initialCards.forEach((card) => {
-  addNewCard(card.name, card.link, card.alt);
+  const elementList = document.querySelector(".elements__list");
+  let newCard = new Card(card.name, card.link, ".element__elem").addCard();
+  elementList.append(newCard);
 });
+
+
 
 function addNewCard(name, link, alt) {
   const elementList = document.querySelector(".elements__list");
@@ -157,7 +167,6 @@ function trashIt(event) {
 function heartfelt(event) {
   /* when heart button is pressed toggle class for style */
   event.target.classList.toggle("elements__heart_clicked");
-
 }
 
 function saveText(event) {

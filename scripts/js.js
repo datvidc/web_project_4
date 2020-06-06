@@ -13,8 +13,7 @@ const profileName = document.querySelector(".profile__name");
 const profileTitle = document.querySelector(".profile__title");
 const popupTitle = document.querySelector(".popup__title");
 const popupName = document.querySelector(".popup__name");
-const popupModal = document.querySelectorAll(".popup");
-const popupcontainer = document.querySelectorAll(".popup__container");
+
 
 const addCardBtn = document.querySelector(".popup__addcard");
 
@@ -100,50 +99,16 @@ function imgpopup() {
   escAndClick(imgpop);
 }
 
-
 /* Setting up the first 6 cards - although array can be longer */
 
 initialCards.forEach((card) => {
-  const elementList = document.querySelector(".elements__list");
-  let newCard = new Card(card.name, card.link, ".element__elem").addCard();
-  elementList.append(newCard);
+  addNewCard(card.name, card.link);
 });
 
-
-
-function addNewCard(name, link, alt) {
+function addNewCard(name, link) {
   const elementList = document.querySelector(".elements__list");
-  const cloneElem = document.querySelector(".element__elem").content.querySelector(".elements__element");
-  const cardclone = cloneElem.cloneNode(true);
-
-  /* All elements from the card */
-  cardclone.querySelector(".elements__text").textContent = name;
-  cardclone.querySelector(".elements__image").src = link;
-  cardclone.querySelector(".elements__image").alt = alt;
-
-  elementList.append(cardclone);
-
-  /* Setting up all event listeners for cards */
-  const elementspic = cardclone.querySelector(".elements__image");
-  const cardheart = cardclone.querySelector(".elements__heart");
-  const cardtrash = cardclone.querySelector(".elements__trash");
-
-  cardtrash.addEventListener("click", trashIt);
-  cardheart.addEventListener("click", heartfelt);
-  elementspic.addEventListener("click", picpop);
-
-}
-
-
-
-/* Event for click on picture */
-function picpop(event) {
-  pictpop.src = event.target.src;
-  pictpop.alt = event.target.alt;
-  const pictxt = event.target.nextElementSibling;
-
-  imgtext.textContent = pictxt.querySelector(".elements__text").textContent;
-  imgpopup();
+  let newCard = new Card(name, link, ".element__elem").addCard();
+  elementList.append(newCard);
 }
 
 function addCard() {
@@ -159,24 +124,11 @@ function addCard() {
 }
 
 
-function trashIt(event) {
-  /* remove the node event target */
-  event.target.parentElement.remove();
-}
-
-function heartfelt(event) {
-  /* when heart button is pressed toggle class for style */
-  event.target.classList.toggle("elements__heart_clicked");
-}
-
 function saveText(event) {
   event.preventDefault();
   popupEdit();
   profileTitle.textContent = popupTitle.value;
   profileName.textContent = popupName.value;
-
-
-
 }
 
 function popupEdit() {
@@ -190,23 +142,6 @@ function popupEdit() {
     escAndClick(modal);
   }
 }
-
-function escAndClick(pop) {
-  // Popups close with click outside box
-  pop.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains("popup")) {
-      pop.classList.remove("popup_visible");
-
-    }
-  });
-
-  window.addEventListener("keyup", (evt) => {
-    if (evt.key === "Escape") {
-      pop.classList.remove("popup_visible");
-    }
-  });
-};
-
 
 function addcardtoggle() {
   if (addCardBtn.classList.contains("popup_visible")) {

@@ -151,3 +151,19 @@ function addcardtoggle() {
     escAndClick(addCardBtn);
   }
 }
+
+function escAndClick(pop) {
+  // Popups close with click outside box
+  pop.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains("popup")) {
+      pop.classList.remove("popup_visible");
+
+    }
+  });
+
+  window.addEventListener("keyup", (evt) => {
+    if (evt.key === "Escape") {
+      pop.classList.remove("popup_visible");
+    }
+  });
+};

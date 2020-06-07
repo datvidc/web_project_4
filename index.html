@@ -52,11 +52,11 @@
         <h3 class="popup__heading">Edit profile</h3>
         <label class="popup__label-group">
           <input type="text" minlength="2" maxlength="40" required pattern="[A-Za-z -]{2,40}" placeholder="Name" class="popup__edit popup__name" name="ProfileName">
-          <span class="popup__edit_error popup__name-error" name="ProfileName-error"></span>
+          <span class="popup__edit_error popup__name-error"></span>
         </label>
         <label class="popup__label-group">
           <input type="text" minlength="2" maxlength="200" required placeholder="About" class="popup__edit popup__title" name="profileTitle">
-          <span class="popup__edit_error popup__title-error" name="profileTitle-error"></span>
+          <span class="popup__edit_error popup__title-error"></span>
         </label>
         <button type="submit" class="popup__save"> Save</button>
       </form>
@@ -70,11 +70,11 @@
       <form class="popup__edit-form popup__edit-form_add">
         <label class="popup__label-group">
           <input type="text" placeholder="Title" class="popup__edit_invalid popup__edit popup__place" name="placename" required>
-          <span class="popup__error-input popup__place_error" name="placename-error"> Please fill out this field.</span>
+          <span class="popup__error-input popup__place_error"> Please fill out this field.</span>
         </label>
         <label class="popup__label-group">
           <input type="url" placeholder="Image link" class="popup__edit_invalid popup__edit popup__url" name="popupurl" required>
-          <span class="popup__error-input popup__url_error" name="popupurl-error">Please enter a web address.</span>
+          <span class="popup__error-input popup__url_error" >Please enter a web address.</span>
         </label>
 
         <button type="submit" class="popup__save_invalid popup__save popup__save_addcard "> Create</button>

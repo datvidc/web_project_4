@@ -26,7 +26,6 @@ const popEditForm = document.querySelector(".popup__edit-form_add");
 const imgpop = document.querySelector(".popup__img");
 
 const closeimg = document.querySelector(".popup__closeimg");
-const imgtext = document.querySelector(".popup__imgtext");
 /* ############################################################
 STARTUP CODE
 ############################################################### */
@@ -73,30 +72,6 @@ const enableValidation = {
   errorClass: "popup__edit_error"
 };
 
-/* ###################################################################################
-                    Eventlisteners
-################################################################################ */
-
-
-/* edit name- 1button- 2close 3submit on wholeform */
-edit.addEventListener("click", popupEdit);
-popClose.addEventListener("click", popupEdit);
-
-modal.addEventListener("submit", function(event) {
-  saveText(event);
-});
-
-/* add card- 1button- 2close 3submit on wholeform */
-btnAddCard.addEventListener("click", addcardtoggle);
-closeAddCard.addEventListener("click", addcardtoggle);
-saveaddcard.addEventListener("submit", function(event) {
-  addCard(event);
-});
-
-/* closebutton on imgpop */
-closeimg.addEventListener("click", imgpopup);
-
-
 /* ###################################################
               functions
 ####################################################### */
@@ -115,11 +90,11 @@ initialCards.forEach((card) => {
 
 function addNewCard(name, link) {
   const elementList = document.querySelector(".elements__list");
-  let newCard = new Card(name, link, ".element__elem").addCard();
+  const newCard = new Card(name, link, ".element__elem").addCard();
   elementList.append(newCard);
 }
 
-function addCard() {
+function addCard(event) {
   event.preventDefault();
   addcardtoggle();
   addNewCard(placename.value, popupurl.value);
@@ -171,7 +146,30 @@ function escAndClick(pop) {
       pop.classList.remove("popup_visible");
     }
   });
-};
+}
+
+/* ###################################################################################
+                    Eventlisteners
+################################################################################ */
+
+
+/* edit name- 1button- 2close 3submit on wholeform */
+edit.addEventListener("click", popupEdit);
+popClose.addEventListener("click", popupEdit);
+
+modal.addEventListener("submit", (event) => {
+  saveText(event);
+});
+
+/* add card- 1button- 2close 3submit on wholeform */
+btnAddCard.addEventListener("click", addcardtoggle);
+closeAddCard.addEventListener("click", addcardtoggle);
+saveaddcard.addEventListener("submit", (event) => {
+  addCard(event);
+});
+
+/* closebutton on imgpop */
+closeimg.addEventListener("click", imgpopup);
 
 new FormValidator(modal, enableValidation).enableValidation();
 new FormValidator(imgpop, enableValidation).enableValidation();

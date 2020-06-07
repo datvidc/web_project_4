@@ -1,9 +1,3 @@
-Step 1.
+Test is passing in DEV
 
-Refactor the Card class
-
-
-refactor the FormValidator class
-
-implement and test new structure.
-
+Merged to master.

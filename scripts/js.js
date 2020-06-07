@@ -174,4 +174,4 @@ function escAndClick(pop) {
 };
 
 new FormValidator(modal, enableValidation).enableValidation();
-new FormValidator(modal, enableValidation).enableValidation();
+new FormValidator(imgpop, enableValidation).enableValidation();

@@ -1,5 +1,5 @@
 export default class FormValidator {
-  constructor({ formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass }, form) {
+  constructor(form, { formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass }) {
     this._formSelector = formSelector;
     this._inputSelector = inputSelector;
     this._submitButtonSelector = submitButtonSelector;
@@ -13,7 +13,7 @@ export default class FormValidator {
     if (input.validity.valid) {
       this._hideErrorMessage(input);
     } else {
-      this._showErrorMessage(form, input, input.validationMessage, rest);
+      this._showErrorMessage(this._form, input, input.validationMessage);
     }
   }
 
@@ -33,16 +33,19 @@ export default class FormValidator {
   }
 
   _toggleButtonState(inputs, submitButton) {
-    const isValid = inputs.some((input) => input.validity.valid);
+    const isValid = inputs.every((input) => input.validity.valid);
     if (isValid) {
+      console.log("showbutton");
       submitButton.classList.remove(this._inactiveButtonClass);
 
     } else {
       submitButton.classList.add(this._inactiveButtonClass);
+      console.log("hidebutton");
     }
   }
 
   enableValidation() {
+
     const forms = Array.from(document.querySelectorAll(this._formSelector));
     forms.forEach((form) => {
       form.addEventListener("submit", (evt) => {

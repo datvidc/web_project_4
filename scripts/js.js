@@ -171,8 +171,5 @@ saveaddcard.addEventListener("submit", (event) => {
 /* closebutton on imgpop */
 closeimg.addEventListener("click", imgpopup);
 
-
-
-
 new FormValidator(modal, enableValidation).enableValidation();
 new FormValidator(imgpop, enableValidation).enableValidation();

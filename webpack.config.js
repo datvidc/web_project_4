@@ -1,6 +1,13 @@
+const path = require('path');
+
 module.export = {
   entry: {
-    main: './src/script/index.js';
+    main: './src/scripts/index.js',
+  },
+  output: {
+    filename: 'main.js',
+    //  below takes current directory and makes it the root of the project.
+    path: path.resolve(__dirname, 'public'),
   }
 
 }

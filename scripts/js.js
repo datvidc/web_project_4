@@ -5,13 +5,7 @@ import FormValidator from "./FormValidator.js";
 /* ###############################################################
                 variables:
 ############################################################### */
-const = document.querySelector(".profile__edit");
-const = document.querySelector(".popup__changetext");
-const = document.querySelector(".popup__close");
-const = document.querySelector(".profile__name");
-const = document.querySelector(".profile__title");
-const = document.querySelector(".popup__title");
-const = document.querySelector(".popup__name");
+
 
 
 const addCardBtn = document.querySelector(".popup__addcard");

@@ -8,21 +8,27 @@ module.export = {
     //  below takes current directory and makes it the root of the project.
     path: path.resolve(__dirname, 'public'),
     filename: "main.js",
-  }
+  },
   module: {
     rules: [{
       test: /\.css$/,
-      loaders: [{
+      loaders: [
+        miniCssExtractPlugin.loader,
+        {
           loader: "css-loader",
           options: {
             importloaders: 1
           }
-        }
+        },
 
         "postcss-loader"
 
       ]
     }]
-  }
+  },
+  plugins: [
+    new miniCssExtractPlugin()
+  ]
+
 
 }

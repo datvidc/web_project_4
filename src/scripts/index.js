@@ -1,5 +1,5 @@
 // Import modules:
-import { edit, modal, popClose, profileName, profileTitle, popupTitle, popupName } from "../utils/const.js";
+import { edit, modal, popClose, profileName, profileTitle, popupTitle, popupName } from "./utils/const.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import "../pages/index.css";

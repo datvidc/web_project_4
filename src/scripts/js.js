@@ -3,6 +3,7 @@ import { edit, modal, popClose, profileName, profileTitle, popupTitle, popupName
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import "../pages/index.css";
+import PopupWithImage from "./components/PopupWithImage.js";
 /* ###############################################################
                 variables:
 ############################################################### */
@@ -95,7 +96,9 @@ function imgpopup() {
 
 function addNewCard(name, link) {
   const elementList = document.querySelector(".elements__list");
-  const newCard = new Card(name, link, ".element__elem").addCard();
+  const newCard = new Card(name, link, ".element__elem", handleCardClick: () => {
+    new PopupWithImage(".....").open();
+  }).addCard();
   elementList.append(newCard);
 }
 

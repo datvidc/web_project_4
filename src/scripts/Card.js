@@ -4,6 +4,7 @@ export default class Card {
     this._text = text;
     this._link = link;
     this._template = template; //this is the HTML template
+    this._handleCardClick = handleCardClick;
   }
   _getTemplate() {
       return document
@@ -54,6 +55,9 @@ export default class Card {
           imgpop.classList.remove("popup_visible");
         }
       });
+
+      imgpop.addEventListener("click", () => this._handleCardClick(this._text, this._link));
+
       window.addEventListener("keyup", (evt) => {
         if (evt.key === "Escape") {
           imgpop.classList.remove("popup_visible");

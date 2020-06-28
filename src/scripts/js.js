@@ -1,72 +1,20 @@
-// Import modules:
-import { edit, modal, popClose, profileName, profileTitle, popupTitle, popupName } from "../utils/const.js";
+/* ###############################################################
+                Importing modules and utils
+############################################################### */
+import { initialCards, enableValidation, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "../utils/const.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import "../pages/index.css";
 import PopupWithImage from "./components/PopupWithImage.js";
-/* ###############################################################
-                variables:
-############################################################### */
 
 
-
-const addCardBtn = document.querySelector(".popup__addcard");
-
-
-const btnAddCard = document.querySelector(".profile__add");
-const closeAddCard = document.querySelector(".popup__close_addcard");
-const saveaddcard = document.querySelector(".popup__addcard");
-const popupurl = document.querySelector(".popup__url");
-const placename = document.querySelector(".popup__place");
-const popEditForm = document.querySelector(".popup__edit-form_add");
-const imgpop = document.querySelector(".popup__img");
-
-const closeimg = document.querySelector(".popup__closeimg");
 /* ############################################################
 STARTUP CODE
 ############################################################### */
 
 /* starting cards */
-const initialCards = [{
-    name: "Lake Louise",
-    link: "./images/Lake-louise.png",
-    alt: "Idylic picture of Lake Louise"
-  },
-  {
-    name: "Yosemite Valley",
-    link: "./images/yosemite.png",
-    alt: "YoseMite Valley from a birds eye perspective- hovering over a lake"
-  },
-  {
-    name: "Islands Brygge",
-    link: "./images/islandsBrygge.png",
-    alt: "Moody harbour picture - looking out on the sail boats"
-  },
-  {
-    name: "Latemar",
-    link: "./images/latemar.png",
-    alt: "Latemar nature pic- nature Picture"
-  },
-  {
-    name: "Strøget",
-    link: "./images/stroeget.png",
-    alt: "Largest European pedestrian shopping street, and one of the oldest- Strøget shot from birds eye view"
-  },
-  {
-    name: "Copenhagen",
-    link: "./images/Copenhagen.png",
-    alt: "Rooftops of Copenhagen- moody- rainy - old but classic"
-  }
-];
+
 //validation setting object
-const enableValidation = {
-  formSelector: ".popup__edit-form",
-  inputSelector: ".popup__edit",
-  submitButtonSelector: ".popup__save",
-  inactiveButtonClass: "popup__save_invalid",
-  inputErrorClass: "popup__edit_invalid",
-  errorClass: "popup__edit_error"
-};
 
 /* ###################################################
               functions

@@ -6,6 +6,7 @@ import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import "../pages/index.css";
 import PopupWithImage from "./components/PopupWithImage.js";
+import Section from "./components/Section.js";
 
 
 /* ############################################################
@@ -13,8 +14,11 @@ STARTUP CODE
 ############################################################### */
 
 /* starting cards */
-
-//validation setting object
+const startCards = new Section({
+    items: initialCards,
+    renderer: ()
+  })
+  //validation setting object
 
 /* ###################################################
               functions

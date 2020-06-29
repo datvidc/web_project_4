@@ -1,12 +1,12 @@
-class Section {
-  constructor({ items, renderer }, cardContainer) {
-    this._firstArray = items;
-    this._renderer = renderer;
-    this._container = document.querySelector(cardContainer);
+export default class Section {
+  constructor({ items, renderer }, containerSelector) {
+    this._itemsArray = items; //array list
+    this._renderer = renderer; //a function that "does stuff"
+    this._container = document.querySelector(containerSelector); // container - where to add the section
   }
 
   renderItems() {
-    this._firstArray.forEach((item) => {
+    this._itemsArray.forEach((item) => {
       // for each item- call the renderer function.
       this._renderer(item);
     });
@@ -15,8 +15,4 @@ class Section {
   addItem(element) {
     this._container.prepend(element);
   }
-
-
 }
-
-export default Section;

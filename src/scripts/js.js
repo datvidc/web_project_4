@@ -16,7 +16,9 @@ STARTUP CODE
 /* starting cards */
 const startCards = new Section({
     items: initialCards,
-    renderer: ()
+    renderer: (item) => { // renderer accepts item passed from section class
+      const newCard = addNewCard(item.name, item.link)
+    }
   })
   //validation setting object
 

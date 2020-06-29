@@ -1,5 +1,5 @@
 export default class Card {
-  constructor(text, link, template, handleCardClick) {
+  constructor(text, link, template, ) {
     //link and text are private
     this._text = text;
     this._link = link;

@@ -15,10 +15,10 @@ class Popup {
   _handleEscClose(evt) {
     /* logic for closing the popup by pressing the Esc key. */
     if (evt.key === "Escape") {
-      this._popupElement.classList.remove("popup_visible");
+      this.close();
       evt.stopPropagation();
     }
-    this.close();
+
   }
 
   open() {

@@ -13,7 +13,7 @@ module.exports = {
   },
   module: {
     rules: [
-      //beggining of loaders
+      //rules for processing JS
       {
         test: /\.js$/,
         loader: "babel-loader",
@@ -23,8 +23,10 @@ module.exports = {
         test: /\.html$/,
         loader: "html-loader",
       },
-      //rules for processing JS
-
+      {
+        test: /\.(png|svg|jpg|gif|woff2|woff)$/,
+        loader: "file-loader"
+      },
       {
         test: /\.css$/,
         loader: [MiniCssExtractPlugin.loader,
@@ -38,16 +40,13 @@ module.exports = {
           "postcss-loader"
 
         ]
-      },
-      {
-        test: /\.(png|svg|jpg|gif|woff2|woff)$/,
-        loader: "file-loader",
       }
+
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html"
+      template: "./src/index.html"
     }),
     new MiniCssExtractPlugin()
   ]

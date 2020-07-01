@@ -1,4 +1,17 @@
 /* ###############################################################
+                Importing local images
+############################################################### */
+
+
+import lakeLouise from "../../images/Lake-louise.png";
+import yosemite from "../../images/yosemite.png";
+import islandsBrygge from "../../images/islandsBrygge.png";
+import latemar from "../../images/latemar.png";
+import stroeget from "../../images/stroeget.png";
+import copenhagen from "../../images/Copenhagen.png";
+
+
+/* ###############################################################
                 variables:
 ############################################################### */
 export const edit = document.querySelector(".profile__edit");
@@ -21,6 +34,7 @@ export const closeimg = document.querySelector(".popup__closeimg");
 
 
 
+
 /* ############################################################
 STARTUP CODE
 ############################################################### */
@@ -28,32 +42,32 @@ STARTUP CODE
 /* starting cards */
 export const initialCards = [{
     name: "Lake Louise",
-    link: "./images/Lake-louise.png",
+    link: lakeLouise,
     alt: "Idylic picture of Lake Louise"
   },
   {
     name: "Yosemite Valley",
-    link: "./images/yosemite.png",
+    link: yosemite,
     alt: "YoseMite Valley from a birds eye perspective- hovering over a lake"
   },
   {
     name: "Islands Brygge",
-    link: "./images/islandsBrygge.png",
+    link: islandsBrygge,
     alt: "Moody harbour picture - looking out on the sail boats"
   },
   {
     name: "Latemar",
-    link: "./images/latemar.png",
+    link: latemar,
     alt: "Latemar nature pic- nature Picture"
   },
   {
     name: "Strøget",
-    link: "./images/stroeget.png",
+    link: stroeget,
     alt: "Largest European pedestrian shopping street, and one of the oldest- Strøget shot from birds eye view"
   },
   {
     name: "Copenhagen",
-    link: "./images/Copenhagen.png",
+    link: copenhagen,
     alt: "Rooftops of Copenhagen- moody- rainy - old but classic"
   }
 ];

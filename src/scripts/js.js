@@ -1,7 +1,7 @@
 /* ###############################################################
                 Importing modules and utils
 ############################################################### */
-import { initialCards, enableValidation, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "../utils/const.js";
+import { initialCards, enableValidation, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import "../pages/index.css";
@@ -21,7 +21,7 @@ const startCards = new Section({
     }
   })
   //validation setting object
-
+startCards.renderItems();
 /* ###################################################
               functions
 ####################################################### */
@@ -55,11 +55,6 @@ function addNewCard(name, link) {
   }).addCard();
   elementList.append(newCard);
 }
-
-/* Setting up the first 6 cards - although array can be longer */
-initialCards.forEach((card) => {
-  addNewCard(card.name, card.link);
-});
 
 function addcardtoggle() {
   if (addCardBtn.classList.contains("popup_visible")) {

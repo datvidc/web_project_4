@@ -1,15 +1,16 @@
-/* PopupWithImage extends class Popup . make sepperate component*/
-import Popup from ".Popup.js"
+/* import popup */
+import Popup from "./Popup.js"
+/* PopupWithImage extends class Popup . */
 class PopupWithImage extends Popup {
   constructor(popupSelector) {
-    super(_popupElement);
+    super(popupSelector);
 
   }
 
   open() {
     this._popupElement.querySelector(".popup_image").src = link;
+    this._popupElement.querySelector(".popup_image").alt = name;
     this._popupElement.querySelector(".popup_caption").textContent = name;
-
     super._open();
   }
 }

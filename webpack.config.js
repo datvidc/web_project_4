@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: {
-    main: "./src/scripts/index.js"
+    main: "./src/scripts/js.js"
   },
   output: {
     //  below takes current directory and makes it the root of the project.

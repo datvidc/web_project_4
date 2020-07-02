@@ -10,7 +10,6 @@ import latemar from "../../images/latemar.png";
 import stroeget from "../../images/stroeget.png";
 import copenhagen from "../../images/Copenhagen.png";
 
-
 /* ###############################################################
                 variables:
 ############################################################### */

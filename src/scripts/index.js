@@ -1,17 +1,12 @@
 // Import modules:
-
+import { edit, modal, popClose, profileName, profileTitle, popupTitle, popupName } from "./utils/const.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+import "../pages/index.css";
 /* ###############################################################
                 variables:
 ############################################################### */
-const edit = document.querySelector(".profile__edit");
-const modal = document.querySelector(".popup__changetext");
-const popClose = document.querySelector(".popup__close");
-const profileName = document.querySelector(".profile__name");
-const profileTitle = document.querySelector(".profile__title");
-const popupTitle = document.querySelector(".popup__title");
-const popupName = document.querySelector(".popup__name");
+
 
 
 const addCardBtn = document.querySelector(".popup__addcard");

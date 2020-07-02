@@ -2,7 +2,7 @@
   "name": "web_project_4",
   "version": "8.0.0",
   "description": "Link to live site: https://datvidc.github.io/web_project_4/",
-  "main": "index.js",
+  "main": "js.js",
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --open --watch"

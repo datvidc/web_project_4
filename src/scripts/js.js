@@ -50,7 +50,7 @@ function imgpopup() {
 
 function addNewCard(name, link) {
   const elementList = document.querySelector(".elements__list");
-  const newCard = new Card(name, link, ".element__elem", handleCardClick: () => {
+  const newCard = new Card(name, link, ".element__elem", () => {
     new PopupWithImage(".....").open();
   }).addCard();
   elementList.append(newCard);

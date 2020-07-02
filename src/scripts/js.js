@@ -2,8 +2,8 @@
                 Importing modules and utils
 ############################################################### */
 import { initialCards, enableValidation, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
-import Card from "./Card.js";
-import FormValidator from "./FormValidator.js";
+import Card from "./components/Card.js";
+import FormValidator from "./components/FormValidator.js";
 import "../pages/index.css";
 import PopupWithImage from "./components/PopupWithImage.js";
 import Section from "./components/Section.js";

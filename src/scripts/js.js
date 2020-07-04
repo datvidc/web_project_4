@@ -31,72 +31,15 @@ const userInfo = new UserInfo(".profile__name", ".profile__title");
               functions
 ####################################################### */
 
-function escAndClick(pop) {
-  // Popups close with click outside box
-  pop.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains("popup")) {
-      pop.classList.remove("popup_visible");
 
-    }
-  });
 
-  window.addEventListener("keyup", (evt) => {
-    if (evt.key === "Escape") {
-      pop.classList.remove("popup_visible");
-    }
-  });
-}
 
-/* toogles invisibility in image popup -  */
-function imgpopup() {
-  imgpop.classList.toggle("popup_visible");
-  escAndClick(imgpop);
-}
 
-function addNewCard(name, link) {
-  const elementList = document.querySelector(".elements__list");
-  const newCard = new Card(name, link, ".element__elem", () => {
-    new PopupWithImage(".....").open();
-  }).addCard();
-  elementList.append(newCard);
-}
 
-function addcardtoggle() {
-  if (addCardBtn.classList.contains("popup_visible")) {
-    addCardBtn.classList.toggle("popup_visible");
-  } else {
-    addCardBtn.classList.toggle("popup_visible");
-    escAndClick(addCardBtn);
-  }
-}
 
-function addCard(event) {
-  event.preventDefault();
-  addcardtoggle();
-  addNewCard(placename.value, popupurl.value);
-  // Clear form after submit
-  popEditForm.reset();
 
-}
 
-function popupEdit() {
-  if (modal.classList.contains("popup_visible")) {
-    modal.classList.toggle("popup_visible");
 
-  } else {
-    modal.classList.toggle("popup_visible");
-    popupTitle.value = profileTitle.innerText;
-    popupName.value = profileName.innerText;
-    escAndClick(modal);
-  }
-}
-
-function saveText(event) {
-  event.preventDefault();
-  popupEdit();
-  profileTitle.textContent = popupTitle.value;
-  profileName.textContent = popupName.value;
-}
 
 /* ###################################################################################
                     Eventlisteners

@@ -34,41 +34,13 @@ export default class Card {
 
   }
   _addEvents() {
-    // copy code for making event listeners and adding them to the newly created card.
-    /* Setting up all event listeners for cards */
     const elementsPic = this._newCard.querySelector(".elements__image");
 
-    elementsPic.addEventListener("click", (event) => {
-      const pictpop = document.querySelector(".popup__image");
-      const imgtext = document.querySelector(".popup__imgtext");
-      const imgpop = document.querySelector(".popup__img");
-      pictpop.src = event.target.src;
-      pictpop.alt = event.target.alt;
-      const pictxt = event.target.nextElementSibling;
-
-      imgtext.textContent = pictxt.querySelector(".elements__text").textContent;
-
-      imgpop.classList.toggle("popup_visible");
-
-      imgpop.addEventListener('click', (evt) => {
-        if (evt.target.classList.contains("popup")) {
-          imgpop.classList.remove("popup_visible");
-        }
-      });
-
-      imgpop.addEventListener("click", () => this._handleCardClick(this._text, this._link));
-
-      window.addEventListener("keyup", (evt) => {
-        if (evt.key === "Escape") {
-          imgpop.classList.remove("popup_visible");
-        }
-      });
-
-
-    });
-
-
-  }
+    elementsPic.addEventListener('click', this._handleCardClick({
+      name: this._text,
+      link: this._link
+    }));
+  };
 
   addCard() {
     //code for returning fully ready card - with listeners

@@ -8,6 +8,8 @@ import "../pages/index.css";
 import PopupWithImage from "./components/PopupWithImage.js";
 import Section from "./components/Section.js";
 import PopupWithForm from "./components/PopupWithForm.js";
+import UserInfo from "../scripts/components/UserInfo.js"
+
 
 /* ############################################################
 STARTUP CODE
@@ -22,6 +24,9 @@ const startCards = new Section({
   })
   //validation setting object
 startCards.renderItems();
+
+// new userinfo>
+const userInfo = new UserInfo(".profile__name", ".profile__title");
 /* ###################################################
               functions
 ####################################################### */

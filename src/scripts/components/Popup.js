@@ -23,7 +23,6 @@ class Popup {
   open() {
     this._popupElement.classList.add("popup_visible");
     //add event listener for Esc
-    console.log('popup open');
     document.addEventListener("keyup", this._handleEscClose);
   }
 

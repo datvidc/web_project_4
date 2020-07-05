@@ -11,7 +11,7 @@ export default class PopupWithForm extends Popup {
     this._title = this._form.querySelector('.popup__title');
   }
 
-  getInputValues() {
+  _getInputValues() {
     return {
       titleValue: this._title.value,
       nameValue: this._name.value
@@ -21,6 +21,7 @@ export default class PopupWithForm extends Popup {
   setEventListeners() {
     // first set eventListener on close button
     this._form.addEventListener("click", (evt) => {
+      this._callbackFunc(this._getInputValues());
       this.close();
       evt.stopPropagation();
     });

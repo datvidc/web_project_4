@@ -26,14 +26,21 @@ const handleProfileChange = (profileValues) => {
 }
 
 const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange);
-profilePopup.setEventListeners;
+profilePopup.setEventListeners();
+
 // addCard popup
-const handleAddCard = () => {
+const handleAddCard = (profileValues) => {
+  const handleCardClick = (imageTitle, imageLink) => {
+    imagePopup.open(imageTitle, imageLink);
+  };
 
-
+  const newCard = new Card(profileValues.titleValue, profileValues.nameValue, "#element__template", handleCardClick).generateCard();
+  cardList.setItem(newCard);
 }
 
+
 const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard);
+addCardPop.setEventListeners();
 
 /* starting cards */
 const startCards = new Section({
@@ -68,6 +75,16 @@ const userInfo = new UserInfo(".profile__name", ".profile__title");
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
+edit.addEventListener("click", () => {
+  const data = userInfo.getUserInfo();
+  popupTitle.value = data.titel;
+  popupName.value = data.name;
+  profilePopup.open();
+});
+
+addCardBtn.addEventListener("click", () => {
+  addCardPop.open(null, null);
+});
 
 new FormValidator(modal, enableValidation).enableValidation();
 new FormValidator(imgpop, enableValidation).enableValidation();

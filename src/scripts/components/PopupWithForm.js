@@ -12,6 +12,7 @@ export default class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
+    console.log(this._title.value);
     return {
       titleValue: this._title.value,
       nameValue: this._name.value

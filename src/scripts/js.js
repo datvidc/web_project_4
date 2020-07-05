@@ -21,7 +21,7 @@ imgPopup.setEventListeners();
 
 // profile popup
 
-const handleProfileChange = (profileValues) => {
+const handleProfileChange = ({ profileValues }) => {
   userInfo.setUserInfo(profileValues.titleValue, profileValues.nameValue);
 }
 
@@ -29,7 +29,7 @@ const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange
 profilePopup.setEventListeners();
 
 // addCard popup
-const handleAddCard = (profileValues) => {
+const handleAddCard = ({ profileValues }) => {
   const handleCardClick = (imageTitle, imageLink) => {
     imagePopup.open(imageTitle, imageLink);
   };

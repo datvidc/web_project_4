@@ -19,7 +19,6 @@ class Popup {
       this.close();
       evt.stopPropagation();
     }
-
   }
   open() {
     this._popupElement.classList.add("popup_visible");

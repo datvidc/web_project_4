@@ -14,15 +14,17 @@ import UserInfo from "../scripts/components/UserInfo.js"
 /* ############################################################
 STARTUP CODE
 ############################################################### */
-
+// new userinfo>
+const userInfo = new UserInfo(".profile__name", ".profile__title");
 // Image popup / click on image
 const imgPopup = new PopupWithImage(".popup__img");
 imgPopup.setEventListeners();
 
 // profile popup
 
-const handleProfileChange = ({ profileValues }) => {
-  userInfo.setUserInfo(profileValues.titleValue, profileValues.nameValue);
+const handleProfileChange = (name, title) => {
+  console.log("handleprofile fired");
+  userInfo.setUserInfo(name, title);
 }
 
 const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange);
@@ -56,8 +58,7 @@ const startCards = new Section({
   //validation setting object
 startCards.renderItems();
 
-// new userinfo>
-const userInfo = new UserInfo(".profile__name", ".profile__title");
+
 /* ###################################################
               functions
 ####################################################### */
@@ -75,6 +76,10 @@ const userInfo = new UserInfo(".profile__name", ".profile__title");
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
+
+
+
+
 edit.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
   console.log(data);

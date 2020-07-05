@@ -7,6 +7,13 @@ class PopupWithImage extends Popup {
 
   }
 
+  setEventListeners() {
+    document.addEventListener("click", (evt) => {
+      super.close();
+      ``
+    })
+    super.setEventListeners();
+  }
   open(name, link) {
     const popEl = this._popupElement.querySelector(".popImg");
     const popTxt = this._popupElement.querySelector(".popup__imgtext");

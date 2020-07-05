@@ -15,13 +15,21 @@ import UserInfo from "../scripts/components/UserInfo.js"
 STARTUP CODE
 ############################################################### */
 
+// overlay image elements
+const imgPopup = new PopupWithImage(".popup__img");
+imgPopup.setEventListeners();
+
 /* starting cards */
 const startCards = new Section({
     items: initialCards,
     renderer: (item) => { // renderer accepts item passed from section class
-      const newCard = addNewCard(item.name, item.link)
+      const handleCardClick = (itemName, itemLink) => {
+        imgPopup.open(itemName, itemLink);
+      };
+      const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
+      startCards.addItem(newCard);
     }
-  })
+  }, '.elements__list')
   //validation setting object
 startCards.renderItems();
 
@@ -44,25 +52,6 @@ const userInfo = new UserInfo(".profile__name", ".profile__title");
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
-
-
-/* edit name- 1button- 2close 3submit on wholeform */
-edit.addEventListener("click", popupEdit);
-popClose.addEventListener("click", popupEdit);
-
-modal.addEventListener("submit", (event) => {
-  saveText(event);
-});
-
-/* add card- 1button- 2close 3submit on wholeform */
-btnAddCard.addEventListener("click", addcardtoggle);
-closeAddCard.addEventListener("click", addcardtoggle);
-saveaddcard.addEventListener("submit", (event) => {
-  addCard(event);
-});
-
-/* closebutton on imgpop */
-closeimg.addEventListener("click", imgpopup);
 
 new FormValidator(modal, enableValidation).enableValidation();
 new FormValidator(imgpop, enableValidation).enableValidation();

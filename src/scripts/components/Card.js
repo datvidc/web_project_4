@@ -36,12 +36,11 @@ export default class Card {
   _addEvents() {
     const elementsPic = this._newCard.querySelector(".elements__image");
 
-    elementsPic.addEventListener('click', this._handleCardClick({
-      name: this._text,
-      link: this._link
-    }));
-  };
-
+    elementsPic.addEventListener('click', (event) => {
+      this._handleCardClick({ name: this._text, link: this._link });
+      event.stopPropagation();
+    });
+  }
   addCard() {
     //code for returning fully ready card - with listeners
     this._newCard = this._getTemplate(); //Create new card

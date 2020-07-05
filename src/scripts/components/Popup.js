@@ -24,13 +24,15 @@ class Popup {
   open() {
     this._popupElement.classList.add("popup_visible");
     //add event listener for Esc
-    document.addEventListener("keyup", this._handleEscClose(evt));
+    console.log('popup open');
+    document.addEventListener("keyup", this._handleEscClose);
   }
+
 
   close() {
     this._popupElement.classList.remove("popup_visible");
     //add event listener for Esc
-    document.removeEventListener("keyup", this._handleEscClose(evt));
+    document.removeEventListener("keyup", this._handleEscClose);
   }
 
 }

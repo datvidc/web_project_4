@@ -8,9 +8,11 @@ class PopupWithImage extends Popup {
   }
 
   open(name, link) {
-    this._popupElement.querySelector(".popImg").src = link;
-    this._popupElement.querySelector(".popImg").alt = name;
-    this._popupElement.querySelector(".popup__imgtext").textContent = name;
+    const popEl = this._popupElement.querySelector(".popImg");
+    const popTxt = this._popupElement.querySelector(".popup__imgtext");
+    popEl.src = link;
+    popEl.alt = name;
+    popTxt.textContent = name;
     super.open();
   }
 }

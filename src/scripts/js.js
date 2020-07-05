@@ -15,9 +15,15 @@ import UserInfo from "../scripts/components/UserInfo.js"
 STARTUP CODE
 ############################################################### */
 
-// overlay image elements
+// Image popup / click on image
 const imgPopup = new PopupWithImage(".popup__img");
 imgPopup.setEventListeners();
+
+// profile popup
+const profilePopup = new PopupWithForm('')
+
+// addCard popup
+const addCardPop = new PopupWithForm('.popup__addcard', handleAddCard);
 
 /* starting cards */
 const startCards = new Section({

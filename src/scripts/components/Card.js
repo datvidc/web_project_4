@@ -37,7 +37,7 @@ export default class Card {
     const elementsPic = this._newCard.querySelector(".elements__image");
 
     elementsPic.addEventListener('click', (event) => {
-      this._handleCardClick({ name: this._text, link: this._link });
+      this._handleCardClick(this._text, this._link);
       event.stopPropagation();
     });
   }

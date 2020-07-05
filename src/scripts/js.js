@@ -21,12 +21,12 @@ imgPopup.setEventListeners();
 
 // profile popup
 
-const handleProfileChange = () => {
-
+const handleProfileChange = (profileValues) => {
+  userInfo.setUserInfo(profileValues.titleValue, profileValues.nameValue);
 }
 
 const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange);
-
+profilePopup.setEventListeners;
 // addCard popup
 const handleAddCard = () => {
 

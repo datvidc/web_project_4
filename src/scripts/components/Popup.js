@@ -10,6 +10,12 @@ class Popup {
       this.close();
       evt.stopPropagation();
     });
+
+    const closeButton = this._popupElement.querySelector('.popup__close');
+    closeButton.addEventListener('click', (evt) => {
+      this.close();
+      event.stopPropagation();
+    })
   }
 
   _handleEscClose(evt) {

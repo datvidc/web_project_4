@@ -20,10 +20,20 @@ const imgPopup = new PopupWithImage(".popup__img");
 imgPopup.setEventListeners();
 
 // profile popup
-const profilePopup = new PopupWithForm('')
+
+const handleProfileChange = () => {
+
+}
+
+const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange);
 
 // addCard popup
-const addCardPop = new PopupWithForm('.popup__addcard', handleAddCard);
+const handleAddCard = () => {
+
+
+}
+
+const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard);
 
 /* starting cards */
 const startCards = new Section({

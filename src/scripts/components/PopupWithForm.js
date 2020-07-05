@@ -4,9 +4,9 @@ import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, formSubmission) {
-    this.popupSelector = popupSelector;
-    this.formSubmission = formSubmission;
-    this._form = this._popupElement.querySelector();
+    super(popupSelector);
+    this._formSubmission = formSubmission;
+    this._form = this._popupElement.querySelector('.popup__edit-form');
   }
 
   getInputValues() {
@@ -25,4 +25,9 @@ export default class PopupWithForm extends Popup {
   }
 
   //it modifies the close() parent method in order to reset the form once the popup is closed.
+
+  close() {
+    super.close();
+    this._form.reset();
+  }
 }

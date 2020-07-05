@@ -7,17 +7,12 @@ class Popup {
   setEventListeners() {
     /* adds a click event listener to the close icon of the popup */
     this._popupElement.addEventListener("click", (evt) => {
-      this.close();
       evt.stopPropagation();
-    });
-
-    const closeButton = this._popupElement.querySelector('.popup__close');
-    closeButton.addEventListener('click', (evt) => {
-      this.close();
-      event.stopPropagation();
+      if (evt.target.classList.contains(".popup__close ")) {
+        this.close();
+      }
     })
   }
-
   _handleEscClose(evt) {
     /* logic for closing the popup by pressing the Esc key. */
     if (evt.key === "Escape") {

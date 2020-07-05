@@ -7,8 +7,8 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._callbackFunc = callbackFunc;
     this._form = this._popupElement.querySelector('.popup__edit-form');
-    this._name = this._form.querySelector('.popup__name');
-    this._title = this._form.querySelector('.popup__title');
+    this._name = this._form.querySelector('.popup_head');
+    this._title = this._form.querySelector('.popup_detail');
   }
 
   _getInputValues() {
@@ -19,14 +19,18 @@ export default class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    // first set eventListener on close button
-    this._form.addEventListener("click", (evt) => {
-      this._callbackFunc(this._getInputValues());
-      this.close();
-      evt.stopPropagation();
-    });
-    // then call parent setEventListeners()method.
+    // call parent setEventListeners()method.
     super.setEventListeners();
+
+    // set eventListener on close button
+    this._form.addEventListener("submit", (evt) => {
+      evt.stopPropagation();
+      const inputValues = this._getInputValues();
+      this._callbackFunc(inputValues.titleValue, inputValues.nameValue);
+      this_form.reset();
+
+    });
+
 
   }
 

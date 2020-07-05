@@ -77,13 +77,14 @@ const userInfo = new UserInfo(".profile__name", ".profile__title");
 ################################################################################ */
 edit.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
+  console.log(data);
   popupTitle.value = data.titel;
   popupName.value = data.name;
   profilePopup.open();
 });
 
 addCardBtn.addEventListener("click", () => {
-  addCardPop.open(null, null);
+  addCardPop.open();
 });
 
 new FormValidator(modal, enableValidation).enableValidation();

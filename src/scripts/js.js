@@ -31,13 +31,13 @@ const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange
 profilePopup.setEventListeners();
 
 // addCard popup
-const handleAddCard = ({ profileValues }) => {
+const handleAddCard = (imageTitle, imageLink) => {
   const handleCardClick = (imageTitle, imageLink) => {
     imagePopup.open(imageTitle, imageLink);
   };
 
-  const newCard = new Card(profileValues.titleValue, profileValues.nameValue, "#element__template", handleCardClick).generateCard();
-  cardList.setItem(newCard);
+  const newCard = new Card(imageTitle, imageLink, '.element__elem', handleCardClick).addCard();
+  startCards.addItem(newCard);
 }
 
 
@@ -58,21 +58,6 @@ const startCards = new Section({
   //validation setting object
 startCards.renderItems();
 
-
-/* ###################################################
-              functions
-####################################################### */
-
-
-
-
-
-
-
-
-
-
-
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
@@ -88,7 +73,7 @@ edit.addEventListener("click", () => {
   profilePopup.open();
 });
 
-addCardBtn.addEventListener("click", () => {
+btnAddCard.addEventListener("click", () => {
   addCardPop.open();
 });
 

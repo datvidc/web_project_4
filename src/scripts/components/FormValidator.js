@@ -11,7 +11,7 @@ export default class FormValidator {
 
   _checkInputValidation(input) {
     if (input.validity.valid) {
-      this._hideErrorMessage(input);
+      this._hideErrorMessage(this._form, input);
     } else {
       this._showErrorMessage(this._form, input, input.validationMessage);
     }
@@ -19,14 +19,15 @@ export default class FormValidator {
 
 
   _showErrorMessage(form, input, errorMessage) {
-    const error = input.nextElementSibling;
+    console.log(input);
+    const error = form.querySelector(`#${input.id}-error`);
     input.classList.add(this._inputErrorClass);
     error.textContent = errorMessage;
     error.classList.add(this._errorClass);
   }
 
-  _hideErrorMessage(input) {
-    const error = input.nextElementSibling;
+  _hideErrorMessage(form, input) {
+    const error = form.querySelector(`#${input.id}-error`);
     input.classList.remove(this._inputErrorClass);
     error.classList.remove(this._errorClass);
     error.textContent = "";
@@ -35,9 +36,13 @@ export default class FormValidator {
   _toggleButtonState(inputs, submitButton) {
     const isValid = inputs.every((input) => input.validity.valid);
     if (isValid) {
+
       submitButton.classList.remove(this._inactiveButtonClass);
+      submitButton.removeAttribute("disabled");
+
     } else {
       submitButton.classList.add(this._inactiveButtonClass);
+      submitButton.setAttribute("disabled", " ");
     }
   }
 

@@ -1,25 +1,32 @@
-# Project 7: Around The U.S.
+# project 8: around the US.
 
-Link to live site: https://datvidc.github.io/web_project_4/
+Project is focusing on the introduction of Webpack/babel along with other node_modules needed for deploying backwards compatible code.
 
-7th iteration - project has been updated for OOP
-Card and validation code has been split into objects and sepperated from main project. Added via JS modules.
+Rest of the project is now refactored into classes with correct folder and component structure.
+
+    Note: mixed use of single quotes and double quotes. Recently got my first American keyboard which prompts the use of single quotes over double quotes.
 
 
-# Project 6: Around The U.S.
+# project 7: Around  the US
+
+7th iteration has added some key classes and the introduction of OOP elements.
+Specifically the Card Class and the validation class.
+
+Project is mainly focused on refactoring existing code into two major classes.
+
+
+
+# Project 6: Around the US>
 
 6th iteration has added form validations and extra features.
 
-Frontend project made from FIGMA requirement.
-HTML-CSS follows BEM methodology
-JS is structured for reading and maintainability
+Specifically - all forms now have validation using both JS and CSS validation methods.
 
-Website now validates input and requires correct data before allowing for submitting.
+content is being created and added from objects containing data, and HTML templates instead of using static code.
+
 
 # Project 5: Around The U.S.
 Link to live site: https://datvidc.github.io/web_project_4/
-
-5th iteration has added improvements.
 
 Frontend project made from FIGMA requirement.
 HTML-CSS follows BEM methodology

@@ -21,7 +21,7 @@ class Popup {
   open() {
     this._popupElement.classList.add("popup_visible");
     //add event listener for Esc
-    this.setEventListeners;
+    this.setEventListeners();
 
 
   }

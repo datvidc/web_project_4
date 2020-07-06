@@ -18,7 +18,7 @@ export default class Card {
 
   _addTrash() {
     const cardTrash = this._newCard.querySelector(".elements__trash");
-    cardTrash.addEventListener("click", (event) => {
+    cardTrash.addEventListener("click", () => {
       /* remove the element */
       this._newCard.remove();
     });
@@ -27,7 +27,7 @@ export default class Card {
   _addHeart() {
     //addding some heart
     const cardHeart = this._newCard.querySelector(".elements__heart");
-    cardHeart.addEventListener("click", (event) => {
+    cardHeart.addEventListener("click", () => {
       /* when heart button is pressed toggle class for style */
       cardHeart.classList.toggle("elements__heart_clicked");
     });
@@ -51,8 +51,9 @@ export default class Card {
 
     //adding the title and url etc.
     this._newCard.querySelector(".elements__text").textContent = this._text;
-    this._newCard.querySelector(".elements__image").src = this._link;
-    this._newCard.querySelector(".elements__image").alt = this._text;
+    const elementsImage = this._newCard.querySelector(".elements__image");
+    elementsImage.src = this._link;
+    elementsImage.alt = this._text;
 
     return this._newCard;
   }

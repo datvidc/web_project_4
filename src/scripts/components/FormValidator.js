@@ -36,12 +36,13 @@ export default class FormValidator {
   _toggleButtonState(inputs, submitButton) {
     const isValid = inputs.every((input) => input.validity.valid);
     if (isValid) {
-      console.log("showbutton");
+
       submitButton.classList.remove(this._inactiveButtonClass);
+      submitButton.removeAttribute("disabled");
 
     } else {
       submitButton.classList.add(this._inactiveButtonClass);
-      console.log("hidebutton");
+      submitButton.setAttribute("disabled", " ");
     }
   }
 

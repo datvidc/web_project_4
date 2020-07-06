@@ -10,7 +10,6 @@ class PopupWithImage extends Popup {
   setEventListeners() {
     document.addEventListener("click", (evt) => {
       super.close();
-      ``
     })
     super.setEventListeners();
   }

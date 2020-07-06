@@ -26,25 +26,24 @@ export default class PopupWithForm extends Popup {
       evt.stopPropagation();
       const inputValues = this._getInputValues();
       this._callbackFunc(inputValues.titleValue, inputValues.nameValue);
-      this._form.reset();
+      this._popupElement.reset();
       this.close();
     });
     this._popupElement
       .querySelector(".popup__close")
-      .addEventListener("click", this.close);
-
+      .addEventListener("click", () => {
+        this.close();
+      });
     // call parent setEventListeners()method.
     super.setEventListeners();
-    //reset form
-    this._form.reset();
+
+
 
   }
 
   //it modifies the close() parent method in order to reset the form once the popup is closed.
 
   close() {
-
-    this._form.reset();
     super.close();
   }
 }

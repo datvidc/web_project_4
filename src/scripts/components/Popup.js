@@ -30,8 +30,6 @@ class Popup {
   close() {
     this._popupElement.classList.remove("popup_visible");
 
-
-
     document.removeEventListener("keyup", this._handleEscClose);
     this._popupElement
       .querySelector(".popup__close")

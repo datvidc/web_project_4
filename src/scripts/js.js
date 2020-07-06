@@ -23,7 +23,7 @@ imgPopup.setEventListeners();
 // profile popup
 
 const handleProfileChange = (name, title) => {
-  console.log("handleprofile fired");
+
   userInfo.setUserInfo(name, title);
 }
 
@@ -67,7 +67,6 @@ startCards.renderItems();
 
 edit.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
-  console.log(data);
   popupTitle.value = data.titel;
   popupName.value = data.name;
   profilePopup.open();

@@ -1,5 +1,7 @@
 # project 8: around the US.
 
+Link to live site: https://datvidc.github.io/web_project_4/
+
 Project is focusing on the introduction of Webpack/babel along with other node_modules needed for deploying backwards compatible code.
 
 Rest of the project is now refactored into classes with correct folder and component structure.
@@ -26,7 +28,7 @@ content is being created and added from objects containing data, and HTML templa
 
 
 # Project 5: Around The U.S.
-Link to live site: https://datvidc.github.io/web_project_4/
+
 
 Frontend project made from FIGMA requirement.
 HTML-CSS follows BEM methodology

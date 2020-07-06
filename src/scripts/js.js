@@ -63,8 +63,6 @@ startCards.renderItems();
 ################################################################################ */
 
 
-
-
 edit.addEventListener("click", () => {
   const data = userInfo.getUserInfo();
   popupTitle.value = data.titel;

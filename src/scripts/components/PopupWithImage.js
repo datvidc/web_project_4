@@ -1,6 +1,6 @@
 /* import popup */
 import Popup from "./Popup.js"
-/* PopupWithImage extends class Popup . */
+
 class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
@@ -8,7 +8,7 @@ class PopupWithImage extends Popup {
   }
 
   setEventListeners() {
-    document.addEventListener("click", (evt) => {
+    document.addEventListener("click", () => {
       super.close();
     })
     super.setEventListeners();

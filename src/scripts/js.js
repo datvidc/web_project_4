@@ -8,14 +8,14 @@ import "../pages/index.css";
 import PopupWithImage from "./components/PopupWithImage.js";
 import Section from "./components/Section.js";
 import PopupWithForm from "./components/PopupWithForm.js";
-import UserInfo from "../scripts/components/UserInfo.js"
-
+import UserInfo from "../scripts/components/UserInfo.js";
+import { secretToken, secretGroup } from "../../secret.js";
 
 /* ############################################################
 STARTUP CODE
 ############################################################### */
 // new userinfo>
-const userInfo = new UserInfo(".profile__name", ".profile__title");
+const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
 // Image popup / click on image
 const imgPopup = new PopupWithImage(".popup__img");
 imgPopup.setEventListeners();

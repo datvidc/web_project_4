@@ -1,3 +1,13 @@
+# Project 9 Around the US.
+
+Project is updated to receive all information from API.
+
+Images are loaded from API request, same as user.
+Names are set, and changed via the API.
+
+
+
+
 # project 8: around the US.
 
 Link to live site: https://datvidc.github.io/web_project_4/

@@ -3,7 +3,7 @@ export default class UserInfo {
     this._userName = document.querySelector(userNameSelector);
     this._userTitel = document.querySelector(userTitelSelector);
     this._userImage = document.querySelector(userImageSelector);
-    this._userId = api._getUser();
+    this._userId = _getUser();
   }
 
   getUserInfo() {
@@ -35,7 +35,7 @@ export default class UserInfo {
       .then(result => {
         console.log(result);
       })
-    return
+
 
   }
 

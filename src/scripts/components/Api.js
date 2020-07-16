@@ -3,7 +3,7 @@ import { secretToken, secretGroup } from "../../../secret.js";
 export default class Api {
   constructor(options) {
     this._startUrl = options.url;
-    this._header = options.header;
+    this._header = options.headers;
   }
 
   getUser() {

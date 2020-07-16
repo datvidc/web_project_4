@@ -12,7 +12,8 @@ export default class Api {
   }
 
   _makeRequests(url) {
-    fetch(url, this._header)
+    console.log(this._header);
+    return fetch(url, this._header)
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -23,19 +24,19 @@ export default class Api {
   }
 
 
-  getInitialCards() {
-    return fetch("https://around.nomoreparties.co/v1/group-42/cards", {
-        headers: {
-          authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6"
-        }
-      })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return Promise.reject(`Error: ${res.status}`);
-          ``
-        }
-      })
-  }
+  /*   getInitialCards() {
+      return fetch("https://around.nomoreparties.co/v1/group-42/cards", {
+          headers: {
+            authorization: "c56e30dc-2883-4270-a59e-b2f7bae969c6"
+          }
+        })
+        .then(res => {
+          if (res.ok) {
+            return res.json();
+          } else {
+            return Promise.reject(`Error: ${res.status}`);
+            ``
+          }
+        })
+    } */
 }

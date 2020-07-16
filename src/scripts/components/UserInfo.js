@@ -5,11 +5,7 @@ export default class UserInfo {
     this._userName = document.querySelector(userNameSelector);
     this._userTitel = document.querySelector(userTitelSelector);
     this._userImage = document.querySelector(userImageSelector);
-    this._userId = Api.getUser({
-      headers: {
-        authorization: "3aa990c2-b590-4bfb-9403-af52e9b89792"
-      }
-    });
+
   }
 
   getUserInfo() {

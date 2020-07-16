@@ -30,17 +30,22 @@ STARTUP CODE
 const api = new Api({
   url: 'https://around.nomoreparties.co/v1/',
   headers: {
-    "authorization": secretToken,
+    authorization: secretToken,
     "Content-Type": "application/json",
   }
 });
+
+
+
+
 api.getUser()
   .then(res => {
-    console.log(res.json());
+    console.log(res);
   })
   .catch((err) => {
     console.log(err);
   });
+
 
 const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
 console.log(userInfo.getUserInfo());

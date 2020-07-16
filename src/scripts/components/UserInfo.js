@@ -1,17 +1,22 @@
+import Api from "../components/Api.js";
+
 export default class UserInfo {
   constructor(userNameSelector, userTitelSelector, userImageSelector) {
     this._userName = document.querySelector(userNameSelector);
     this._userTitel = document.querySelector(userTitelSelector);
     this._userImage = document.querySelector(userImageSelector);
-    this._userId = _getUser();
+    this._userId = Api.getUser({
+      headers: {
+        authorization: "3aa990c2-b590-4bfb-9403-af52e9b89792"
+      }
+    });
   }
 
   getUserInfo() {
-
-
     return {
       name: this._userName.textContent,
-      titel: this._userTitel.textContent
+      titel: this._userTitel.textContent,
+      id: this._userId,
     }
   }
 
@@ -33,7 +38,7 @@ export default class UserInfo {
       })
       .then(res => res.json())
       .then(result => {
-        console.log(result);
+        return result._id;
       })
 
 

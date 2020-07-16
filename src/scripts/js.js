@@ -10,12 +10,37 @@ import Section from "./components/Section.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
 import { secretToken, secretGroup } from "../../secret.js";
+import Api from "./components/Api.js";
 
 /* ############################################################
 STARTUP CODE
 ############################################################### */
 // new userinfo>
+/* const userID = Api.getUser({
+    headers: {
+      authorization: secretToken,
+    }
+  })
+  .then(res => res.json())
+  .then(result => {
+    return result._id;
+  });
+ */
+
+const api = new Api({
+  url: 'https://around.nomoreparties.co/v1/',
+  headers: {
+    "authorization": secretToken,
+    "Content-Type": "application/json",
+  }
+});
+const userProfile = api.getUser()
+  .catch(err => {
+    console.log(err);
+  });
+
 const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
+console.log(userInfo.getUserInfo());
 // Image popup / click on image
 const imgPopup = new PopupWithImage(".popup__img");
 imgPopup.setEventListeners();

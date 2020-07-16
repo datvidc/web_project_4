@@ -27,31 +27,33 @@ STARTUP CODE
   });
  */
 
-const api = new Api({
-  url: 'https://around.nomoreparties.co/v1/',
+const api = new Api('https://around.nomoreparties.co/v1/', {
   headers: {
-    authorization: secretToken,
-    "Content-Type": "application/json",
+    authorization: "3aa990c2-b590-4bfb-9403-af52e9b89792",
   }
 });
 
 
 
 
+
+const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
+// Image popup / click on image
+const imgPopup = new PopupWithImage(".popup__img");
+imgPopup.setEventListeners();
+
+//setuser info
 api.getUser()
   .then(res => {
     console.log(res);
+    userInfo.setUserInfo(res.name, res.about);
+    userInfo.setUserID(res.avatar, res._id);
   })
   .catch((err) => {
     console.log(err);
   });
 
 
-const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
-console.log(userInfo.getUserInfo());
-// Image popup / click on image
-const imgPopup = new PopupWithImage(".popup__img");
-imgPopup.setEventListeners();
 
 // profile popup
 

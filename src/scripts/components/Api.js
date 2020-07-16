@@ -1,12 +1,13 @@
 import { secretToken, secretGroup } from "../../../secret.js";
 
 export default class Api {
-  constructor(options) {
-    this._startUrl = options.url;
-    this._header = options.headers;
+  constructor(url, options) {
+    this._startUrl = url;
+    this._header = options;
   }
 
   getUser() {
+    console.log(this._header);
     const userUrl = this._startUrl.concat("group-1/users/me");
     return this._makeRequests(userUrl);
   }

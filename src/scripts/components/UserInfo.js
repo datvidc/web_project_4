@@ -5,6 +5,7 @@ export default class UserInfo {
     this._userName = document.querySelector(userNameSelector);
     this._userTitel = document.querySelector(userTitelSelector);
     this._userImage = document.querySelector(userImageSelector);
+    this._userId = "3";
 
   }
 
@@ -21,8 +22,9 @@ export default class UserInfo {
     this._userTitel.textContent = title;
   }
 
-  setUserImg(imageURL) {
+  setUserID(imageURL, id) {
     this._userImage.src = imageURL;
+    this._userId = id;
   }
 
 

@@ -34,13 +34,10 @@ api.getInitialCards()
           imgPopup.open(itemName, itemLink);
         };
         const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
-        startCards.addItem(newCard);
+        serverCards.addItem(newCard);
       }
     }, '.elements__list')
     serverCards.renderItems();
-
-
-
   })
   .catch((err) => {
     console.log(err); // log the error to the console
@@ -91,7 +88,7 @@ addCardPop.setEventListeners();
 
 
 /* starting cards */
-const startCards = new Section({
+/* const startCards = new Section({
   items: initialCards,
   renderer: (item) => { // renderer accepts item passed from section class
     const handleCardClick = (itemName, itemLink) => {
@@ -102,7 +99,7 @@ const startCards = new Section({
   }
 }, '.elements__list')
 
-startCards.renderItems();
+startCards.renderItems();  */
 
 /* ###################################################################################
                     Eventlisteners

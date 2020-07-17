@@ -15,17 +15,6 @@ import Api from "./components/Api.js";
 /* ############################################################
 STARTUP CODE
 ############################################################### */
-// new userinfo>
-/* const userID = Api.getUser({
-    headers: {
-      authorization: secretToken,
-    }
-  })
-  .then(res => res.json())
-  .then(result => {
-    return result._id;
-  });
- */
 
 const api = new Api('https://around.nomoreparties.co/v1/', {
   headers: {
@@ -33,8 +22,29 @@ const api = new Api('https://around.nomoreparties.co/v1/', {
   }
 });
 
+api.getInitialCards()
+  .then((result) => {
+
+    const cardsfromServer = result;
+    console.log(cardsfromServer);
+    const serverCards = new Section({
+      items: cardsfromServer,
+      renderer: (item) => { // renderer accepts item passed from section class
+        const handleCardClick = (itemName, itemLink) => {
+          imgPopup.open(itemName, itemLink);
+        };
+        const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
+        startCards.addItem(newCard);
+      }
+    }, '.elements__list')
+    serverCards.renderItems();
 
 
+
+  })
+  .catch((err) => {
+    console.log(err); // log the error to the console
+  });
 
 
 const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
@@ -82,16 +92,16 @@ addCardPop.setEventListeners();
 
 /* starting cards */
 const startCards = new Section({
-    items: initialCards,
-    renderer: (item) => { // renderer accepts item passed from section class
-      const handleCardClick = (itemName, itemLink) => {
-        imgPopup.open(itemName, itemLink);
-      };
-      const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
-      startCards.addItem(newCard);
-    }
-  }, '.elements__list')
-  //validation setting object
+  items: initialCards,
+  renderer: (item) => { // renderer accepts item passed from section class
+    const handleCardClick = (itemName, itemLink) => {
+      imgPopup.open(itemName, itemLink);
+    };
+    const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
+    startCards.addItem(newCard);
+  }
+}, '.elements__list')
+
 startCards.renderItems();
 
 /* ###################################################################################
@@ -112,5 +122,6 @@ btnAddCard.addEventListener("click", () => {
   addCardPop.open();
 });
 
+//validation setting object
 new FormValidator(modal, enableValidation).enableValidation();
 new FormValidator(imgpop, enableValidation).enableValidation();

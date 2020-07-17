@@ -26,7 +26,7 @@ export default class Api {
 
 
   getInitialCards() {
-    return fetch("https://around.nomoreparties.co/v1/group-42/cards", this._header)
+    return fetch("https://around.nomoreparties.co/v1/group-1/cards", this._header)
       .then(res => {
         if (res.ok) {
           return res.json();

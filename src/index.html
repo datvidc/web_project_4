@@ -51,12 +51,12 @@
       <form class="popup__edit-form">
         <h3 class="popup__heading">Edit profile</h3>
         <label class="popup__label-group">
-          <input type="text" minlength="2" maxlength="40" required pattern="[A-Za-z -]{2,40}" placeholder="Name" class="popup__edit popup__name popup_head" name="ProfileName">
-          <span class="popup__edit_error popup__name-error"></span>
+          <input  id="form-name" type="text" minlength="2" maxlength="40" required pattern="[A-Za-z -]{2,40}" placeholder="Name" class="popup__edit popup__name popup_head" name="ProfileName">
+          <span  id="form-name-error" class="popup__edit_error popup__name-error"></span>
         </label>
         <label class="popup__label-group">
-          <input type="text" minlength="2" maxlength="200" required placeholder="About" class="popup__edit popup__title popup_detail" name="profileTitle">
-          <span class="popup__edit_error popup__title-error"></span>
+          <input  id="form-status" type="text" minlength="2" maxlength="200" required placeholder="About" class="popup__edit popup__title popup_detail" name="profileTitle">
+          <span  id="form-status-error" class="popup__edit_error popup__title-error"></span>
         </label>
         <button type="submit" class="popup__save"> Save</button>
       </form>
@@ -97,7 +97,7 @@
       <div class="elements__photo-bottom">
         <p class="elements__text"> </p>
         <button class="elements__heart">  </button>
-        
+
       </div>
     </li>
   </template>

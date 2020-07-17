@@ -7,13 +7,13 @@ export default class Api {
   }
 
   getUser() {
-    console.log(this._header);
+
     const userUrl = this._startUrl.concat("group-1/users/me");
     return this._makeRequests(userUrl);
   }
 
   _makeRequests(url) {
-    console.log(this._header);
+
     return fetch(url, this._header)
       .then(res => {
         if (res.ok) {

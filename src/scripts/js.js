@@ -26,7 +26,7 @@ api.getInitialCards()
   .then((result) => {
 
     const cardsfromServer = result;
-    console.log(cardsfromServer);
+
     const serverCards = new Section({
       items: cardsfromServer,
       renderer: (item) => { // renderer accepts item passed from section class
@@ -52,12 +52,26 @@ imgPopup.setEventListeners();
 //setuser info
 api.getUser()
   .then(res => {
-    console.log(res);
+
     userInfo.setUserInfo(res.name, res.about);
     userInfo.setUserID(res.avatar, res._id);
   })
   .catch((err) => {
     console.log(err);
+
+    /* If something fails in loading the start cards from server- backup is to load the ones on file*/
+    const startCards = new Section({
+      items: initialCards,
+      renderer: (item) => { // renderer accepts item passed from section class
+        const handleCardClick = (itemName, itemLink) => {
+          imgPopup.open(itemName, itemLink);
+        };
+        const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
+        startCards.addItem(newCard);
+      }
+    }, '.elements__list')
+
+    startCards.renderItems();
   });
 
 
@@ -75,7 +89,7 @@ profilePopup.setEventListeners();
 // addCard popup
 const handleAddCard = (imageTitle, imageLink) => {
   const handleCardClick = (imageTitle, imageLink) => {
-    imagePopup.open(imageTitle, imageLink);
+    addCardPop.open(imageTitle, imageLink);
   };
 
   const newCard = new Card(imageTitle, imageLink, '.element__elem', handleCardClick).addCard();
@@ -87,19 +101,7 @@ const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard);
 addCardPop.setEventListeners();
 
 
-/* starting cards */
-/* const startCards = new Section({
-  items: initialCards,
-  renderer: (item) => { // renderer accepts item passed from section class
-    const handleCardClick = (itemName, itemLink) => {
-      imgPopup.open(itemName, itemLink);
-    };
-    const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
-    startCards.addItem(newCard);
-  }
-}, '.elements__list')
 
-startCards.renderItems();  */
 
 /* ###################################################################################
                     Eventlisteners
@@ -122,3 +124,4 @@ btnAddCard.addEventListener("click", () => {
 //validation setting object
 new FormValidator(modal, enableValidation).enableValidation();
 new FormValidator(imgpop, enableValidation).enableValidation();
+new FormValidator(addCardPop, enableValidation).enableValidation();

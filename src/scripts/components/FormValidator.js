@@ -19,17 +19,22 @@ export default class FormValidator {
 
 
   _showErrorMessage(form, input, errorMessage) {
-    console.log(input);
-    const error = form.querySelector(`#${input.id}-error`);
+    const inputID = input.id;
+    console.log(`#${inputID}-error`);
+    console.log(form);
+    const error = this._form.querySelector(`#${inputID}-error`);
+    console.log(input.id);
     input.classList.add(this._inputErrorClass);
     error.textContent = errorMessage;
     error.classList.add(this._errorClass);
   }
 
   _hideErrorMessage(form, input) {
-    const error = form.querySelector(`#${input.id}-error`);
+    const inputID = input.id;
+    const error = this._form.querySelector(`#${inputID}-error`);
+    console.log(input.id);
     input.classList.remove(this._inputErrorClass);
-    error.classList.remove(this._errorClass);
+    /* error.classList.remove(this._errorClass); */
     error.textContent = "";
   }
 

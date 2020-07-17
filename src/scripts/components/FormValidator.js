@@ -11,26 +11,26 @@ export default class FormValidator {
 
   _checkInputValidation(input) {
     if (input.validity.valid) {
-      this._hideErrorMessage(this._form, input);
+      this._hideErrorMessage(input);
     } else {
-      this._showErrorMessage(this._form, input, input.validationMessage);
+      this._showErrorMessage(input, input.validationMessage);
     }
   }
 
 
-  _showErrorMessage(form, input, errorMessage) {
+  _showErrorMessage(input, errorMessage) {
     const inputID = input.id;
+    console.log(this._form);
     console.log(`#${inputID}-error`);
-    console.log(form);
     const error = this._form.querySelector(`#${inputID}-error`);
-    console.log(input.id);
     input.classList.add(this._inputErrorClass);
     error.textContent = errorMessage;
     error.classList.add(this._errorClass);
   }
 
-  _hideErrorMessage(form, input) {
+  _hideErrorMessage(input) {
     const inputID = input.id;
+    console.log(this._form);
     const error = this._form.querySelector(`#${inputID}-error`);
     console.log(input.id);
     input.classList.remove(this._inputErrorClass);

@@ -80,3 +80,12 @@ export const enableValidation = {
   inputErrorClass: "popup__edit_invalid",
   errorClass: "popup__edit_error"
 };
+
+export const enableValidationAddCard = {
+  formSelector: ".popup__edit-form_add",
+  inputSelector: ".popup__edit",
+  submitButtonSelector: ".popup__save_addcard",
+  inactiveButtonClass: "popup__save_invalid",
+  inputErrorClass: "popup__edit_invalid",
+  errorClass: "popup__edit_error"
+}

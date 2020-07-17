@@ -1,7 +1,7 @@
 /* ###############################################################
                 Importing modules and utils
 ############################################################### */
-import { initialCards, enableValidation, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
+import { initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
 import "../pages/index.css";
@@ -27,7 +27,7 @@ api.getInitialCards()
 
     const cardsfromServer = result;
 
-    const serverCards = new Section({
+    var serverCards = new Section({
       items: cardsfromServer,
       renderer: (item) => { // renderer accepts item passed from section class
         const handleCardClick = (itemName, itemLink) => {
@@ -41,23 +41,6 @@ api.getInitialCards()
   })
   .catch((err) => {
     console.log(err); // log the error to the console
-  });
-
-
-const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
-// Image popup / click on image
-const imgPopup = new PopupWithImage(".popup__img");
-imgPopup.setEventListeners();
-
-//setuser info
-api.getUser()
-  .then(res => {
-
-    userInfo.setUserInfo(res.name, res.about);
-    userInfo.setUserID(res.avatar, res._id);
-  })
-  .catch((err) => {
-    console.log(err);
 
     /* If something fails in loading the start cards from server- backup is to load the ones on file*/
     const startCards = new Section({
@@ -75,6 +58,22 @@ api.getUser()
   });
 
 
+const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
+// Image popup / click on image
+const imgPopup = new PopupWithImage(".popup__img");
+imgPopup.setEventListeners();
+
+//setuser info
+api.getUser()
+  .then(res => {
+    userInfo.setUserInfo(res.name, res.about);
+    userInfo.setUserID(res.avatar, res._id);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+
 
 // profile popup
 
@@ -89,16 +88,17 @@ profilePopup.setEventListeners();
 // addCard popup
 const handleAddCard = (imageTitle, imageLink) => {
   const handleCardClick = (imageTitle, imageLink) => {
-    addCardPop.open(imageTitle, imageLink);
+    imgPopup.open(imageTitle, imageLink);
   };
+  const container = document.querySelector(".elements__list");
+  const newCardz = new Card(imageTitle, imageLink, '.element__elem', handleCardClick).addCard();
+  container.prepend(newCardz);
 
-  const newCard = new Card(imageTitle, imageLink, '.element__elem', handleCardClick).addCard();
-  startCards.addItem(newCard);
 }
 
 
 const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard);
-addCardPop.setEventListeners();
+
 
 
 
@@ -123,5 +123,5 @@ btnAddCard.addEventListener("click", () => {
 
 //validation setting object
 new FormValidator(modal, enableValidation).enableValidation();
-new FormValidator(imgpop, enableValidation).enableValidation();
-new FormValidator(addCardPop, enableValidation).enableValidation();
+
+new FormValidator(saveaddcard, enableValidationAddCard).enableValidation();

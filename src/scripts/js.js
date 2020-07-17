@@ -19,9 +19,30 @@ STARTUP CODE
 const api = new Api('https://around.nomoreparties.co/v1/', {
   headers: {
     authorization: secretToken,
+    "Content-Type": "application/json"
+
   }
 });
 
+/* api._appReady()
+  .then(([cardsReturned, userInfoData]) => {
+    var startCards = new Section({
+      items: cardsReturned,
+      renderer: (item) => { // renderer accepts item passed from section class
+        const handleCardClick = (itemName, itemLink) => {
+          imgPopup.open(itemName, itemLink);
+        };
+        const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
+        startCards.addItem(newCard);
+      }
+    }, '.elements__list')
+    startCards.renderItems();
+
+    userInfo.setUserInfo(userInfoData.name, userInfoData.about);
+    userInfo.setUserID(userInfoData.avatar, userInfoData._id);
+
+  })
+ */
 api.getInitialCards()
   .then((result) => {
 
@@ -103,6 +124,7 @@ const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard);
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
+
 
 
 edit.addEventListener("click", () => {

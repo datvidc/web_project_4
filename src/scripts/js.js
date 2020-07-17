@@ -100,14 +100,9 @@ const handleAddCard = (imageTitle, imageLink) => {
 const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard);
 
 
-
-
-
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
-
-
 
 
 edit.addEventListener("click", () => {

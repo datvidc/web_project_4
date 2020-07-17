@@ -29,7 +29,7 @@ STARTUP CODE
 
 const api = new Api('https://around.nomoreparties.co/v1/', {
   headers: {
-    authorization: "3aa990c2-b590-4bfb-9403-af52e9b89792",
+    authorization: secretToken,
   }
 });
 
@@ -78,6 +78,7 @@ const handleAddCard = (imageTitle, imageLink) => {
 
 const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard);
 addCardPop.setEventListeners();
+
 
 /* starting cards */
 const startCards = new Section({

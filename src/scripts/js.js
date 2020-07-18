@@ -11,7 +11,7 @@ import PopupWithForm from "./components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
 import { secretToken, secretGroup } from "../../secret.js";
 import Api from "./components/Api.js";
-import UserCard from ",/components/UserCard.js";
+import UserCard from "./components/UserCard.js";
 /* ############################################################
 STARTUP CODE
 ############################################################### */
@@ -55,11 +55,11 @@ api.getInitialCards()
           imgPopup.open(itemName, itemLink);
         };
         if (userInfo.isUser(item.owner._id)) {
-          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id).addCard();
+          const newCard = new UserCard(item.name, item.link, '.element__elem', handleCardClick, item._id).addCard();
           serverCards.addItem(newCard);
         } else {
-          const newCard = new Card()
-
+          const newCard = new Card(item.name, item.link, '.element__guest', handleCardClick, item._id).addCard();
+          serverCards.addItem(newCard);
         }
 
       }

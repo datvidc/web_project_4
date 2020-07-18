@@ -1,0 +1,9 @@
+.popup__container_delete {
+  margin-top: 0px;
+  position: absolute;
+  width: 430px;
+  height: 181px;
+  left: 100px;
+  right: 0px;
+  top: 165px;
+}

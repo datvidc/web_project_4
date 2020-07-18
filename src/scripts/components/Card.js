@@ -45,7 +45,6 @@ export default class Card {
       /* remove the element */
       this._newCard.remove();
       // remove from API
-
     });
   }
 

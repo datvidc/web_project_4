@@ -1,6 +1,5 @@
 // importing Popup class
 import Popup from "./Popup.js";
-import { listenOnForm } from "./../utils/const.js";
 
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, callbackFunc) {

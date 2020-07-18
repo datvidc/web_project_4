@@ -11,7 +11,7 @@ import PopupWithForm from "./components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
 import { secretToken, secretGroup } from "../../secret.js";
 import Api from "./components/Api.js";
-
+import UserCard from ",/components/UserCard.js";
 /* ############################################################
 STARTUP CODE
 ############################################################### */
@@ -47,15 +47,21 @@ api.getInitialCards()
   .then((result) => {
 
     const cardsfromServer = result;
-
+    console.log(cardsfromServer);
     var serverCards = new Section({
       items: cardsfromServer,
       renderer: (item) => { // renderer accepts item passed from section class
         const handleCardClick = (itemName, itemLink) => {
           imgPopup.open(itemName, itemLink);
         };
-        const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
-        serverCards.addItem(newCard);
+        if (userInfo.isUser(item.owner._id)) {
+          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id).addCard();
+          serverCards.addItem(newCard);
+        } else {
+          const newCard = new Card()
+
+        }
+
       }
     }, '.elements__list')
     serverCards.renderItems();

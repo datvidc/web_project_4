@@ -1,10 +1,11 @@
 export default class Card {
-  constructor(text, link, template, handleCardClick) {
+  constructor(text, link, template, handleCardClick, id) {
     //link and text are private
     this._text = text;
     this._link = link;
     this._template = template; //this is the HTML template
     this._handleCardClick = handleCardClick;
+    this._id = id;
   }
   _getTemplate() {
       return document
@@ -54,6 +55,7 @@ export default class Card {
     const elementsImage = this._newCard.querySelector(".elements__image");
     elementsImage.src = this._link;
     elementsImage.alt = this._text;
+    elementsImage.id = this._id;
 
     return this._newCard;
   }

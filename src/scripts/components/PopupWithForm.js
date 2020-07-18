@@ -6,7 +6,7 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, callbackFunc) {
     super(popupSelector);
     this._callbackFunc = callbackFunc;
-    var self = this;
+
     this._form = this._popupElement.querySelector('.popup__edit-form');
     this._title = this._form.querySelector('.popup_head');
     this._name = this._form.querySelector('.popup_detail');
@@ -33,6 +33,7 @@ export default class PopupWithForm extends Popup {
 
     // set eventListener on submit event
     this._form.addEventListener("submit", this._listenOnForm.bind(this));
+
     this._popupElement
       .querySelector(".popup__close")
       .addEventListener("click", () => {

@@ -24,16 +24,11 @@ export default class Api {
   }
 
   deleteCard(cardID) {
-    const killUrl = this._startUrl.concat("/group-1/cards" + cardID);
+    const killUrl = this._startUrl.concat("/group-1/cards/" + cardID);
 
     return fetch(killUrl, {
         method: "DELETE",
         headers: this._headerinfo,
-        body: JSON.stringify({
-          name: name,
-          link: link
-        })
-
       })
       .then(res => {
         if (res.ok) {
@@ -41,8 +36,9 @@ export default class Api {
         }
       }).catch(res => {
         console.log(res);
-
       })
+      // call it like this>
+      /* api.deleteCard("5f1203c38b2c57001f1475ca"); */
   }
 
   addCard(name, link) {

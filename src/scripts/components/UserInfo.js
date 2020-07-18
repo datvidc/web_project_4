@@ -9,6 +9,10 @@ export default class UserInfo {
 
   }
 
+  isUser(ownerID) {
+    return ownerID === this._userId;
+  }
+
   getUserInfo() {
     return {
       name: this._userName.textContent,

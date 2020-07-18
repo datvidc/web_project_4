@@ -59,9 +59,11 @@ export default class Card {
   addCard() {
     //code for returning fully ready card - with listeners
     this._newCard = this._getTemplate(); //Create new card
-    if (this._owner == 1) {
+
+    //cleanup - apparently later in the document instructions are that click on trash should give popup. this may not be needed,. cleanup before review.
+    /*  if (this._owner == 1) {
       this._addTrash();
-    } else {};
+    } else {}; */
     this._addEvents(); //add Listeners to new card
     this._addHeart(); //add heart listener
 

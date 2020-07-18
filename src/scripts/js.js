@@ -116,6 +116,8 @@ const handleProfileChange = (name, title) => {
 const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange);
 profilePopup.setEventListeners();
 
+const deleteConfirm = new PopupWithForm(".popup__delete-confirm", )
+
 // addCard popup
 const handleAddCard = (imageTitle, imageLink) => {
   const handleCardClick = (imageTitle, imageLink) => {

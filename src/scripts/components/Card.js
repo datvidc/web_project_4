@@ -1,7 +1,7 @@
 import Api from "./Api.js";
 
 export default class Card {
-  constructor(text, link, template, handleCardClick, id, owner) {
+  constructor(text, link, template, handleCardClick, id, owner, handleRemoveCard) {
     //link and text are private
     this._text = text;
     this._link = link;
@@ -9,6 +9,7 @@ export default class Card {
     this._handleCardClick = handleCardClick;
     this._id = id;
     this._owner = owner;
+    this._handleRemoveCard = handleRemoveCard;
   }
   _getTemplate() {
       if (this._owner == 1) {
@@ -42,8 +43,13 @@ export default class Card {
   _addTrash() {
     const cardTrash = this._newCard.querySelector(".elements__trash");
     cardTrash.addEventListener("click", () => {
+      //instead of removing the element-open the popup.
+      this._handleRemoveCard;
+      console.log("attempt");
+
+
       /* remove the element */
-      this._newCard.remove();
+      /*  this._newCard.remove(); */
       // remove from API
     });
   }
@@ -61,9 +67,9 @@ export default class Card {
     this._newCard = this._getTemplate(); //Create new card
 
     //cleanup - apparently later in the document instructions are that click on trash should give popup. this may not be needed,. cleanup before review.
-    /*  if (this._owner == 1) {
+    if (this._owner == 1) {
       this._addTrash();
-    } else {}; */
+    } else {};
     this._addEvents(); //add Listeners to new card
     this._addHeart(); //add heart listener
 

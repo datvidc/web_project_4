@@ -1,3 +1,5 @@
+import Api from "./Api.js";
+
 export default class Card {
   constructor(text, link, template, handleCardClick, id, owner) {
     //link and text are private
@@ -25,11 +27,8 @@ export default class Card {
         trash.parentNode.removeChild(trash);
         return doc;
       }
-
-
     }
     // TODO : perform all the necessary actions for getting the markup here
-
 
   _addHeart() {
     //addding some heart
@@ -40,6 +39,16 @@ export default class Card {
     });
 
   }
+  _addTrash() {
+    const cardTrash = this._newCard.querySelector(".elements__trash");
+    cardTrash.addEventListener("click", () => {
+      /* remove the element */
+      this._newCard.remove();
+      // remove from API
+
+    });
+  }
+
   _addEvents() {
     const elementsPic = this._newCard.querySelector(".elements__image");
 
@@ -51,6 +60,9 @@ export default class Card {
   addCard() {
     //code for returning fully ready card - with listeners
     this._newCard = this._getTemplate(); //Create new card
+    if (this._owner == 1) {
+      this._addTrash();
+    } else {};
     this._addEvents(); //add Listeners to new card
     this._addHeart(); //add heart listener
 

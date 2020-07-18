@@ -122,7 +122,7 @@ const handleAddCard = (imageTitle, imageLink) => {
     imgPopup.open(imageTitle, imageLink);
   };
   const container = document.querySelector(".elements__list");
-  const newCardz = new Card(imageTitle, imageLink, '.element__elem', handleCardClick).addCard();
+  const newCardz = new Card(imageTitle, imageLink, '.element__elem', handleCardClick, null, 1).addCard();
   container.prepend(newCardz);
 
 }

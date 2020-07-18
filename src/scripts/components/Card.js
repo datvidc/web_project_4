@@ -1,20 +1,30 @@
 export default class Card {
-  constructor(text, link, template, handleCardClick, id) {
+  constructor(text, link, template, handleCardClick, id, owner) {
     //link and text are private
     this._text = text;
     this._link = link;
     this._template = template; //this is the HTML template
     this._handleCardClick = handleCardClick;
     this._id = id;
+    this._owner = owner;
   }
   _getTemplate() {
-      const doc = document.querySelector(this._template)
-        .content
-        .querySelector(".elements__element")
-        .cloneNode(true);
+      if (this._owner == 1) {
 
-      return doc;
-
+        return document
+          .querySelector(this._template)
+          .content
+          .querySelector(".elements__element")
+          .cloneNode(true);
+      } else {
+        const doc = document.querySelector(this._template)
+          .content
+          .querySelector(".elements__element")
+          .cloneNode(true);
+        const trash = doc.querySelector(".elements__trash");
+        trash.parentNode.removeChild(trash);
+        return doc;
+      }
 
 
     }

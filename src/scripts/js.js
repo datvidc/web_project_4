@@ -23,6 +23,17 @@ const api = new Api('https://around.nomoreparties.co/v1/', {
 
   }
 });
+//setuser info
+const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
+api.getUser()
+  .then(res => {
+
+    userInfo.setUserInfo(res.name, res.about);
+    userInfo.setUserID(res.avatar, res._id);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 /* api._appReady()
   .then(([cardsReturned, userInfoData]) => {
@@ -55,10 +66,12 @@ api.getInitialCards()
           imgPopup.open(itemName, itemLink);
         };
         if (userInfo.isUser(item.owner._id)) {
-          const newCard = new UserCard(item.name, item.link, '.element__elem', handleCardClick, item._id).addCard();
+          console.log("owner");
+          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, 1).addCard();
           serverCards.addItem(newCard);
         } else {
-          const newCard = new Card(item.name, item.link, '.element__guest', handleCardClick, item._id).addCard();
+          console.log(item.owner._id);
+          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, 0).addCard();
           serverCards.addItem(newCard);
         }
 
@@ -85,20 +98,11 @@ api.getInitialCards()
   });
 
 
-const userInfo = new UserInfo(".profile__name", ".profile__title", ".profile__avatar");
+
 // Image popup / click on image
 const imgPopup = new PopupWithImage(".popup__img");
 imgPopup.setEventListeners();
 
-//setuser info
-api.getUser()
-  .then(res => {
-    userInfo.setUserInfo(res.name, res.about);
-    userInfo.setUserID(res.avatar, res._id);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
 
 
 
@@ -130,8 +134,6 @@ const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard);
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
-
-
 
 edit.addEventListener("click", () => {
   const data = userInfo.getUserInfo();

@@ -5,19 +5,18 @@ export default class UserInfo {
     this._userName = document.querySelector(userNameSelector);
     this._userTitel = document.querySelector(userTitelSelector);
     this._userImage = document.querySelector(userImageSelector);
-    this._userId = "3";
-
+    this.userId = "36ee6699552e83cd4b01111f";
   }
 
   isUser(ownerID) {
-    return ownerID === this._userId;
+    return ownerID == this.userId;
   }
 
   getUserInfo() {
     return {
       name: this._userName.textContent,
       titel: this._userTitel.textContent,
-      id: this._userId,
+      id: this.userId,
     }
   }
 
@@ -28,7 +27,7 @@ export default class UserInfo {
 
   setUserID(imageURL, id) {
     this._userImage.src = imageURL;
-    this._userId = id;
+    this.userId = id;
   }
 
 

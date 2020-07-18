@@ -7,15 +7,11 @@ export default class UserCard extends Card {
   }
 
   _getTemplate() {
-      const doc = document.querySelector(this._template)
+      return document
+        .querySelector(this._template)
         .content
         .querySelector(".elements__element")
         .cloneNode(true);
-
-      return doc;
-
-
-
     }
     // TODO : perform all the necessary actions for getting the markup here
 

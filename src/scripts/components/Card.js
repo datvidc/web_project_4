@@ -1,16 +1,21 @@
 import Api from "./Api.js";
+import { deleteConfirm } from "../js.js";
 
 export default class Card {
-  constructor(text, link, template, handleCardClick, id, owner, handleRemoveCard) {
+  constructor(text, link, template, handleCardClick, id, likes, owner, handleRemoveCard) {
     //link and text are private
     this._text = text;
     this._link = link;
     this._template = template; //this is the HTML template
     this._handleCardClick = handleCardClick;
     this._id = id;
+    this._likes = likes;
     this._owner = owner;
     this._handleRemoveCard = handleRemoveCard;
   }
+
+
+
   _getTemplate() {
       if (this._owner == 1) {
 
@@ -38,13 +43,21 @@ export default class Card {
       /* when heart button is pressed toggle class for style */
       cardHeart.classList.toggle("elements__heart_clicked");
     });
+    /*  if (this._likes.length > 0) {
+
+       if ((this._likes.owner._id)) {
+
+         cardHeart.classList.toggle("elements__heart_clicked");
+       }
+     } else {}; */
 
   }
   _addTrash() {
     const cardTrash = this._newCard.querySelector(".elements__trash");
     cardTrash.addEventListener("click", () => {
       //instead of removing the element-open the popup.
-      this._handleRemoveCard;
+
+      this._handleRemoveCard(this._id);
       console.log("attempt");
 
 

@@ -1,5 +1,6 @@
 .elements__photo-bottom {
-  display: flex;
+  display: grid;
+  grid-template-areas: "text heart" "text likes";
   margin: 0;
   justify-content: space-between;
   max-width: 882px;

@@ -54,6 +54,7 @@ api.getUser()
 
   })
  */
+
 api.getInitialCards()
   .then((result) => {
 
@@ -66,12 +67,12 @@ api.getInitialCards()
           imgPopup.open(itemName, itemLink);
         };
         if (userInfo.isUser(item.owner._id)) {
-          console.log("owner");
-          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, 1, openDeleteConfirm).addCard();
+          console.log(item.likes);
+          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 1, openDeleteConfirm).addCard();
           serverCards.addItem(newCard);
         } else {
           console.log(item.owner._id);
-          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, 0).addCard();
+          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 0).addCard();
           serverCards.addItem(newCard);
         }
 
@@ -121,9 +122,10 @@ const handleDeletion = (id) => {
 }
 
 const openDeleteConfirm = (evt) => {
-  evt.target.open();
+  deleteConfirm.open();
+  console.log(deleteConfirm);
 }
-const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion)
+export const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion)
 
 // addCard popup
 const handleAddCard = (imageTitle, imageLink) => {

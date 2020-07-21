@@ -1,9 +1,11 @@
 @import url(./_clicked/elements__heart_clicked.css);
+@import url(./_likes/elements__heart_likes.css);
 .elements__heart {
   background-image: url(../../../images/heart.svg);
   height: 18.13px;
   width: 20.76px;
   color: black;
+  grid-area: heart;
   background-color: white;
   border: none;
   align-self: center;

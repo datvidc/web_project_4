@@ -2,14 +2,17 @@
 @import url(./_likes/elements__heart_likes.css);
 .elements__heart {
   background-image: url(../../../images/heart.svg);
+  margin: auto 0 auto auto;
+  background-color: #fff;
+  border: none;
+  background-size: cover;
+  background-repeat: no-repeat;
+  grid-area: heart;
+  padding: 0;
   height: 18.13px;
   width: 20.76px;
   color: black;
-  grid-area: heart;
-  background-color: white;
-  border: none;
   align-self: center;
-  margin: 32px 17.24px 29.87px 10px;
 }
 
 .elements__heart:hover {

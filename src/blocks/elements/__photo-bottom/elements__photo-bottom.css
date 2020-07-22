@@ -1,6 +1,5 @@
 .elements__photo-bottom {
-  display: grid;
-  grid-template-areas: "txt heart" "txt likes";
   padding: 20px 20px 25px;
-  max-width: 882px;
+  display: grid;
+  grid-template-areas: "name heart" "name likes";
 }

@@ -67,12 +67,12 @@ api.getInitialCards()
           imgPopup.open(itemName, itemLink);
         };
         if (userInfo.isUser(item.owner._id)) {
-          console.log(item.likes);
-          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 1, openDeleteConfirm).addCard();
+          console.log(userInfo.userId);
+          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 1, userInfo.userId, openDeleteConfirm).addCard();
           serverCards.addItem(newCard);
         } else {
-          console.log(item.owner._id);
-          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 0).addCard();
+
+          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 0, userInfo.userId).addCard();
           serverCards.addItem(newCard);
         }
 
@@ -110,7 +110,6 @@ imgPopup.setEventListeners();
 // profile popup
 
 const handleProfileChange = (name, title) => {
-
   userInfo.setUserInfo(name, title);
 }
 

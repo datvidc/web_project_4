@@ -2,7 +2,7 @@ import Api from "./Api.js";
 import { deleteConfirm } from "../js.js";
 
 export default class Card {
-  constructor(text, link, template, handleCardClick, id, likes, owner, handleRemoveCard) {
+  constructor(text, link, template, handleCardClick, id, likes, owner, ownerID, handleRemoveCard) {
     //link and text are private
     this._text = text;
     this._link = link;
@@ -12,6 +12,7 @@ export default class Card {
     this._likes = likes;
     this._owner = owner;
     this._handleRemoveCard = handleRemoveCard;
+    this._ownerID = ownerID;
   }
 
 
@@ -19,11 +20,26 @@ export default class Card {
   _getTemplate() {
       if (this._owner == 1) {
 
-        return document
+        const doc = document
           .querySelector(this._template)
           .content
           .querySelector(".elements__element")
           .cloneNode(true);
+
+        if (this._likes.length > 0) {
+          const liketxt = doc.querySelector(".elements__heart_likes");
+          liketxt.textContent = this._likes.length;
+          this._likes.forEach((like) => {
+            if (like._id == this._ownerID) {
+              console.log("you have liked this card");
+              const cardHeart = doc.querySelector(".elements__heart");
+              cardHeart.classList.add("elements__heart_clicked");
+            }
+          })
+
+        } else {};
+
+        return doc;
       } else {
         const doc = document.querySelector(this._template)
           .content
@@ -31,6 +47,18 @@ export default class Card {
           .cloneNode(true);
         const trash = doc.querySelector(".elements__trash");
         trash.parentNode.removeChild(trash);
+
+        if (this._likes.length > 0) {
+          const likes = doc.querySelector(".elements__heart_likes");
+          likes.textContent = this._likes.length;
+          this._likes.forEach((like) => {
+            if (like._id == this._ownerID) {
+              console.log("you have liked this card");
+              const cardHeart = doc.querySelector(".elements__heart");
+              cardHeart.classList.add("elements__heart_clicked");
+            }
+          })
+        }
         return doc;
       }
     }
@@ -43,13 +71,7 @@ export default class Card {
       /* when heart button is pressed toggle class for style */
       cardHeart.classList.toggle("elements__heart_clicked");
     });
-    /*  if (this._likes.length > 0) {
 
-       if ((this._likes.owner._id)) {
-
-         cardHeart.classList.toggle("elements__heart_clicked");
-       }
-     } else {}; */
 
   }
   _addTrash() {

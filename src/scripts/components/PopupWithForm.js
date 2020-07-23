@@ -28,10 +28,7 @@ export default class PopupWithForm extends Popup {
       this.close();
       evt.stopPropagation();
       this._form.reset();
-    } else {
-
-
-    }
+    } else {}
   }
 
   setEventListeners() {
@@ -50,18 +47,16 @@ export default class PopupWithForm extends Popup {
   }
 
   open(id = false) {
-    if (id) {
+      if (id) {
 
-      this._form.addEventListener("submit", this._callbackFunc(id));
-      this.close();
+        this._form.addEventListener("submit", this._callbackFunc(id));
+        this.close();
 
-    } else {
-      super.open();
+      } else {
+        super.open();
+      }
     }
-  }
-
-  //it modifies the close() parent method in order to reset the form once the popup is closed.
-
+    //it modifies the close() parent method in order to reset the form once the popup is closed.
   close() {
     super.close();
     this._form.removeEventListener("submit", this._listenOnForm.bind(this));

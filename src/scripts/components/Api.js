@@ -69,6 +69,25 @@ export default class Api {
   }); */
   }
 
+  likeCard(cardID) {
+    const likeUrl = this._startUrl.concat("/group-1/cards/likes/" + cardID);
+    fetch(likeUrl, {
+        method: "PUT",
+        headers: this._headerinfo
+      })
+      .then(res => {
+        if (res.ok) {
+          console.log(res);
+        }
+      }).catch(res => {
+        console.log(res);
+
+      })
+
+    //call it like> api.likeCard(cardID);
+
+  }
+
   getInitialCards() {
     return fetch("https://around.nomoreparties.co/v1/group-1/cards", this._header)
       .then(res => {

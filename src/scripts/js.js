@@ -109,8 +109,13 @@ imgPopup.setEventListeners();
 
 // profile popup
 
-const handleProfileChange = (name, title) => {
-  userInfo.setUserInfo(name, title);
+const handleProfileChange = (formData) => {
+  console.log(formData);
+  /*  const name = formData.ProfileName.value;
+   console.log(name);
+  */
+  /* userInfo.setUserInfo(name, title) */
+  ;
 }
 
 const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange);

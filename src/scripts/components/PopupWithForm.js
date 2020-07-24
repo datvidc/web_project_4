@@ -12,30 +12,22 @@ export default class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    const data = {
-      titleValue: this._title.value,
-      nameValue: this._name.value
-    };
     console.log(this._form.elements);
-    return data;
+    return this._form.elements;
   };
-
-  _listenOnForm(evt) {
-    console.log("listenonform");
-    evt.preventDefault();
-    const inputValues = this._getInputValues();
-    if (inputValues) {
-      this._callbackFunc(inputValues.titleValue, inputValues.nameValue);
-      this.close();
-      evt.stopPropagation();
-      this._form.reset();
-    } else {}
-  }
 
   setEventListeners() {
 
     // set eventListener on submit event
-    this._form.addEventListener("submit", this._listenOnForm.bind(this));
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      const data = this._getInputValues;
+      this._callbackFunc(data);
+      this.close();
+      evt.stopPropagation();
+      this._form.reset();
+
+    });
 
     this._popupElement
       .querySelector(".popup__close")
@@ -60,6 +52,6 @@ export default class PopupWithForm extends Popup {
     //it modifies the close() parent method in order to reset the form once the popup is closed.
   close() {
     super.close();
-    this._form.removeEventListener("submit", this._listenOnForm.bind(this));
+    /* this._form.removeEventListener("submit", this._listenOnForm.bind(this)); */
   }
 }

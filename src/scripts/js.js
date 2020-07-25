@@ -110,18 +110,18 @@ imgPopup.setEventListeners();
 // profile popup
 
 const handleProfileChange = (formData) => {
-  console.log(formData);
-  /*  const name = formData.ProfileName.value;
-   console.log(name);
-  */
-  /* userInfo.setUserInfo(name, title) */
-  ;
+  const name = formData.ProfileName.value;
+  const title = formData.profileTitle.value;
+  userInfo.setUserInfo(name, title);
 }
+
+
 
 const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange);
 profilePopup.setEventListeners();
 
-const handleDeletion = (id) => {
+const handleDeletion = (formData) => {
+
   api.deleteCard(id);
 }
 
@@ -129,7 +129,7 @@ const openDeleteConfirm = (evt) => {
   deleteConfirm.open();
   console.log(deleteConfirm);
 }
-export const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion)
+const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion)
 
 // addCard popup
 const handleAddCard = (imageTitle, imageLink) => {

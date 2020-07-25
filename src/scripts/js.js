@@ -153,9 +153,6 @@ const handleAddCard = (FormData) => {
       console.log(err);
     });
 
-  const container = document.querySelector(".elements__list");
-  const newCardz = new Card(imageTitle, imageLink, '.element__elem', handleCardClick, null, 1).addCard();
-  container.prepend(newCardz);
 
 }
 

@@ -29,6 +29,7 @@ export const placename = document.querySelector(".popup__place");
 export const popEditForm = document.querySelector(".popup__edit-form_add");
 export const imgpop = document.querySelector(".popup__img");
 export const closeimg = document.querySelector(".popup__closeimg");
+export const elementsContainer = document.querySelector(".elements__list");
 
 
 

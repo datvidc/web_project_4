@@ -1,7 +1,7 @@
 /* ###############################################################
                 Importing modules and utils
 ############################################################### */
-import { initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
+import { elementsContainer, initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
 import "../pages/index.css";
@@ -140,7 +140,14 @@ const handleAddCard = (FormData) => {
   };
   api.addCard(imageTitle, imageLink)
     .then((result) => {
-      console.log(result);
+      console.log(result.link, result._id);
+
+      const handleCardClick = (itemName, itemLink) => {
+        imgPopup.open(itemName, itemLink);
+      };
+      const newCard = new Card(result.name, result.link, '.element__elem', handleCardClick, result._id, result.likes, 1, userInfo.userId, openDeleteConfirm).addCard();
+      elementsContainer.prepend(newCard);
+
     })
     .catch((err) => {
       console.log(err);

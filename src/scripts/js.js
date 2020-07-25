@@ -138,6 +138,14 @@ const handleAddCard = (FormData) => {
   const handleCardClick = (imageTitle, imageLink) => {
     imgPopup.open(imageTitle, imageLink);
   };
+  api.addCard(imageTitle, imageLink)
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+
   const container = document.querySelector(".elements__list");
   const newCardz = new Card(imageTitle, imageLink, '.element__elem', handleCardClick, null, 1).addCard();
   container.prepend(newCardz);

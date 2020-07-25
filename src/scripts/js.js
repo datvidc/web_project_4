@@ -1,7 +1,7 @@
 /* ###############################################################
                 Importing modules and utils
 ############################################################### */
-import { elementsContainer, initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
+import { deleteButton, elementsContainer, initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
 import "../pages/index.css";
@@ -120,14 +120,23 @@ const handleProfileChange = (formData) => {
 const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange, "Saving ...");
 profilePopup.setEventListeners();
 
-const handleDeletion = (id) => {
+const handleDeletion = (formData) => {
+  const id = deleteButton.dataset.id;
+  api.deleteCard(id)
+    .then(() => {
+      const el = document.getElementById(id).parentElement.nodeName;
+      el.remove();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 
-  api.deleteCard(id);
 }
 
-const openDeleteConfirm = (evt) => {
+const openDeleteConfirm = (id) => {
   deleteConfirm.open();
-  console.log(deleteConfirm);
+  deleteButton.dataset.id = id;
+  console.log(id);
 }
 const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "deleting ...");
 

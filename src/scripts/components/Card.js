@@ -15,7 +15,9 @@ export default class Card {
     this._ownerID = ownerID;
   }
 
-
+  removeCard() {
+    this._newCard.remove();
+  }
 
   _getTemplate() {
       if (this._owner == 1) {

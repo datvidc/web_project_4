@@ -117,10 +117,10 @@ const handleProfileChange = (formData) => {
 
 
 
-const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange);
+const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange, "Saving ...");
 profilePopup.setEventListeners();
 
-const handleDeletion = (formData) => {
+const handleDeletion = (id) => {
 
   api.deleteCard(id);
 }
@@ -129,10 +129,12 @@ const openDeleteConfirm = (evt) => {
   deleteConfirm.open();
   console.log(deleteConfirm);
 }
-const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion)
+const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "deleting ...");
 
 // addCard popup
-const handleAddCard = (imageTitle, imageLink) => {
+const handleAddCard = (FormData) => {
+  const imageTitle = FormData.placename.value;
+  const imageLink = FormData.popupurl.value;
   const handleCardClick = (imageTitle, imageLink) => {
     imgPopup.open(imageTitle, imageLink);
   };
@@ -143,7 +145,7 @@ const handleAddCard = (imageTitle, imageLink) => {
 }
 
 
-const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard);
+const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard, "saving...");
 
 
 /* ###################################################################################

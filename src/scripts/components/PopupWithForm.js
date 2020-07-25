@@ -2,13 +2,14 @@
 import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
-  constructor(popupSelector, callbackFunc) {
+  constructor(popupSelector, callbackFunc, buttonText) {
     super(popupSelector);
     this._callbackFunc = callbackFunc;
 
     this._form = this._popupElement.querySelector('.popup__edit-form');
     this._title = this._form.querySelector('.popup_head');
     this._name = this._form.querySelector('.popup_detail');
+    this._buttonText = buttonText;
   }
 
   _getInputValues() {

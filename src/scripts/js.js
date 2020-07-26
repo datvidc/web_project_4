@@ -124,9 +124,9 @@ const handleDeletion = (formData) => {
   const id = deleteButton.dataset.id;
   api.deleteCard(id)
     .then(() => {
-      const el = document.getElementById(id).parentElement.nodeName;
+      const el = document.getElementById(id).parentElement;
       console.log(el);
-      el.ChildNode.remove();
+      el.remove();
     })
     .catch((err) => {
       console.log(err);
@@ -181,6 +181,7 @@ edit.addEventListener("click", () => {
 });
 
 btnAddCard.addEventListener("click", () => {
+  //TODO write functionality to reset form before opening. This sucks.
   addCardPop.open();
 });
 

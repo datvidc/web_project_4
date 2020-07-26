@@ -78,11 +78,12 @@ export default class Card {
   }
   _addTrash() {
     const cardTrash = this._newCard.querySelector(".elements__trash");
-    cardTrash.addEventListener("click", () => {
+    cardTrash.addEventListener("click", (evt) => {
       //instead of removing the element-open the popup.
 
       this._handleRemoveCard(this._id);
-      console.log("attempt");
+
+
 
 
       /* remove the element */

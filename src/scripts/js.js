@@ -125,12 +125,12 @@ const handleDeletion = (formData) => {
   api.deleteCard(id)
     .then(() => {
       const el = document.getElementById(id).parentElement.nodeName;
-      el.remove();
+      console.log(el);
+      el.ChildNode.remove();
     })
     .catch((err) => {
       console.log(err);
     })
-
 }
 
 const openDeleteConfirm = (id) => {

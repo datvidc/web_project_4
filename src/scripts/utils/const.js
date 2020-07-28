@@ -9,6 +9,7 @@ import islandsBrygge from "../../images/islandsBrygge.png";
 import latemar from "../../images/latemar.png";
 import stroeget from "../../images/stroeget.png";
 import copenhagen from "../../images/Copenhagen.png";
+import Api from "../components/Api";
 
 /* ###############################################################
                 variables:
@@ -31,7 +32,6 @@ export const imgpop = document.querySelector(".popup__img");
 export const closeimg = document.querySelector(".popup__closeimg");
 export const elementsContainer = document.querySelector(".elements__list");
 export const deleteButton = document.querySelector(".popup__delete");
-
 
 
 

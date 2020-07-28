@@ -83,10 +83,26 @@ export default class Api {
         console.log(res);
 
       })
-
-    //call it like> api.likeCard(cardID);
-
+      //call it like> api.likeCard(cardID);
   }
+
+  disLike(cardID) {
+    const disLikeUrl = this._startUrl.concat("/group-1/cards/likes/" + cardID);
+    fetch(disLikeUrl, {
+        method: "DELETE",
+        headers: this._headerinfo
+      })
+      .then(res => {
+        if (res.ok) {
+          console.log(res);
+        }
+      }).catch(res => {
+        console.log(res);
+
+      })
+      //call it like> api.disLike(cardID);
+  }
+
 
   getInitialCards() {
     return fetch("https://around.nomoreparties.co/v1/group-1/cards", this._header)

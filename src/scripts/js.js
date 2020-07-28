@@ -55,6 +55,15 @@ api.getUser()
   })
  */
 
+const handleLikes = (like, id) => {
+  if (like) {
+    api.likeCard(id);
+  } else {
+    api.disLike(id);
+  }
+}
+
+
 api.getInitialCards()
   .then((result) => {
 
@@ -68,11 +77,11 @@ api.getInitialCards()
         };
         if (userInfo.isUser(item.owner._id)) {
           console.log(userInfo.userId);
-          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 1, userInfo.userId, openDeleteConfirm).addCard();
+          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 1, userInfo.userId, openDeleteConfirm, handleLikes).addCard();
           serverCards.addItem(newCard);
         } else {
 
-          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 0, userInfo.userId).addCard();
+          const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 0, userInfo.userId, openDeleteConfirm, handleLikes).addCard();
           serverCards.addItem(newCard);
         }
 
@@ -156,7 +165,7 @@ const handleAddCard = (FormData) => {
       const handleCardClick = (itemName, itemLink) => {
         imgPopup.open(itemName, itemLink);
       };
-      const newCard = new Card(result.name, result.link, '.element__elem', handleCardClick, result._id, result.likes, 1, userInfo.userId, openDeleteConfirm).addCard();
+      const newCard = new Card(result.name, result.link, '.element__elem', handleCardClick, result._id, result.likes, 1, userInfo.userId, openDeleteConfirm, handleLikes).addCard();
       elementsContainer.prepend(newCard);
 
     })

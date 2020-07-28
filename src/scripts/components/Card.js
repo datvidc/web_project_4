@@ -2,7 +2,7 @@ import Api from "./Api.js";
 import { deleteConfirm } from "../js.js";
 
 export default class Card {
-  constructor(text, link, template, handleCardClick, id, likes, owner, ownerID, handleRemoveCard) {
+  constructor(text, link, template, handleCardClick, id, likes, owner, ownerID, handleRemoveCard, handleLikes) {
     //link and text are private
     this._text = text;
     this._link = link;
@@ -13,6 +13,7 @@ export default class Card {
     this._owner = owner;
     this._handleRemoveCard = handleRemoveCard;
     this._ownerID = ownerID;
+    this._handleLikes = handleLikes;
   }
 
   removeCard() {
@@ -74,21 +75,22 @@ export default class Card {
       if (cardHeart.classList.contains("elements__heart_clicked")) {
         cardHeart.classList.toggle("elements__heart_clicked");
         const likes = this._newCard.querySelector(".elements__heart_likes");
-        likes.textContent = likes.textContent - 1;
+        const numLikes = parseInt(likes.textContent, 10);
+        likes.textContent = numLikes - 1;
+        this._handleLikes(false, this._id)
+
+
 
 
       } else {
         cardHeart.classList.toggle("elements__heart_clicked");
         const likes = this._newCard.querySelector(".elements__heart_likes");
-        console.log(likes.textContent);
+        //increment likes require another step
         const numLikes = parseInt(likes.textContent, 10);
         likes.textContent = numLikes + 1;
+        this._handleLikes(true, this._id)
+
       }
-      /* when heart button is pressed toggle class for style */
-
-      // Increment likes
-
-      // call the Api for like
     });
 
 

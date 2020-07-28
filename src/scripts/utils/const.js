@@ -9,6 +9,7 @@ import islandsBrygge from "../../images/islandsBrygge.png";
 import latemar from "../../images/latemar.png";
 import stroeget from "../../images/stroeget.png";
 import copenhagen from "../../images/Copenhagen.png";
+import Api from "../components/Api";
 
 /* ###############################################################
                 variables:
@@ -29,8 +30,8 @@ export const placename = document.querySelector(".popup__place");
 export const popEditForm = document.querySelector(".popup__edit-form_add");
 export const imgpop = document.querySelector(".popup__img");
 export const closeimg = document.querySelector(".popup__closeimg");
-
-
+export const elementsContainer = document.querySelector(".elements__list");
+export const deleteButton = document.querySelector(".popup__delete");
 
 
 
@@ -80,3 +81,12 @@ export const enableValidation = {
   inputErrorClass: "popup__edit_invalid",
   errorClass: "popup__edit_error"
 };
+
+export const enableValidationAddCard = {
+  formSelector: ".popup__edit-form_add",
+  inputSelector: ".popup__edit",
+  submitButtonSelector: ".popup__save_addcard",
+  inactiveButtonClass: "popup__save_invalid",
+  inputErrorClass: "popup__edit_invalid",
+  errorClass: "popup__edit_error"
+}

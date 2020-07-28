@@ -13,6 +13,7 @@
 @import url(./__card/popup__card.css);
 @import url(./_image/popup_image.css);
 @import url(./__label-group/popup__label-group.css);
+@import url(./__delete/popup__delete.css);
 .popup {
   width: 100%;
   height: 100%;

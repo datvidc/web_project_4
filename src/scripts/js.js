@@ -133,12 +133,14 @@ const handleDeletion = (formData) => {
     })
 }
 
+
+const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "deleting ...");
+
 const openDeleteConfirm = (id) => {
   deleteConfirm.open();
   deleteButton.dataset.id = id;
   console.log(id);
 }
-const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "deleting ...");
 
 // addCard popup
 const handleAddCard = (FormData) => {
@@ -181,9 +183,11 @@ edit.addEventListener("click", () => {
 });
 
 btnAddCard.addEventListener("click", () => {
-  //TODO write functionality to reset form before opening. This sucks.
+  addCardPop.resetForm();
   addCardPop.open();
 });
+
+
 
 //validation setting object
 new FormValidator(modal, enableValidation).enableValidation();

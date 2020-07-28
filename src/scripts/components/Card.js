@@ -70,8 +70,25 @@ export default class Card {
     //addding some heart
     const cardHeart = this._newCard.querySelector(".elements__heart");
     cardHeart.addEventListener("click", () => {
+      //check if heart and like should be added or removed.
+      if (cardHeart.classList.contains("elements__heart_clicked")) {
+        cardHeart.classList.toggle("elements__heart_clicked");
+        const likes = this._newCard.querySelector(".elements__heart_likes");
+        likes.textContent = likes.textContent - 1;
+
+
+      } else {
+        cardHeart.classList.toggle("elements__heart_clicked");
+        const likes = this._newCard.querySelector(".elements__heart_likes");
+        console.log(likes.textContent);
+        const numLikes = parseInt(likes.textContent, 10);
+        likes.textContent = numLikes + 1;
+      }
       /* when heart button is pressed toggle class for style */
-      cardHeart.classList.toggle("elements__heart_clicked");
+
+      // Increment likes
+
+      // call the Api for like
     });
 
 

@@ -122,6 +122,11 @@ const handleProfileChange = (formData) => {
   const name = formData.ProfileName.value;
   const title = formData.profileTitle.value;
   userInfo.setUserInfo(name, title);
+  api.updateUser(name, title)
+    .catch((err) => {
+      console.log(err);
+    })
+
 }
 
 

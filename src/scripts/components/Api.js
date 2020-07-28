@@ -12,6 +12,29 @@ export default class Api {
     return this._makeRequests(userUrl);
   }
 
+  updateUser(name, about) {
+    const updateMe = this._startUrl.concat("/group-1/users/me");
+
+    return fetch(updateMe, {
+        method: "PATCH",
+        headers: this._headerinfo,
+        body: JSON.stringify({
+          name: name,
+          about: about
+        })
+
+      })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+      }).catch(res => {
+        console.log(res);
+
+      })
+
+  }
+
   _makeRequests(url) {
     return fetch(url, this._header)
       .then(res => {

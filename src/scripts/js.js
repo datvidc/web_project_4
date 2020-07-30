@@ -1,7 +1,7 @@
 /* ###############################################################
                 Importing modules and utils
 ############################################################### */
-import { deleteButton, elementsContainer, initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
+import { profilePic, deleteButton, elementsContainer, initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
 import "../pages/index.css";
@@ -147,6 +147,8 @@ const handleDeletion = (formData) => {
     })
 }
 
+const profilePicture = new PopupWithForm(".popup__edit-picture", handleProfileChange, "Saving ...");
+profilePicture.setEventListeners();
 
 const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "deleting ...");
 
@@ -188,6 +190,11 @@ const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard, "saving..
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
+
+profilePic.addEventListener("click", () => {
+  profilePicture.resetForm();
+  profilePicture.open();
+})
 
 edit.addEventListener("click", () => {
   const data = userInfo.getUserInfo();

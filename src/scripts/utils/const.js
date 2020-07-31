@@ -32,7 +32,7 @@ export const imgpop = document.querySelector(".popup__img");
 export const closeimg = document.querySelector(".popup__closeimg");
 export const elementsContainer = document.querySelector(".elements__list");
 export const deleteButton = document.querySelector(".popup__delete");
-export const profilePic = document.querySelector(".profile__avatar");
+export const profilePic = document.querySelector(".profile__avatar-overlay");
 
 
 /* ############################################################

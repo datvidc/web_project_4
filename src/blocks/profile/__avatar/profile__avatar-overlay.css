@@ -1,0 +1,8 @@
+.profile__avatar-overlay {
+  width: 100%;
+  max-width: 120px;
+}
+
+.profile__avatar-overlay:hover .profile__avatar-hover {
+  cursor: pointer;
+}

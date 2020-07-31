@@ -212,5 +212,5 @@ btnAddCard.addEventListener("click", () => {
 
 //validation setting object
 new FormValidator(modal, enableValidation).enableValidation();
-
+new FormValidator().enableValidation();
 new FormValidator(saveaddcard, enableValidationAddCard).enableValidation();

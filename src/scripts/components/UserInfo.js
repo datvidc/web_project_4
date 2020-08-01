@@ -1,11 +1,12 @@
 import Api from "../components/Api.js";
+import { secretUID } from "../../../secret.js";
 
 export default class UserInfo {
   constructor(userNameSelector, userTitelSelector, userImageSelector) {
     this._userName = document.querySelector(userNameSelector);
     this._userTitel = document.querySelector(userTitelSelector);
     this._userImage = document.querySelector(userImageSelector);
-    this.userId = "36ee6699552e83cd4b01111f";
+    this.userId = secretUID;
   }
 
   isUser(ownerID) {

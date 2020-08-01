@@ -90,16 +90,16 @@
     </div>
   </div>
 
-  <div class=" popup popup__addcard ">
-    <div class="popup__container popup__container_addcard ">
-      <button type="submit " class="popup__close popup__close_addcard "> </button>
-      <h3 class="popup__heading ">New place</h3>
-      <form class="popup__edit-form popup__edit-form_add ">
+  <div class="popup popup__addcard">
+    <div class="popup__container popup__container_addcard">
+      <button type="submit" class="popup__close popup__close_addcard"> </button>
+      <h3 class="popup__heading">New place</h3>
+      <form class="popup__edit-form popup__edit-form_add">
         <label class="popup__label-group ">
-          <input id="form-title" type="text" placeholder="Title" class="popup__edit_invalid popup__edit popup__place popup_head" name="placename" required>
+          <input id="form-title" type="text" minlength="2" maxlength="40" placeholder="Title" class="popup__edit_invalid popup__edit popup__place popup_head" name="placename" required>
           <span id="form-title--error" class="popup__error-input popup__place-error"> Please fill out this field.</span>
         </label>
-        <label class="popup__label-group ">
+        <label class="popup__label-group">
           <input id="form-link" type="url" placeholder="Image link" class="popup__edit_invalid popup__edit popup__url popup_detail" name="popupurl" required>
           <span id="form-link--error" class="popup__error-input popup__url_error">Please enter a web address.</span>
         </label>
@@ -109,11 +109,11 @@
     </div>
   </div>
 
-  <div class="popup popup__img ">
-    <div class="popup__card popup_image ">
-      <button type="submit " class="popup__close popup__closeimg "> </button>
-      <img src="# " alt=" " class="popup__image popImg ">
-      <p class="popup__imgtext ">PlaceName </p>
+  <div class="popup popup__img">
+    <div class="popup__card popup_image">
+      <button type="submit " class="popup__close popup__closeimg"> </button>
+      <img src="# " alt=" " class="popup__image popImg">
+      <p class="popup__imgtext">PlaceName </p>
     </div>
   </div>
   <!-- templates -->

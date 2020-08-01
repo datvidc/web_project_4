@@ -5,7 +5,7 @@ export default class FormValidator {
     this._submitButtonSelector = submitButtonSelector;
     this._inactiveButtonClass = inactiveButtonClass;
     this._inputErrorClass = inputErrorClass;
-    this._errorClass = errorClass;
+    this._errorClass = errorClass; //the span
     this._form = form;
   }
 
@@ -22,7 +22,7 @@ export default class FormValidator {
     const inputID = input.id;
     console.log(this._form);
     console.log(`#${inputID}-error`);
-    const error = this._form.querySelector(`#${inputID}-error`);
+    const error = this._form.querySelector(`#${inputID}--error`);
     input.classList.add(this._inputErrorClass);
     error.textContent = errorMessage;
     error.classList.add(this._errorClass);
@@ -30,13 +30,9 @@ export default class FormValidator {
 
   _hideErrorMessage(input) {
     const inputID = input.id;
-    console.log(inputID);
     const error = this._form.querySelector(`#${inputID}--error`);
-    console.log(error);
-    console.log(input);
     input.classList.remove(this._inputErrorClass);
-    /* error.classList.remove(this._errorClass); */
-    error.textContent = "";
+    error.textContent = " ";
   }
 
   _toggleButtonState(inputs, submitButton) {

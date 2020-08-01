@@ -95,6 +95,6 @@ export const enableValidationAddCard = {
   inputSelector: ".popup__edit",
   submitButtonSelector: ".popup__save_addcard",
   inactiveButtonClass: "popup__save_invalid",
-  inputErrorClass: "popup__edit_invalid",
+  inputErrorClass: "popup__error-input",
   errorClass: "popup__edit_error"
 }

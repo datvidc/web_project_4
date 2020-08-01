@@ -161,11 +161,8 @@ const handlePicChange = (formData) => {
       console.log(err);
     })
 }
+''
 
-const profilePicture = new PopupWithForm(".popup__edit-picture", handlePicChange, "Saving ...");
-
-
-const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "deleting ...");
 
 const openDeleteConfirm = (id) => {
   deleteConfirm.open();
@@ -175,6 +172,7 @@ const openDeleteConfirm = (id) => {
 
 // addCard popup
 const handleAddCard = (FormData) => {
+  console.log(FormData.placename);
   const imageTitle = FormData.placename.value;
   const imageLink = FormData.popupurl.value;
   const handleCardClick = (imageTitle, imageLink) => {
@@ -199,9 +197,16 @@ const handleAddCard = (FormData) => {
 }
 
 
+
+
+/* ###################################################################################
+                    PopupWithForm
+################################################################################ */
 const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard, "saving...");
 
+const profilePicture = new PopupWithForm(".popup__edit-picture", handlePicChange, "Saving ...");
 
+const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "deleting ...");
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */

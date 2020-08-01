@@ -53,7 +53,7 @@
         <h3 class="popup__userImg-heading">Change profile picture </h3>
         <label class="popup__label-group">
           <input id="user-link" type="url" placeholder="Image link" class="popup__edit_invalid popup__edit popup__url popup_detail " name="imgUrl " required>
-          <span id="user-link-error" class="popup__error-input popup__url_error">Please enter a URL.</span>
+          <span id="user-link--error" class="popup__error-input popup__url_error">Please enter a URL.</span>
         </label>
         <button type="submit" class="popup__save popup__userImg"> Yes </button>
       </form>
@@ -75,15 +75,15 @@
     <div class="popup__container ">
       <button type="submit " class="popup__close "> </button>
 
-      <form class="popup__edit-form ">
-        <h3 class="popup__heading ">Edit profile</h3>
-        <label class="popup__label-group ">
-          <input  id="form-name " type="text " minlength="2 " maxlength="40 " required pattern="[A-Za-z -]{2,40} " placeholder="Name " class="popup__edit popup__name popup_head " name="ProfileName ">
-          <span  id="form-name-error " class="popup__edit_error popup__name-error "></span>
+      <form class="popup__edit-form">
+        <h3 class="popup__heading">Edit profile</h3>
+        <label class="popup__label-group">
+          <input  id="form-name" type="text" minlength="2" maxlength="40" required pattern="[A-Za-z -]{2,40}" placeholder="Name" class="popup__edit popup__name popup_head" name="ProfileName">
+          <span  id="form-name--error" class="popup__edit_error popup__name-error"></span>
         </label>
-        <label class="popup__label-group ">
-          <input  id="form-status " type="text " minlength="2 " maxlength="200 " required placeholder="About " class="popup__edit popup__title popup_detail " name="profileTitle ">
-          <span  id="form-status-error " class="popup__edit_error popup__title-error "></span>
+        <label class="popup__label-group">
+          <input  id="form-status" type="text" minlength="2" maxlength="200" required placeholder="About" class="popup__edit popup__title popup_detail" name="profileTitle">
+          <span  id="form-status--error" class="popup__edit_error popup__title-error"></span>
         </label>
         <button type="submit " class="popup__save "> Save</button>
       </form>
@@ -96,15 +96,15 @@
       <h3 class="popup__heading ">New place</h3>
       <form class="popup__edit-form popup__edit-form_add ">
         <label class="popup__label-group ">
-          <input id="form-title " type="text " placeholder="Title " class="popup__edit_invalid popup__edit popup__place popup_head " name="placename " required>
-          <span id="form-title-error " class="popup__error-input popup__place-error "> Please fill out this field.</span>
+          <input id="form-title" type="text" placeholder="Title" class="popup__edit_invalid popup__edit popup__place popup_head" name="placename" required>
+          <span id="form-title--error" class="popup__error-input popup__place-error"> Please fill out this field.</span>
         </label>
         <label class="popup__label-group ">
-          <input id="form-link " type="url " placeholder="Image link " class="popup__edit_invalid popup__edit popup__url popup_detail " name="popupurl " required>
-          <span id="form-link-error " class="popup__error-input popup__url_error ">Please enter a web address.</span>
+          <input id="form-link" type="url" placeholder="Image link" class="popup__edit_invalid popup__edit popup__url popup_detail" name="popupurl" required>
+          <span id="form-link--error" class="popup__error-input popup__url_error">Please enter a web address.</span>
         </label>
 
-        <button type="submit " class="popup__save_invalid popup__save popup__save_addcard "> Create</button>
+        <button type="submit" class="popup__save_invalid popup__save popup__save_addcard"> Create</button>
       </form>
     </div>
   </div>

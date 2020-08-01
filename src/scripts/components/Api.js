@@ -68,9 +68,7 @@ export default class Api {
         headers: this._headerinfo,
       })
       .then(res => {
-        if (res.ok) {
-          console.log(res);
-        }
+        if (res.ok) {}
       }).catch(res => {
         console.log(res);
       })
@@ -113,9 +111,7 @@ export default class Api {
         headers: this._headerinfo
       })
       .then(res => {
-        if (res.ok) {
-          console.log(res);
-        }
+        if (res.ok) {}
       }).catch(res => {
         console.log(res);
 
@@ -131,7 +127,7 @@ export default class Api {
       })
       .then(res => {
         if (res.ok) {
-          console.log(res);
+
         }
       }).catch(res => {
         console.log(res);

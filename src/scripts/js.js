@@ -69,7 +69,6 @@ api.getInitialCards()
   .then((result) => {
 
     const cardsfromServer = result;
-    console.log(cardsfromServer);
     var serverCards = new Section({
       items: cardsfromServer,
       renderer: (item) => { // renderer accepts item passed from section class
@@ -77,7 +76,6 @@ api.getInitialCards()
           imgPopup.open(itemName, itemLink);
         };
         if (userInfo.isUser(item.owner._id)) {
-          console.log(userInfo.userId);
           const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick, item._id, item.likes, 1, userInfo.userId, openDeleteConfirm, handleLikes).addCard();
           serverCards.addItem(newCard);
         } else {
@@ -143,7 +141,6 @@ const handleDeletion = (formData) => {
   api.deleteCard(id)
     .then(() => {
       const el = document.getElementById(id).parentElement;
-      console.log(el);
       el.remove();
     })
     .catch((err) => {
@@ -167,12 +164,11 @@ const handlePicChange = (formData) => {
 const openDeleteConfirm = (id) => {
   deleteConfirm.open();
   deleteButton.dataset.id = id;
-  console.log(id);
 }
 
 // addCard popup
 const handleAddCard = (FormData) => {
-  console.log(FormData.placename);
+
   const imageTitle = FormData.placename.value;
   const imageLink = FormData.popupurl.value;
   const handleCardClick = (imageTitle, imageLink) => {
@@ -180,7 +176,6 @@ const handleAddCard = (FormData) => {
   };
   api.addCard(imageTitle, imageLink)
     .then((result) => {
-      console.log(result.link, result._id);
 
       const handleCardClick = (itemName, itemLink) => {
         imgPopup.open(itemName, itemLink);

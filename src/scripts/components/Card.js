@@ -34,7 +34,6 @@ export default class Card {
           liketxt.textContent = this._likes.length;
           this._likes.forEach((like) => {
             if (like._id == this._ownerID) {
-              console.log("you have liked this card");
               const cardHeart = doc.querySelector(".elements__heart");
               cardHeart.classList.add("elements__heart_clicked");
             }
@@ -56,7 +55,6 @@ export default class Card {
           likes.textContent = this._likes.length;
           this._likes.forEach((like) => {
             if (like._id == this._ownerID) {
-              console.log("you have liked this card");
               const cardHeart = doc.querySelector(".elements__heart");
               cardHeart.classList.add("elements__heart_clicked");
             }

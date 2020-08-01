@@ -1,7 +1,7 @@
 /* ###############################################################
                 Importing modules and utils
 ############################################################### */
-import { profilePic, deleteButton, elementsContainer, initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
+import { enableValidationPicture, editProfilePic, profilePic, deleteButton, elementsContainer, initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
 import "../pages/index.css";
@@ -212,5 +212,5 @@ btnAddCard.addEventListener("click", () => {
 
 //validation setting object
 new FormValidator(modal, enableValidation).enableValidation();
-new FormValidator().enableValidation();
+new FormValidator(editProfilePic, enableValidationPicture).enableValidation();
 new FormValidator(saveaddcard, enableValidationAddCard).enableValidation();

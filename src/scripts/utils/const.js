@@ -33,7 +33,7 @@ export const closeimg = document.querySelector(".popup__closeimg");
 export const elementsContainer = document.querySelector(".elements__list");
 export const deleteButton = document.querySelector(".popup__delete");
 export const profilePic = document.querySelector(".profile__avatar-overlay");
-
+export const editProfilePic = document.querySelector(".popup__edit-picture");
 
 /* ############################################################
 STARTUP CODE
@@ -81,6 +81,14 @@ export const enableValidation = {
   inputErrorClass: "popup__edit_invalid",
   errorClass: "popup__edit_error"
 };
+export const enableValidationPicture = {
+  formSelector: ".popup__edit-picture",
+  inputSelector: ".popup__edit",
+  submitButtonSelector: ".popup__userImg",
+  inactiveButtonClass: "popup__save_invalid",
+  inputErrorClass: "popup__edit_invalid",
+  errorClass: "popup__edit_error"
+}
 
 export const enableValidationAddCard = {
   formSelector: ".popup__edit-form_add",

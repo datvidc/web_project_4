@@ -8,18 +8,16 @@
   object-fit: cover;
 }
 
-
-/* .profile__avatar:hover .profile__avatar-hover {
+.profile__avatar:hover .profile__avatar-hover {
   display: block;
   background: rgba(0, 0, 0) url(../../../images/editavatar.svg);
-  /*background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-position: center;
   background-size: 26px;
   border: none;
-  }
-   */
+}
 
-*/ @media screen and (max-width: 620px) {
+@media screen and (max-width: 620px) {
   .profile__avatar {
     margin-right: auto;
     margin-left: auto;

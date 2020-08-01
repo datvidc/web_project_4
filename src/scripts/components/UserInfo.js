@@ -25,11 +25,13 @@ export default class UserInfo {
     this._userTitel.textContent = title;
   }
 
-  setUserID(imageURL, id) {
-    this._userImage.src = imageURL;
+  setUserID(id) {
     this.userId = id;
   }
 
+  setuserImage(imageURL) {
+    this._userImage.src = imageURL;
+  }
 
   _getUser() {
     fetch("https://around.nomoreparties.co/v1/group-1/users/me", {

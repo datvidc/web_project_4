@@ -14,7 +14,6 @@ export default class Api {
 
   updateUser(name, about) {
     const updateMe = this._startUrl.concat("/group-1/users/me");
-
     return fetch(updateMe, {
         method: "PATCH",
         headers: this._headerinfo,
@@ -22,7 +21,6 @@ export default class Api {
           name: name,
           about: about
         })
-
       })
       .then(res => {
         if (res.ok) {
@@ -30,9 +28,25 @@ export default class Api {
         }
       }).catch(res => {
         console.log(res);
-
       })
+  }
 
+  updateAvatar(link) {
+    const newPic = this._startUrl.concat("/group-1/users/me/avatar");
+    return fetch(newPic, {
+        method: "PATCH",
+        headers: this._headerinfo,
+        body: JSON.stringify({
+          avatar: link
+        })
+      })
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+      }).catch(res => {
+        console.log(res);
+      })
   }
 
   _makeRequests(url) {

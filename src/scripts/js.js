@@ -29,7 +29,8 @@ api.getUser()
   .then(res => {
 
     userInfo.setUserInfo(res.name, res.about);
-    userInfo.setUserID(res.avatar, res._id);
+    userInfo.setUserID(res._id);
+    userInfo.setuserImage(res.avatar);
   })
   .catch((err) => {
     console.log(err);
@@ -121,8 +122,11 @@ imgPopup.setEventListeners();
 const handleProfileChange = (formData) => {
   const name = formData.ProfileName.value;
   const title = formData.profileTitle.value;
-  userInfo.setUserInfo(name, title);
+
   api.updateUser(name, title)
+    .then(() => {
+      userInfo.setUserInfo(name, title);
+    })
     .catch((err) => {
       console.log(err);
     })
@@ -147,8 +151,19 @@ const handleDeletion = (formData) => {
     })
 }
 
-const profilePicture = new PopupWithForm(".popup__edit-picture", handleProfileChange, "Saving ...");
-profilePicture.setEventListeners();
+const handlePicChange = (formData) => {
+
+  api.updateAvatar(formData[0].value)
+    .then(() => {
+      userInfo.setuserImage(formData[0].value);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+}
+
+const profilePicture = new PopupWithForm(".popup__edit-picture", handlePicChange, "Saving ...");
+
 
 const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "deleting ...");
 
@@ -190,6 +205,8 @@ const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard, "saving..
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
+
+
 
 profilePic.addEventListener("click", () => {
   profilePicture.resetForm();

@@ -1,6 +1,3 @@
-import Api from "./Api.js";
-import { deleteConfirm } from "../js.js";
-
 export default class Card {
   constructor(text, link, template, handleCardClick, id, likes, owner, ownerID, handleRemoveCard, handleLikes) {
     //link and text are private
@@ -99,13 +96,6 @@ export default class Card {
       //instead of removing the element-open the popup.
 
       this._handleRemoveCard(this._id);
-
-
-
-
-      /* remove the element */
-      /*  this._newCard.remove(); */
-      // remove from API
     });
   }
 

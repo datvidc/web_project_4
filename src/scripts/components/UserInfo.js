@@ -1,4 +1,3 @@
-import Api from "../components/Api.js";
 import { secretUID } from "../../../secret.js";
 
 export default class UserInfo {
@@ -34,19 +33,7 @@ export default class UserInfo {
     this._userImage.src = imageURL;
   }
 
-  _getUser() {
-    fetch("https://around.nomoreparties.co/v1/group-1/users/me", {
-        headers: {
-          authorization: "3aa990c2-b590-4bfb-9403-af52e9b89792"
-        }
-      })
-      .then(res => res.json())
-      .then(result => {
-        return result._id;
-      })
 
-
-  }
 
 
 }

@@ -9,7 +9,7 @@ import islandsBrygge from "../../images/islandsBrygge.png";
 import latemar from "../../images/latemar.png";
 import stroeget from "../../images/stroeget.png";
 import copenhagen from "../../images/Copenhagen.png";
-import Api from "../components/Api";
+
 
 /* ###############################################################
                 variables:

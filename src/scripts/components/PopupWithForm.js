@@ -7,16 +7,16 @@ export default class PopupWithForm extends Popup {
     this._callbackFunc = callbackFunc;
 
     this._form = this._popupElement.querySelector('.popup__edit-form');
-    this._title = this._form.querySelector('.popup_head');
-    this._name = this._form.querySelector('.popup_detail');
+
     this._buttonText = buttonText;
     this._button = this._form.querySelector(".popup__save");
   }
 
   _getInputValues() {
-
-    return this._form.elements;
+    return Object.fromEntries(new FormData(this._form));
   };
+  /* return this._form.elements; */
+
 
   setEventListeners() {
 

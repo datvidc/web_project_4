@@ -98,8 +98,8 @@ imgPopup.setEventListeners();
 // profile popup
 
 const handleProfileChange = (formData) => {
-  const name = formData.ProfileName.value;
-  const title = formData.profileTitle.value;
+  const name = formData.ProfileName;
+  const title = formData.profileTitle;
 
   api.updateUser(name, title)
     .then(() => {
@@ -128,7 +128,7 @@ const handleDeletion = () => {
 }
 
 const handlePicChange = (formData) => {
-  const imageUrl = formData.imgUrl.value;
+  const imageUrl = formData.imgUrl;
   api.updateAvatar(imageUrl)
     .then(() => {
       userInfo.setuserImage(imageUrl);
@@ -147,8 +147,8 @@ const openDeleteConfirm = (id) => {
 // addCard popup
 const handleAddCard = (FormData) => {
 
-  const imageTitle = FormData.placename.value;
-  const imageLink = FormData.popupurl.value;
+  const imageTitle = FormData.placename;
+  const imageLink = FormData.popupurl;
   const handleCardClick = (imageTitle, imageLink) => {
     imgPopup.open(imageTitle, imageLink);
   };

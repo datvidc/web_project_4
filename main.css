@@ -46,7 +46,5 @@
 .popup__card{align-self:center;display:flex;flex-direction:column;flex-wrap:nowrap}
 @media screen and (max-width:620px){.popup_image{margin-top:10px}}
 .popup__label-group{display:block;margin:0 0 30px}
-
-
 .popup{width:100%;height:100%;max-width:882px;background-color:rgba(0,0,0,.6);position:absolute;z-index:1000;top:0;left:0;opacity:0;transition:all 1s ease-in-out;visibility:hidden}@media screen and (min-width:620px){.popup{height:100%;width:100%;max-width:882px;position:absolute}}
 

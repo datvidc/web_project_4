@@ -37,7 +37,7 @@ api.getUser()
 
 
 
-const handleLikes = (like, id) => {
+const handleLikes = (like, id, num) => {
   if (like) {
     api.likeCard(id);
   } else {

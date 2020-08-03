@@ -8,8 +8,10 @@ class PopupWithImage extends Popup {
   }
 
   setEventListeners() {
+    //listener should only be added to image.
+    // it closes popup on ANY click anywhere in document. desired behaviour for image- not for anything else.
     document.addEventListener("click", () => {
-      super.close();
+      this.close();
     })
     super.setEventListeners();
   }

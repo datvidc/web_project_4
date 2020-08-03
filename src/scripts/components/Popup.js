@@ -8,6 +8,7 @@ class Popup {
     /* adds a click event listener to the close icon of the popup */
     document.addEventListener("keyup", this._handleEscClose);
 
+
   }
   _handleEscClose(evt) {
     /* logic for closing the popup by pressing the Esc key. */

@@ -68,7 +68,11 @@ export default class Api {
         headers: this._headerinfo,
       })
       .then(res => {
-        if (res.ok) {}
+        if (res.ok) {
+
+          const el = document.getElementById(cardID).parentElement;
+          el.remove();
+        }
       }).catch(res => {
         console.log(res);
       })
@@ -99,9 +103,9 @@ export default class Api {
 
     // call it like this>
     /*   api.addCard("jerry", "https://pictures.s3.yandex.net/frontend-developer/functions/dog-3.jpg")
-  .catch((res) => {
-    console.log(res);
-  }); */
+    .catch((res) => {
+      console.log(res);
+    }); */
   }
 
   likeCard(cardID) {

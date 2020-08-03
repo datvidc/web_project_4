@@ -35,25 +35,7 @@ api.getUser()
     console.log(err);
   });
 
-/* api._appReady()
-  .then(([cardsReturned, userInfoData]) => {
-    var startCards = new Section({
-      items: cardsReturned,
-      renderer: (item) => { // renderer accepts item passed from section class
-        const handleCardClick = (itemName, itemLink) => {
-          imgPopup.open(itemName, itemLink);
-        };
-        const newCard = new Card(item.name, item.link, '.element__elem', handleCardClick).addCard();
-        startCards.addItem(newCard);
-      }
-    }, '.elements__list')
-    startCards.renderItems();
 
-    userInfo.setUserInfo(userInfoData.name, userInfoData.about);
-    userInfo.setUserID(userInfoData.avatar, userInfoData._id);
-
-  })
- */
 
 const handleLikes = (like, id) => {
   if (like) {
@@ -67,9 +49,8 @@ const handleLikes = (like, id) => {
 api.getInitialCards()
   .then((result) => {
 
-    const cardsfromServer = result;
-    var serverCards = new Section({
-      items: cardsfromServer,
+    const serverCards = new Section({
+      items: result,
       renderer: (item) => { // renderer accepts item passed from section class
         const handleCardClick = (itemName, itemLink) => {
           imgPopup.open(itemName, itemLink);
@@ -139,8 +120,7 @@ const handleDeletion = () => {
   const id = deleteButton.dataset.id;
   api.deleteCard(id)
     .then(() => {
-      const el = document.getElementById(id).parentElement;
-      el.remove();
+
     })
     .catch((err) => {
       console.log(err);
@@ -148,16 +128,15 @@ const handleDeletion = () => {
 }
 
 const handlePicChange = (formData) => {
-
-  api.updateAvatar(formData[0].value)
+  const imageUrl = formData.imgUrl.value;
+  api.updateAvatar(imageUrl)
     .then(() => {
-      userInfo.setuserImage(formData[0].value);
+      userInfo.setuserImage(imageUrl);
     })
     .catch((err) => {
       console.log(err);
     })
 }
-''
 
 
 const openDeleteConfirm = (id) => {
@@ -170,12 +149,12 @@ const handleAddCard = (FormData) => {
 
   const imageTitle = FormData.placename.value;
   const imageLink = FormData.popupurl.value;
+  const handleCardClick = (imageTitle, imageLink) => {
+    imgPopup.open(imageTitle, imageLink);
+  };
   api.addCard(imageTitle, imageLink)
     .then((result) => {
 
-      /*  const handleCardClick = (itemName, itemLink) => {
-         imgPopup.open(itemName, itemLink);
-       }; */
       const newCard = new Card(result.name, result.link, '.element__elem', handleCardClick, result._id, result.likes, 1, userInfo.userId, openDeleteConfirm, handleLikes).addCard();
       elementsContainer.prepend(newCard);
 
@@ -201,8 +180,6 @@ const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */
-
-
 
 profilePic.addEventListener("click", () => {
   profilePicture.resetForm();

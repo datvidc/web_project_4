@@ -13,9 +13,7 @@ export default class Card {
     this._handleLikes = handleLikes;
   }
 
-  removeCard() {
-    this._newCard.remove();
-  }
+
 
   _getTemplate() {
       if (this._owner == 1) {

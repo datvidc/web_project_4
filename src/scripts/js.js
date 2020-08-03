@@ -1,7 +1,7 @@
 /* ###############################################################
                 Importing modules and utils
 ############################################################### */
-import { enableValidationPicture, editProfilePic, profilePic, deleteButton, elementsContainer, initialCards, enableValidation, enableValidationAddCard, edit, modal, popClose, closeimg, imgpop, popEditForm, placename, popupurl, profileName, saveaddcard, profileTitle, popupTitle, closeAddCard, popupName, addCardBtn, btnAddCard, } from "./utils/const.js";
+import { enableValidationPicture, editProfilePic, profilePic, deleteButton, elementsContainer, initialCards, enableValidation, enableValidationAddCard, edit, modal, saveaddcard, popupTitle, popupName, btnAddCard, } from "./utils/const.js";
 import Card from "./components/Card.js";
 import FormValidator from "./components/FormValidator.js";
 import "../pages/index.css";
@@ -9,9 +9,8 @@ import PopupWithImage from "./components/PopupWithImage.js";
 import Section from "./components/Section.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import UserInfo from "../scripts/components/UserInfo.js";
-import { secretToken, secretGroup } from "../../secret.js";
+import { secretToken } from "../../secret.js";
 import Api from "./components/Api.js";
-import UserCard from "./components/UserCard.js";
 /* ############################################################
 STARTUP CODE
 ############################################################### */
@@ -136,7 +135,7 @@ const handleProfileChange = (formData) => {
 const profilePopup = new PopupWithForm(".popup__changetext", handleProfileChange, "Saving ...");
 profilePopup.setEventListeners();
 
-const handleDeletion = (formData) => {
+const handleDeletion = () => {
   const id = deleteButton.dataset.id;
   api.deleteCard(id)
     .then(() => {
@@ -171,15 +170,12 @@ const handleAddCard = (FormData) => {
 
   const imageTitle = FormData.placename.value;
   const imageLink = FormData.popupurl.value;
-  const handleCardClick = (imageTitle, imageLink) => {
-    imgPopup.open(imageTitle, imageLink);
-  };
   api.addCard(imageTitle, imageLink)
     .then((result) => {
 
-      const handleCardClick = (itemName, itemLink) => {
-        imgPopup.open(itemName, itemLink);
-      };
+      /*  const handleCardClick = (itemName, itemLink) => {
+         imgPopup.open(itemName, itemLink);
+       }; */
       const newCard = new Card(result.name, result.link, '.element__elem', handleCardClick, result._id, result.likes, 1, userInfo.userId, openDeleteConfirm, handleLikes).addCard();
       elementsContainer.prepend(newCard);
 
@@ -197,11 +193,11 @@ const handleAddCard = (FormData) => {
 /* ###################################################################################
                     PopupWithForm
 ################################################################################ */
-const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard, "saving...");
+const addCardPop = new PopupWithForm(".popup__addcard", handleAddCard, "Saving...");
 
 const profilePicture = new PopupWithForm(".popup__edit-picture", handlePicChange, "Saving ...");
 
-const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "deleting ...");
+const deleteConfirm = new PopupWithForm(".popup__delete-confirm", handleDeletion, "Deleting ...");
 /* ###################################################################################
                     Eventlisteners
 ################################################################################ */

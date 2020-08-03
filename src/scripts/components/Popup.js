@@ -7,6 +7,11 @@ class Popup {
   setEventListeners() {
     /* adds a click event listener to the close icon of the popup */
     document.addEventListener("keyup", this._handleEscClose);
+    this._popupElement
+      .querySelector(".popup__close")
+      .addEventListener("click", () => {
+        this.close();
+      });
 
 
   }
@@ -30,6 +35,7 @@ class Popup {
     this._popupElement.classList.remove("popup_visible");
 
     document.removeEventListener("keyup", this._handleEscClose);
+    // this listener is not needed in popupwithimage - listener is added to document
     this._popupElement
       .querySelector(".popup__close")
       .removeEventListener("click", this.close);
